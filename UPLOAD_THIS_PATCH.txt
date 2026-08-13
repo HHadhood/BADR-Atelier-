@@ -1,0 +1,3 @@
+ارفع محتويات هذا المجلد فوق ملفات GitHub الحالية مع الاستبدال.
+الملفات المهمة الجديدة: styles-v10.css / main-v10.js / site-config-v10.js / global-reach-map-v10.svg
+ثم افتح الموقع باستخدام نافذة Incognito أو Hard Refresh.
