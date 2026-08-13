@@ -1,0 +1,3 @@
+Place high-resolution approved BADR Atelier project images here.
+Recommended web sizes: 1800-2400 px wide, WebP/JPG, compressed to 250-700 KB each.
+Do not upload confidential client material without approval.
