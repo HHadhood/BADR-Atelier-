@@ -1,9 +1,1 @@
-{
-  "name": "BADR Atelier",
-  "short_name": "BADR",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#fbfaf6",
-  "theme_color": "#11110f",
-  "icons": []
-}
+{"name":"BADR Atelier","short_name":"BADR","start_url":"./index.html","display":"standalone","background_color":"#fbfaf6","theme_color":"#11110f","description":"Real Estate Development Advisory, Architecture, Engineering Coordination, BIM and Digital Delivery."}
