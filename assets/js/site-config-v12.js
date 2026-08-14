@@ -1,0 +1,23 @@
+window.BADR_CONFIG = {
+  brand: 'BADR Atelier',
+  legalName: 'BADR Atelier',
+  founderName: 'Dr. Hani Youssef',
+  founderNameAr: 'د. هاني يوسف',
+  founderTitle: 'Founder & Development Design Director',
+  email: 'info@badratelier.com',
+  phoneEgypt: '+201033825435',
+  phoneEgyptDisplay: '+20 103 382 5435',
+  phoneSaudi: '+966548036680',
+  phoneSaudiDisplay: '+966 54 803 6680',
+  whatsapp: '+966548036680',
+  locationEn: 'Badr City, Cairo, Egypt',
+  locationAr: 'مدينة بدر، القاهرة، مصر',
+  website: 'www.badratelier.com',
+  instagram: 'https://www.instagram.com/badr.atelier/',
+  linkedin: '',
+  x: '',
+  youtube: '',
+  facebook: '',
+  formEndpoint: '',
+  copyrightYear: '2026'
+};
