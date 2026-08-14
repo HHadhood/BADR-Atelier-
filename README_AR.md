@@ -1,45 +1,48 @@
-# BADR Atelier — GitHub Pages V8
+# BADR Atelier — GitHub Pages V11
 
-هذه النسخة كاملة وجاهزة للرفع مباشرة إلى Repository الخاص بـ GitHub Pages.
+## Positioning
+**BADR Atelier — Strategic Development & Design Partner**
 
-## أهم تحديثات V8
-- تصغير العناوين الكبيرة في Heroes على مستوى الموقع، خصوصًا صفحة المطورين والموبايل.
-- استخدام صورة د. هاني يوسف الأصلية كما هي داخل إخراج Founder Editorial جديد؛ لا توجد صورة مولدة أو تغيير لملامح الوجه.
-- الاسم عند اللغة العربية: **د. هاني يوسف**.
-- إعادة صياغة Founder Message لتخاطب المطور العقاري بمنهج: قراءة الأرض والسوق → اختبار المنتج والجدوى → صياغة الهوية والتصميم → حماية التنفيذ بالهندسة وBIM.
-- تطوير Developer + BADR = Project إلى مسار بصري متحرك ومترابط.
-- تحسين بوابات Architecture / Engineering / Value Creation وإضافة تفاعل Hover / Tilt خفيف على الأجهزة المناسبة.
-- خريطة Leaflet + OpenStreetMap حقيقية وتفاعلية: إجمالي المشروعات حسب الدولة، وعند التكبير تظهر المدن والمشروعات، مع بقاء أرقام الدول مرئية بدرجة خفيفة.
-- أيقونات Social حقيقية بصيغة SVG: LinkedIn / X / WhatsApp / YouTube / Facebook.
-- WhatsApp مرتبط بالرقم السعودي: **+966 54 803 6680**.
-- الرقم المصري والسعودي في Contact/Footer يفتحان محادثة WhatsApp مباشرة، بدون تكرار سطر WhatsApp السعودي.
-- الهوية أسفل اللوجو: `Architecture • Planning • Design • BIM` مع `Real Estate Developer Advisory`.
-- إضافة حركة Parallax خفيفة، Magnetic Buttons، وPointer Tilt مع احترام `prefers-reduced-motion`.
+The Projects page has been rebuilt from an architecture portfolio into a developer-first strategic page built around:
 
-## روابط Social
-لم يتم اختلاق روابط رسمية غير معروفة. ضع الروابط النهائية في:
-`assets/js/site-config.js`
+**LAND → OPPORTUNITY → VISION → STRATEGY → IDENTITY → ARCHITECTURE → EXPERIENCE → VALUE → IMPACT**
 
-الحقول:
-- `linkedin`
-- `x`
-- `youtube`
-- `facebook`
+## Main V11 change
+`projects.html` now presents BADR as a development-thinking studio, not only an architecture portfolio. It includes:
+- developer-first Hero
+- Real Estate Challenge
+- Before We Design, We Define
+- 6 Development Thinking principles
+- BADR Development Intelligence™ methodology
+- memorable-project decision framework
+- Al Rehab Oasis + ATHAR flagship development cases
+- selected projects as “cases of thinking”
+- Why Developers Bring BADR In Early
+- BADR Promise
+- interactive project geography map
+- final “Define the Opportunity” CTA
 
-WhatsApp يعمل بالفعل من الحقل `whatsapp`.
+## Content integrity
+- Al Rehab figures shown on the site are concept / portfolio figures supported by the supplied project materials.
+- Other portfolio projects keep verified title / location / typology / year from the supplied BADR portfolio.
+- Project-specific commercial performance must not be invented.
+- `PROJECT_CASE_STUDY_TEMPLATE.md` explains exactly what evidence should be added to each project case study later.
 
-## الرفع إلى GitHub Pages
-1. فك ضغط ZIP.
-2. افتح Repository: `BADR-Atelier-`.
-3. ارفع **محتويات ZIP نفسها** إلى Root؛ يجب أن يكون `index.html` مباشرة في الجذر.
-4. اختر Replace للملفات القديمة ثم Commit.
-5. انتظر GitHub Pages ثم استخدم `Ctrl + F5` أو امسح Cache الهاتف.
+## Upload to GitHub Pages
+1. Extract the ZIP.
+2. Upload **the contents**, not the outer folder, to the root of the GitHub repository.
+3. Confirm `index.html`, `projects.html`, `assets/` and the project pages appear at repository root.
+4. Commit the changes.
+5. In GitHub: Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
+6. After deployment, open the site in a private/incognito window or hard-refresh once.
 
-## ملاحظة الخريطة
-الخريطة تحتاج اتصال إنترنت لأنها تستخدم Leaflet/OpenStreetMap. بقية الموقع Static ويمكن تشغيله بدون Build step.
+## Versioned assets
+V11 uses:
+- `assets/css/styles-v11.css`
+- `assets/js/main-v11.js`
+- `assets/js/site-config-v11.js`
 
+This avoids browser cache conflicts with older site versions.
 
-## تحديث V9
-- تم استبدال خريطة Leaflet الخارجية بخريطة عالم Vector تفاعلية محلية 100% داخل الموقع، لذلك لا تعتمد على unpkg أو OpenStreetMap tiles عند العرض.
-- الخريطة تدعم Zoom / Pan وتعرض إجمالي المشروعات حسب الدولة، ثم المدن والمشروعات عند التكبير.
-- تم تطوير صفحة Al Rehab Oasis بصور رندر نظيفة بدون كتابات، وقصة تطوير أوضح للمطور: 21 مقابل 32 فيلا، +52.4% زيادة في المعروض، 4 فلل مميزة + 28 قياسية، هوية نجدية معاصرة، ولاندسكيب كعنصر قيمة.
+## Contact settings
+Edit `assets/js/site-config-v11.js` to change official email, phone numbers and social profile URLs. WhatsApp is linked from the configured numbers.
