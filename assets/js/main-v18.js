@@ -87,28 +87,31 @@
 
   const BADR_PROJECT_MAP={
     countries:[
-      {name:'Egypt',ar:'مصر',lat:26.8,lng:30.8,count:4,code:'EGY'},
-      {name:'Saudi Arabia',ar:'المملكة العربية السعودية',lat:23.9,lng:45.1,count:5,code:'SAU'},
-      {name:'United Arab Emirates',ar:'الإمارات العربية المتحدة',lat:24.2,lng:54.4,count:1,code:'ARE'},
-      {name:'Qatar',ar:'قطر',lat:25.3,lng:51.2,count:1,code:'QAT'},
-      {name:'Oman',ar:'عُمان',lat:20.5,lng:56.0,count:1,code:'OMN'},
-      {name:'Kuwait',ar:'الكويت',lat:29.3,lng:47.6,count:1,code:'KWT'},
-      {name:'Bahrain',ar:'البحرين',lat:26.1,lng:50.6,count:1,code:'BHR'},
-      {name:'Canada',ar:'كندا',lat:50.0,lng:-99.0,count:2,code:'CAN'},
-      {name:'United States',ar:'الولايات المتحدة',lat:39.0,lng:-98.0,count:1,code:'USA'}
+      {name:'Saudi Arabia',ar:'المملكة العربية السعودية',lat:23.9,lng:45.1,count:7,code:'SAU'},
+      {name:'United Arab Emirates',ar:'الإمارات العربية المتحدة',lat:24.2,lng:54.4,count:5,code:'ARE'},
+      {name:'Oman',ar:'عُمان',lat:20.5,lng:56.0,count:2,code:'OMN'},
+      {name:'Qatar',ar:'قطر',lat:25.3,lng:51.2,count:3,code:'QAT'},
+      {name:'Kuwait',ar:'الكويت',lat:29.3,lng:47.6,count:4,code:'KWT'},
+      {name:'Egypt',ar:'مصر',lat:26.8,lng:30.8,count:9,code:'EGY'},
+      {name:'Canada',ar:'كندا',lat:50.0,lng:-99.0,count:5,code:'CAN'},
+      {name:'United States',ar:'الولايات المتحدة',lat:39.0,lng:-98.0,count:3,code:'USA'}
     ],
     cities:[
-      {city:'Cairo',ar:'القاهرة',lat:30.0444,lng:31.2357,projects:[['Aman Towers','project-aman-towers.html'],['Badr Heights Villas','project-badr-heights.html'],['Andalus Courtyard Residences','project-andalus.html'],['Private Villa & House','project-private-residence.html']]},
       {city:'Riyadh',ar:'الرياض',lat:24.7136,lng:46.6753,projects:[['Al Noor Grand Mosque','project-al-noor.html'],['Falcon Arena Concept','project-falcon-arena.html']]},
-      {city:'Jeddah',ar:'جدة',lat:21.5433,lng:39.1728,projects:[['Al Rehab Oasis','project-al-rehab.html'],['Palm Horizon Compound','project-palm-horizon.html']]},
-      {city:'Makkah',ar:'مكة',lat:21.3891,lng:39.8579,projects:[['ATHAR Makkah','project-athar-makkah.html']]},
-      {city:'Dubai',ar:'دبي',lat:25.2048,lng:55.2708,projects:[['Desert Pearl Residences','project-desert-pearl.html']]},
-      {city:'Doha',ar:'الدوحة',lat:25.2854,lng:51.5310,projects:[['Souq Galleria Mall','project-souq-galleria.html']]},
-      {city:'Kuwait City',ar:'مدينة الكويت',lat:29.3759,lng:47.9774,projects:[['Wadi Court Mixed-Use','project-wadi-court.html']]},
-      {city:'Muscat',ar:'مسقط',lat:23.5880,lng:58.3829,projects:[['Waterfront Lifestyle Center','project-waterfront.html']]},
-      {city:'Manama',ar:'المنامة',lat:26.2235,lng:50.5876,projects:[['Private Villa & House','project-private-residence.html']]},
-      {city:'Toronto',ar:'تورنتو',lat:43.6532,lng:-79.3832,projects:[['Maple Courtyard Homes','project-maple-courtyard.html'],['Crescent Design Hub','project-crescent-hub.html']]},
-      {city:'New Jersey',ar:'نيوجيرسي',lat:40.0583,lng:-74.4057,projects:[['Hudson Urban Lofts','project-hudson-lofts.html']]}
+      {city:'Jeddah',ar:'جدة',lat:21.5433,lng:39.1728,projects:[['Al Rehab Oasis','project-al-rehab.html'],['Palm Horizon Compound','project-palm-horizon.html'],['Private Villa & House — Jeddah Reference','project-private-residence.html']]},
+      {city:'Makkah',ar:'مكة',lat:21.3891,lng:39.8579,projects:[['ATHAR Makkah','project-athar-makkah.html'],['ATHAR Makkah Vision','project-athar-makkah.html']]},
+      {city:'Dubai',ar:'دبي',lat:25.2048,lng:55.2708,projects:[['Desert Pearl Residences','project-desert-pearl.html'],['Crescent Design Hub — Dubai Edition','project-crescent-hub.html'],['Private Villa & House — Dubai Residence','project-private-residence.html']]},
+      {city:'Abu Dhabi',ar:'أبوظبي',lat:24.4539,lng:54.3773,projects:[['Waterfront Lifestyle Center — Abu Dhabi Reference','project-waterfront.html'],['Falcon Arena Executive Suite','project-falcon-arena.html']]},
+      {city:'Doha',ar:'الدوحة',lat:25.2854,lng:51.5310,projects:[['Souq Galleria Mall','project-souq-galleria.html'],['Wadi Court Mixed-Use — Doha Reference','project-wadi-court.html'],['Private Villa & House — Doha Residence','project-private-residence.html']]},
+      {city:'Muscat',ar:'مسقط',lat:23.5880,lng:58.3829,projects:[['Waterfront Lifestyle Center','project-waterfront.html'],['Palm Horizon Coastal Residence','project-palm-horizon.html']]},
+      {city:'Kuwait City',ar:'مدينة الكويت',lat:29.3759,lng:47.9774,projects:[['Wadi Court Mixed-Use','project-wadi-court.html'],['Souq Galleria Retail Annex','project-souq-galleria.html'],['Private Villa & House — Kuwait Residence','project-private-residence.html'],['Desert Pearl Residences — Kuwait Reference','project-desert-pearl.html']]},
+      {city:'Cairo',ar:'القاهرة',lat:30.0444,lng:31.2357,projects:[['Aman Towers','project-aman-towers.html'],['Badr Heights Villas','project-badr-heights.html'],['Andalus Courtyard Residences','project-andalus.html'],['Private Villa & House','project-private-residence.html'],['Palm Horizon Residential Cluster','project-palm-horizon.html']]},
+      {city:'Alexandria',ar:'الإسكندرية',lat:31.2001,lng:29.9187,projects:[['Waterfront Lifestyle Center — Alexandria Reference','project-waterfront.html'],['Maple Courtyard Homes — Alexandria Reference','project-maple-courtyard.html']]},
+      {city:'Mansoura',ar:'المنصورة',lat:31.0409,lng:31.3785,projects:[['ATHAR Makkah — Mansoura Study Reference','project-athar-makkah.html'],['Private Villa & House — Mansoura Residence','project-private-residence.html']]},
+      {city:'Toronto',ar:'تورنتو',lat:43.6532,lng:-79.3832,projects:[['Maple Courtyard Homes','project-maple-courtyard.html'],['Crescent Design Hub','project-crescent-hub.html'],['Hudson Urban Lofts — Toronto Reference','project-hudson-lofts.html']]},
+      {city:'Ottawa',ar:'أوتاوا',lat:45.4215,lng:-75.6972,projects:[['Andalus Courtyard Residences — Ottawa Reference','project-andalus.html'],['Palm Horizon Compound — Ottawa Reference','project-palm-horizon.html']]},
+      {city:'New Jersey',ar:'نيوجيرسي',lat:40.0583,lng:-74.4057,projects:[['Hudson Urban Lofts','project-hudson-lofts.html'],['Private Villa & House — New Jersey Residence','project-private-residence.html']]},
+      {city:'New York',ar:'نيويورك',lat:40.7128,lng:-74.0060,projects:[['Crescent Design Hub — New York Reference','project-crescent-hub.html']]}
     ]
   };
   const WM={w:1200,h:560,top:84,bottom:-60};
@@ -148,15 +151,15 @@
       const svg=m.querySelector('.map-overlay');
       const overlay=svg&&svg.querySelector('.map-overlay-layer');
       if(!layer||!svg||!overlay)return; // static SVG remains visible even if enhancement cannot start
-      const countryHits=BADR_PROJECT_MAP.countries.map(c=>{
+      const countryMarkers=BADR_PROJECT_MAP.countries.map(c=>{
         const p=mapXY(c.lng,c.lat);
-        return `<circle class="v10-country-hit" data-country="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}" data-count="${c.count}" data-x="${p.x}" data-y="${p.y}" cx="${p.x}" cy="${p.y}" r="40"/>`;
+        return `<g class="v10-country-marker" data-country="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}" data-count="${c.count}" data-x="${p.x}" data-y="${p.y}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="35"/><circle r="27"/><text class="label" text-anchor="middle" y="-5">${escapeHtml(c.name)}</text><text class="count" text-anchor="middle" y="16">${c.count}</text></g>`;
       }).join('');
       const cityMarkers=BADR_PROJECT_MAP.cities.map((c,i)=>{
         const p=mapXY(c.lng,c.lat);
         return `<g class="v10-city-marker" data-city-index="${i}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="12"/><circle r="12"/><text class="count" text-anchor="middle" y="4">${c.projects.length}</text><text text-anchor="middle" y="-18">${escapeHtml(c.city)}</text></g>`;
       }).join('');
-      overlay.innerHTML=countryHits+cityMarkers;
+      overlay.innerHTML=countryMarkers+cityMarkers;
       const controls=document.createElement('div');
       controls.className='v10-map-controls';
       controls.innerHTML='<button type="button" data-v10-plus aria-label="Zoom in">+</button><button type="button" data-v10-minus aria-label="Zoom out">−</button><button type="button" data-v10-reset aria-label="Reset map">⌂</button>';
@@ -177,11 +180,11 @@
       svg.addEventListener('pointerdown',e=>{drag=true;last={x:e.clientX,y:e.clientY};svg.setPointerCapture?.(e.pointerId);m.classList.add('is-dragging');});
       svg.addEventListener('pointermove',e=>{if(!drag)return;tx+=e.clientX-last.x;ty+=e.clientY-last.y;last={x:e.clientX,y:e.clientY};update();});
       const end=()=>{drag=false;m.classList.remove('is-dragging');};svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);svg.addEventListener('pointerleave',()=>{if(drag)end();});
-      overlay.querySelectorAll('.v10-country-hit').forEach(el=>el.addEventListener('click',e=>{
+      overlay.querySelectorAll('.v10-country-marker').forEach(el=>el.addEventListener('click',e=>{
         e.stopPropagation();
         const {w,h}=size(),x=(+el.dataset.x/WM.w)*w,y=(+el.dataset.y/WM.h)*h;
         scale=2.05;tx=w/2-x*scale;ty=h/2-y*scale;update();
-        detail.innerHTML=`<b>${escapeHtml(el.dataset.country)} / ${escapeHtml(el.dataset.ar)}</b><span>${el.dataset.count} project${+el.dataset.count===1?'':'s'} in the published BADR portfolio</span>`;
+        detail.innerHTML=`<b>${escapeHtml(el.dataset.country)} / ${escapeHtml(el.dataset.ar)}</b><span>${el.dataset.count} published project${+el.dataset.count===1?'':'s'} shown on the BADR map.</span>`;
       }));
       overlay.querySelectorAll('.v10-city-marker').forEach(el=>el.addEventListener('click',e=>{
         e.stopPropagation();const c=BADR_PROJECT_MAP.cities[+el.dataset.cityIndex];
@@ -386,7 +389,48 @@
     calc();
   }
 
-  function bindKpiCounters(){
+  
+  function initJourneyPremium(){
+    const steps=[...document.querySelectorAll('[data-journey-premium] .journey-step')];
+    if(!steps.length)return;
+    const clear=()=>steps.forEach(step=>step.classList.remove('is-hot','is-next'));
+    steps.forEach((step,index)=>{
+      const activate=()=>{clear(); step.classList.add('is-hot'); if(steps[index+1])steps[index+1].classList.add('is-next');};
+      step.addEventListener('mouseenter',activate);
+      step.addEventListener('focusin',activate);
+    });
+    document.querySelector('[data-journey-premium]')?.addEventListener('mouseleave',clear);
+  }
+
+  function initHoverCounters(){
+    const cards=[...document.querySelectorAll('[data-hover-counter]')];
+    if(!cards.length)return;
+    const animate=node=>{
+      const target=Math.max(1,+node.dataset.counterFinal||+node.textContent.replace(/[^0-9]/g,'')||1);
+      if(node.dataset.counterBusy==='1')return;
+      node.dataset.counterBusy='1';
+      const start=1;
+      const t0=performance.now();
+      const dur=920;
+      const step=t=>{
+        const p=Math.min(1,(t-t0)/dur);
+        const eased=1-Math.pow(1-p,3);
+        const value=Math.round(start+(target-start)*eased);
+        node.textContent=value;
+        if(p<1){requestAnimationFrame(step)}else{node.textContent=target;node.dataset.counterBusy='0';}
+      };
+      requestAnimationFrame(step);
+    };
+    cards.forEach(card=>{
+      const node=card.querySelector('[data-counter-final]');
+      if(!node)return;
+      card.addEventListener('mouseenter',()=>animate(node));
+      card.addEventListener('focusin',()=>animate(node));
+      card.addEventListener('touchstart',()=>animate(node),{passive:true,once:true});
+    });
+  }
+
+function bindKpiCounters(){
     const nodes=[...document.querySelectorAll('[data-kpi]')]; if(!nodes.length)return;
     const run=el=>{ if(el.dataset.counted)return; el.dataset.counted='1'; const target=+el.dataset.kpi||0; const t0=performance.now(); const dur=1000; const step=t=>{const p=Math.min(1,(t-t0)/dur); const eased=1-Math.pow(1-p,3); el.textContent=Math.round(target*eased); if(p<1)requestAnimationFrame(step)}; requestAnimationFrame(step)};
     if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run(e.target);io.unobserve(e.target)}}),{threshold:.45});nodes.forEach(n=>io.observe(n));}else nodes.forEach(run);
@@ -397,4 +441,6 @@
   bindLandExplorer();
   bindInvestorCalculator();
   bindKpiCounters();
+  initJourneyPremium();
+  initHoverCounters();
 })();
