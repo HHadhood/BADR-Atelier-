@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1000" role="img" aria-labelledby="t d">
+<title id="t">Architectural plan study</title><desc id="d">Abstract floor plan based on 15 by 10 metre premium villa planning studies.</desc>
+<rect width="1400" height="1000" fill="#f3f0e7"/>
+<g transform="translate(190 145)" stroke="#171714" fill="none">
+<rect x="0" y="0" width="1020" height="680" stroke-width="8"/>
+<path d="M330 0v680M650 0v420M650 420h370M0 260h650M330 520h690" stroke-width="5"/>
+<rect x="410" y="300" width="180" height="170" stroke="#c59a43" stroke-width="8" fill="#d9c17a" fill-opacity=".25"/>
+<path d="M330 260h70v60M650 260h-70v60M650 520h-70v-60M330 520h70v-60" stroke="#b88d39" stroke-width="4"/>
+<g stroke-width="2" opacity=".4"><path d="M0 720h1020M-40 0v680"/><path d="M0 740v40M1020 740v40M-60 0h-40M-60 680h-40"/></g>
+</g>
+<g font-family="Arial, sans-serif" fill="#191915"><text x="92" y="95" font-size="19" letter-spacing="5">BADR ATELIER / VILLA PLANNING</text><text x="92" y="912" font-size="58" font-weight="700">15 × 10 M / 150 M²</text><text x="92" y="954" font-size="18" letter-spacing="3" fill="#9c752e">PRIVACY • DAYLIGHT • STACKED SERVICES • FLEXIBILITY</text></g>
+</svg>
