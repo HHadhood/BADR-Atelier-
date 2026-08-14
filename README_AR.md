@@ -1,48 +1,38 @@
-# BADR Atelier — GitHub Pages V11
+# BADR Atelier — GitHub Pages V12
 
-## Positioning
-**BADR Atelier — Strategic Development & Design Partner**
+هذه نسخة كاملة جاهزة للرفع مباشرة إلى GitHub Pages.
 
-The Projects page has been rebuilt from an architecture portfolio into a developer-first strategic page built around:
+## أهم ما تغير في V12
+- إعادة Positioning صفحة `projects.html` لتصبح Proof of Capability للمطور وليس Portfolio تقليدي.
+- دمج Development Strategy + Architecture + BIM + 4D + 5D + Digital Delivery.
+- إضافة صفحة مستقلة لأبراج الأمان: `project-aman-towers.html`.
+- إضافة صفحة تطوير الأحياء التراثية بالمنصورة: `project-mansoura-regeneration.html`.
+- إضافة صفحة Private Villa & House: `project-private-residence.html`.
+- إضافة BADR Project Intelligence™ framework.
+- إضافة فلاتر تفاعلية حسب Capability: BIM / 4D / 5D / Architecture / Development.
+- إضافة Count-up animation للأرقام ومؤشرات الأداء.
+- تحديث Title / Meta Description / Keywords للتركيز على BIM و4D و5D والتطوير العقاري.
+- تغيير أسماء CSS/JS إلى V12 لمنع Cache النسخ القديمة.
 
-**LAND → OPPORTUNITY → VISION → STRATEGY → IDENTITY → ARCHITECTURE → EXPERIENCE → VALUE → IMPACT**
+## طريقة الرفع
+1. فك ضغط ملف ZIP.
+2. افتح Repository: `BADR-Atelier-`.
+3. ارفع **محتويات** الملف مباشرة إلى Root ولا ترفع المجلد الخارجي نفسه.
+4. وافق على Replace للملفات الموجودة.
+5. Commit message مقترح:
+   `BADR Atelier V12 - Projects BIM 4D 5D Development Proof`
+6. بعد اكتمال GitHub Pages افتح الموقع من نافذة Incognito أو استخدم Ctrl + F5.
 
-## Main V11 change
-`projects.html` now presents BADR as a development-thinking studio, not only an architecture portfolio. It includes:
-- developer-first Hero
-- Real Estate Challenge
-- Before We Design, We Define
-- 6 Development Thinking principles
-- BADR Development Intelligence™ methodology
-- memorable-project decision framework
-- Al Rehab Oasis + ATHAR flagship development cases
-- selected projects as “cases of thinking”
-- Why Developers Bring BADR In Early
-- BADR Promise
-- interactive project geography map
-- final “Define the Opportunity” CTA
+## ملفات يجب مراجعتها قبل النشر العام
+اقرأ `SOURCE_NOTES.md`.
+بعض بيانات Aman Towers أرسلها العميل في الرسالة ولم توجد داخل الملفات المرفقة في هذه الجولة، لذلك تم وسمها بوضوح كبيانات تحتاج مراجعة قبل النشر النهائي.
 
-## Content integrity
-- Al Rehab figures shown on the site are concept / portfolio figures supported by the supplied project materials.
-- Other portfolio projects keep verified title / location / typology / year from the supplied BADR portfolio.
-- Project-specific commercial performance must not be invented.
-- `PROJECT_CASE_STUDY_TEMPLATE.md` explains exactly what evidence should be added to each project case study later.
-
-## Upload to GitHub Pages
-1. Extract the ZIP.
-2. Upload **the contents**, not the outer folder, to the root of the GitHub repository.
-3. Confirm `index.html`, `projects.html`, `assets/` and the project pages appear at repository root.
-4. Commit the changes.
-5. In GitHub: Settings → Pages → Deploy from a branch → `main` → `/ (root)`.
-6. After deployment, open the site in a private/incognito window or hard-refresh once.
-
-## Versioned assets
-V11 uses:
-- `assets/css/styles-v11.css`
-- `assets/js/main-v11.js`
-- `assets/js/site-config-v11.js`
-
-This avoids browser cache conflicts with older site versions.
-
-## Contact settings
-Edit `assets/js/site-config-v11.js` to change official email, phone numbers and social profile URLs. WhatsApp is linked from the configured numbers.
+## أهم الملفات
+- `projects.html`
+- `project-aman-towers.html`
+- `project-mansoura-regeneration.html`
+- `project-private-residence.html`
+- `assets/css/styles-v12.css`
+- `assets/js/main-v12.js`
+- `assets/js/site-config-v12.js`
+- `assets/img/projects-v12/`

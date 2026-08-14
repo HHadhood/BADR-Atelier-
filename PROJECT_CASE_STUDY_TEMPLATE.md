@@ -1,35 +1,60 @@
-# BADR Atelier — Project Case Study Content Template
+# BADR Atelier V12 — Project Case Study Template
 
-Use this template for every project page. Replace placeholder wording only with information supported by the official project record.
+Use this structure for every future project page.
 
-## PROJECT NAME
-[Official Project Name]
-> Developer note: exact official title only.
+## 1. Project Header
+- Project Name
+- Location
+- Development Type
+- Year / Status
+- Developer / Client (if publishable)
 
-## LOCATION
-[City, Country]
-> Developer note: exact market and country.
+## 2. The Opportunity
+What opportunity existed in the land, market, brief or asset?
 
-## TYPOLOGY
-[Residential / Mixed-Use / Hospitality / Retail / Civic / Commercial]
-> Developer note: primary development type.
+## 3. The Challenge
+What threatened value: programme, cost, coordination, product clarity, identity, approvals, heritage, delivery risk?
 
-## THE OPPORTUNITY
-[A well-positioned site / asset / brief with a defined development opportunity.]
-> Developer note: describe the actual land, market, developer or user opportunity. Avoid generic architecture language.
+## 4. The Strategic Move
+What decision or development logic changed the direction of the project?
 
-## THE IDEA
-[One governing development idea capable of organizing product, identity, landscape and experience.]
-> Developer note: state the single strategic concept behind the project.
+## 5. The Architectural Response
+How did masterplanning, massing, façade, landscape, public realm and user experience translate the strategy?
 
-## THE DESIGN RESPONSE
-[Translate the development idea into a clear hierarchy of massing, movement, landscape, amenities and architecture.]
-> Developer note: explain what BADR physically designed or changed.
+## 6. Digital Intelligence
+Only include items actually used:
+- BIM discipline scope
+- LOD
+- Clash / issue coordination
+- QTO / BOQ
+- 4D sequencing
+- 5D cost integration
+- COBie / LOD 500 / handover
 
-## THE SIGNATURE
-[A recognizable arrival, spatial sequence, silhouette or architectural language.]
-> Developer note: identify what people recognize or remember.
+## 7. Verified Value Created
+Use only source-backed outcomes.
+Examples:
+- units / inventory uplift
+- approved area / GFA
+- documented coordination issues resolved
+- verified programme improvement
+- verified cost variance improvement
+- procurement / quantity visibility
+- market/product differentiation
 
-## THE VALUE
-[A clearer development proposition, stronger identity and more coherent relationship between product, experience and market positioning.]
-> Developer note: replace with verified qualitative or quantitative value when data exists. Never invent ROI, sales uplift, IRR, cost saving or achieved commercial performance.
+Never invent ROI, savings or percentage improvements.
+
+## 8. The Signature
+What will the developer, buyer or user recognize and remember?
+
+## 9. Required Visuals
+1. Cinematic hero render / built photograph
+2. Site / masterplan / context
+3. Architectural or technical section
+4. BIM / coordinated model when relevant
+5. 4D sequence when relevant
+6. 5D / quantities / cost graphic when relevant
+7. Execution / as-built proof
+
+## 10. Final CTA
+A project-specific next step rather than generic “Contact us”.
