@@ -1131,3 +1131,300 @@ body[data-page="developers"] .metric-highlight:hover,body[data-page="developers"
 .is-ar .map-total-orb small{letter-spacing:.02em;font-size:.9rem;text-transform:none}
 @media(max-width:860px){.map-total-kpi.map-total-orb{top:16px;left:16px;width:160px;height:160px}.is-ar .map-total-kpi.map-total-orb{left:auto;right:16px}.map-total-orb .map-total-label{font-size:.55rem;max-width:92px}.map-total-orb b{font-size:clamp(3rem,9vw,4.1rem)!important}}
 @media(max-width:720px){.map-total-kpi.map-total-orb{top:14px;bottom:auto;left:14px;width:144px;height:144px}.is-ar .map-total-kpi.map-total-orb{left:auto;right:14px}.map-total-orb .map-total-label{font-size:.5rem}.map-total-orb b{font-size:2.8rem!important}.v10-map-detail{bottom:18px!important}}
+
+
+/* =========================================================
+   V26 — Global large-headline scale correction
+   Request: major display / hero / manifesto typography = 70%
+   of the previous visual scale across the full website.
+   ========================================================= */
+
+/* Core large type */
+.h1{
+  font-size:clamp(1.68rem,3.08vw,3.43rem)!important;
+}
+.is-ar .h1{
+  font-size:clamp(1.82rem,3.15vw,3.50rem)!important;
+}
+.h2{
+  font-size:clamp(.83rem,1.33vw,1.46rem)!important;
+}
+.is-ar .h2{
+  font-size:clamp(.91rem,1.40vw,1.53rem)!important;
+}
+.display{
+  font-size:clamp(1.40rem,1.79vw,2.00rem)!important;
+}
+.is-ar .display{
+  font-size:clamp(1.40rem,1.82vw,2.07rem)!important;
+}
+
+/* Home / page hero statements */
+.page-hero .h1{
+  font-size:clamp(1.37rem,2.14vw,2.42rem)!important;
+}
+.is-ar .page-hero .h1{
+  font-size:clamp(1.40rem,2.21vw,2.49rem)!important;
+}
+.hero .display{
+  font-size:clamp(1.51rem,2.91vw,3.29rem)!important;
+}
+.is-ar .hero .display{
+  font-size:clamp(1.54rem,2.94vw,3.36rem)!important;
+}
+
+/* Strategic projects / developers page */
+.strategy-h1{
+  font-size:clamp(2.52rem,4.41vw,5.25rem)!important;
+}
+.is-ar .strategy-h1{
+  font-size:clamp(2.17rem,3.78vw,4.20rem)!important;
+}
+.strategy-h2{
+  font-size:clamp(1.96rem,3.57vw,3.92rem)!important;
+}
+.is-ar .strategy-h2{
+  font-size:clamp(1.75rem,3.15vw,3.43rem)!important;
+}
+.promise-content h2{
+  font-size:clamp(2.10rem,4.20vw,4.69rem)!important;
+}
+.strategy-final-cta h2{
+  font-size:clamp(2.10rem,3.71vw,4.20rem)!important;
+}
+.case-lens-head h2{
+  font-size:clamp(1.54rem,2.80vw,2.94rem)!important;
+}
+.flagship-meta h3{
+  font-size:clamp(1.47rem,2.38vw,2.80rem)!important;
+}
+
+/* Investors */
+.iv17-hero-copy h1,
+.investor-v19-page .iv17-hero-copy h1{
+  font-size:clamp(2.20rem,4.34vw,3.99rem)!important;
+}
+.is-ar .iv17-hero-copy h1,
+.is-ar.investor-v19-page .iv17-hero-copy h1{
+  font-size:clamp(1.58rem,2.98vw,2.98rem)!important;
+}
+.iv17-founder-copy h2{
+  font-size:clamp(1.54rem,2.80vw,3.08rem)!important;
+}
+.iv17-final-grid h2{
+  font-size:clamp(1.68rem,3.50vw,3.85rem)!important;
+}
+
+/* Founder / studio */
+.founder-thesis,
+.founder-message-v8 .founder-thesis{
+  font-size:clamp(1.10rem,1.82vw,2.10rem)!important;
+}
+.is-ar .founder-thesis,
+.is-ar .founder-message-v8 .founder-thesis{
+  font-size:clamp(1.10rem,1.72vw,1.86rem)!important;
+}
+
+/* Rehab project */
+.rehab-intro .h1{
+  font-size:clamp(1.82rem,3.85vw,4.06rem)!important;
+}
+.rehab-thesis-card .h2{
+  font-size:clamp(1.40rem,2.66vw,2.80rem)!important;
+}
+.rehab-identity-panel .h2{
+  font-size:clamp(1.40rem,2.59vw,2.66rem)!important;
+}
+
+/* BIM / proof / case-study headlines */
+.proof-h2{
+  font-size:clamp(24px,2.87vw,46px)!important;
+}
+.proof-final h2{
+  font-size:clamp(24px,4.2vw,46px)!important;
+}
+.case12-hero h1{
+  font-size:clamp(28px,5.4vw,55px)!important;
+}
+
+/* Portfolio / CTA large labels */
+.portfolio-kicker{
+  font-size:clamp(1.47rem,2.52vw,2.80rem)!important;
+}
+.is-ar .portfolio-kicker{
+  font-size:clamp(1.54rem,2.59vw,2.87rem)!important;
+}
+.project-cta .cta-kicker{
+  font-size:clamp(1.26rem,2.10vw,2.17rem)!important;
+}
+.cta-question{
+  font-size:clamp(1.33rem,2.24vw,2.17rem)!important;
+}
+
+/* Keep hierarchy elegant on smaller screens */
+@media(max-width:860px){
+  .page-hero .h1,.is-ar .page-hero .h1{font-size:clamp(1.25rem,4.62vw,1.79rem)!important}
+  .hero .display,.is-ar .hero .display{font-size:clamp(1.37rem,5.25vw,2.14rem)!important}
+  .strategy-h1{font-size:clamp(2.03rem,7.56vw,3.57rem)!important}
+  .is-ar .strategy-h1{font-size:clamp(1.86rem,6.72vw,3.22rem)!important}
+  .strategy-h2{font-size:clamp(1.58rem,5.81vw,2.87rem)!important}
+  .is-ar .strategy-h2{font-size:clamp(1.51rem,5.46vw,2.59rem)!important}
+}
+@media(max-width:620px){
+  .strategy-h1{font-size:clamp(1.65rem,8.26vw,2.59rem)!important}
+  .is-ar .strategy-h1{font-size:clamp(1.58rem,7.49vw,2.45rem)!important}
+  .strategy-h2{font-size:clamp(1.40rem,6.86vw,2.24rem)!important}
+  .is-ar .strategy-h2{font-size:clamp(1.37rem,6.30vw,2.10rem)!important}
+  .promise-content h2{font-size:clamp(1.68rem,7.70vw,2.80rem)!important}
+  .strategy-final-cta h2{font-size:clamp(1.68rem,7.49vw,2.80rem)!important}
+}
+@media(max-width:560px){
+  .h1,.is-ar .h1{font-size:clamp(1.58rem,7.7vw,2.35rem)!important}
+  .h2,.is-ar .h2{font-size:1.05rem!important}
+  .display,.is-ar .display{font-size:clamp(1.20rem,5.1vw,1.58rem)!important}
+  .portfolio-kicker,.is-ar .portfolio-kicker{font-size:clamp(1.30rem,6.3vw,1.90rem)!important}
+  .iv17-hero-copy h1,.investor-v19-page .iv17-hero-copy h1{font-size:2.10rem!important}
+  .is-ar .iv17-hero-copy h1,.is-ar.investor-v19-page .iv17-hero-copy h1{font-size:1.89rem!important}
+  .rehab-intro .h1{font-size:1.89rem!important}
+}
+
+
+/* =========================================================
+   V27 — Unified primary headline scale + refined header + map
+   Reference headline: Contact page “You do not need a finished brief…”
+   ========================================================= */
+
+/* Use the Contact-page hero as the master size for primary page headlines. */
+main h1,
+main h1.h1,
+main .display,
+.strategy-h1,
+.iv17-hero-copy h1,
+.investor-v19-page .iv17-hero-copy h1,
+.rehab-intro .h1,
+.case12-hero h1{
+  font-size:clamp(1.95rem,3.05vw,3.45rem)!important;
+  line-height:1.14!important;
+  letter-spacing:-.035em!important;
+  text-wrap:balance;
+}
+.is-ar main h1,
+.is-ar main h1.h1,
+.is-ar main .display,
+.is-ar .strategy-h1,
+.is-ar .iv17-hero-copy h1,
+.is-ar.investor-v19-page .iv17-hero-copy h1,
+.is-ar .rehab-intro .h1,
+.is-ar .case12-hero h1{
+  font-size:clamp(2rem,3.15vw,3.55rem)!important;
+  line-height:1.42!important;
+  letter-spacing:-.015em!important;
+}
+@media(max-width:860px){
+  main h1,main h1.h1,main .display,.strategy-h1,.iv17-hero-copy h1,.investor-v19-page .iv17-hero-copy h1,.rehab-intro .h1,.case12-hero h1{
+    font-size:clamp(1.78rem,6.6vw,2.55rem)!important;
+  }
+  .is-ar main h1,.is-ar main h1.h1,.is-ar main .display,.is-ar .strategy-h1,.is-ar .iv17-hero-copy h1,.is-ar.investor-v19-page .iv17-hero-copy h1,.is-ar .rehab-intro .h1,.is-ar .case12-hero h1{
+    font-size:clamp(1.85rem,6.8vw,2.65rem)!important;
+  }
+}
+
+/* Make the positioning statement beside the BADR logo legible and intentional. */
+.site-header .brand-block{
+  min-width:278px!important;
+  max-width:278px!important;
+  flex:0 0 278px!important;
+  display:grid!important;
+  grid-template-columns:154px 112px!important;
+  align-items:center!important;
+  gap:12px!important;
+}
+.site-header .brand-block .brand{width:154px!important;height:72px!important;display:flex!important;align-items:center!important}
+.site-header .brand-block .brand img{max-width:154px!important;max-height:72px!important;object-fit:contain!important}
+.site-header .brand-tagline{
+  display:grid!important;
+  max-width:112px!important;
+  overflow:visible!important;
+  white-space:normal!important;
+  gap:4px!important;
+  line-height:1.22!important;
+}
+.site-header .brand-tagline b{
+  font-size:.61rem!important;
+  line-height:1.25!important;
+  letter-spacing:.075em!important;
+  color:#9a6d1d!important;
+  font-weight:850!important;
+}
+.site-header .brand-tagline span{
+  font-size:.53rem!important;
+  line-height:1.28!important;
+  letter-spacing:.025em!important;
+  color:#5c5549!important;
+  font-weight:600!important;
+}
+.is-ar .site-header .brand-tagline b{font-size:.69rem!important;letter-spacing:0!important;line-height:1.38!important}
+.is-ar .site-header .brand-tagline span{font-size:.58rem!important;letter-spacing:0!important;line-height:1.38!important}
+@media(max-width:1280px){
+  .site-header .brand-block{min-width:140px!important;max-width:140px!important;flex:0 0 140px!important;display:block!important}
+  .site-header .brand-block .brand{width:136px!important;height:68px!important}
+  .site-header .brand-block .brand img{max-width:136px!important;max-height:68px!important}
+  .site-header .brand-tagline{display:none!important}
+}
+
+/* Smaller, cleaner total-project orb inside the map. */
+.map-total-kpi.map-total-orb{
+  width:150px!important;
+  height:150px!important;
+  top:22px!important;
+  left:22px!important;
+  border:1px solid rgba(232,203,136,.54)!important;
+  background:radial-gradient(circle at 32% 24%,rgba(233,202,129,.25),rgba(18,17,13,.97) 52%,#080807 100%)!important;
+  box-shadow:0 18px 46px rgba(0,0,0,.34),0 0 0 7px rgba(212,166,70,.035)!important;
+}
+.is-ar .map-total-kpi.map-total-orb{left:auto!important;right:22px!important}
+.map-total-kpi.map-total-orb:before{inset:8px!important;border-color:rgba(235,207,143,.24)!important}
+.map-total-orb .map-total-label{max-width:92px!important;font-size:.51rem!important;line-height:1.35!important;margin-bottom:6px!important}
+.is-ar .map-total-orb .map-total-label{font-size:.60rem!important;line-height:1.4!important}
+.map-total-orb b{font-size:3.55rem!important;line-height:.88!important}
+.map-total-orb small{font-size:.59rem!important;letter-spacing:.10em!important}
+.is-ar .map-total-orb small{font-size:.70rem!important;letter-spacing:0!important}
+.map-total-kpi.map-total-orb:hover{transform:translateY(-3px) scale(1.035)!important;box-shadow:0 24px 60px rgba(0,0,0,.36),0 0 0 9px rgba(212,166,70,.065)!important}
+
+/* Make project counts much clearer after zooming into the map. */
+.global-map.city-mode .v10-city-marker{opacity:1!important;filter:drop-shadow(0 7px 12px rgba(0,0,0,.38))}
+.v10-city-marker circle:not(.pulse){fill:#0b0b09!important;stroke:#efc96d!important;stroke-width:2.4!important}
+.v10-city-marker .pulse{stroke:#efc96d!important;stroke-opacity:.58!important;stroke-width:1.8!important}
+.v10-city-marker .count{
+  fill:#fff7dd!important;
+  font-size:15px!important;
+  font-weight:950!important;
+  stroke:#090907!important;
+  stroke-width:3.2px!important;
+}
+.v10-city-marker text:not(.count){
+  fill:#f2d58e!important;
+  font-size:10.5px!important;
+  font-weight:850!important;
+  stroke:#080807!important;
+  stroke-width:3.4px!important;
+}
+.global-map.city-mode .v10-country-marker{opacity:.12!important}
+.global-map{background:radial-gradient(circle at 62% 42%,rgba(183,135,45,.10),transparent 32%),linear-gradient(180deg,#10110f,#090a09)!important}
+.map-shell-premium{border-color:rgba(212,166,70,.24)!important;box-shadow:0 28px 80px rgba(31,23,10,.15)!important}
+
+@media(max-width:860px){
+  .map-total-kpi.map-total-orb{width:132px!important;height:132px!important;top:15px!important;left:15px!important}
+  .is-ar .map-total-kpi.map-total-orb{left:auto!important;right:15px!important}
+  .map-total-orb b{font-size:3.0rem!important}
+  .map-total-orb .map-total-label{font-size:.46rem!important;max-width:80px!important}
+}
+@media(max-width:560px){
+  .map-total-kpi.map-total-orb{width:118px!important;height:118px!important;top:12px!important;left:12px!important}
+  .is-ar .map-total-kpi.map-total-orb{left:auto!important;right:12px!important}
+  .map-total-orb b{font-size:2.55rem!important}
+  .map-total-orb small{font-size:.5rem!important}
+  .map-total-orb .map-total-label{font-size:.42rem!important;max-width:72px!important}
+}
+
+.v10-map-detail .map-detail-count{display:inline-grid;place-items:center;min-width:34px;height:34px;padding:0 9px;margin-inline-start:8px;border-radius:999px;background:linear-gradient(135deg,#c89436,#f0d78a);color:#0c0b08;font-size:1rem;font-weight:950;box-shadow:0 8px 22px rgba(212,166,70,.24);vertical-align:middle}

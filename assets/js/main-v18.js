@@ -184,7 +184,7 @@
         e.stopPropagation();
         const {w,h}=size(),x=(+el.dataset.x/WM.w)*w,y=(+el.dataset.y/WM.h)*h;
         scale=2.05;tx=w/2-x*scale;ty=h/2-y*scale;update();
-        detail.innerHTML=`<b>${escapeHtml(el.dataset.country)} / ${escapeHtml(el.dataset.ar)}</b><span>${el.dataset.count} published project${+el.dataset.count===1?'':'s'} shown on the BADR map.</span>`;
+        detail.innerHTML=`<b>${escapeHtml(el.dataset.country)} / ${escapeHtml(el.dataset.ar)} <strong class="map-detail-count">${el.dataset.count}</strong></b><span>${el.dataset.count} published project${+el.dataset.count===1?'':'s'} · اضغط على المدينة لعرض المشروعات المرتبطة.</span>`;
       }));
       overlay.querySelectorAll('.v10-city-marker').forEach(el=>el.addEventListener('click',e=>{
         e.stopPropagation();const c=BADR_PROJECT_MAP.cities[+el.dataset.cityIndex];
