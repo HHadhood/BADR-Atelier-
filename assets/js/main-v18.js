@@ -153,11 +153,11 @@
       if(!layer||!svg||!overlay)return; // static SVG remains visible even if enhancement cannot start
       const countryMarkers=BADR_PROJECT_MAP.countries.map(c=>{
         const p=mapXY(c.lng,c.lat);
-        return `<g class="v10-country-marker" data-country="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}" data-count="${c.count}" data-x="${p.x}" data-y="${p.y}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="35"/><circle r="27"/><text class="label" text-anchor="middle" y="-5">${escapeHtml(c.name)}</text><text class="count" text-anchor="middle" y="16">${c.count}</text></g>`;
+        return `<g class="v10-country-marker" data-country="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}" data-count="${c.count}" data-x="${p.x}" data-y="${p.y}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="31"/><circle r="24"/><text class="label" text-anchor="middle" y="-4">${escapeHtml(c.name)}</text><text class="count" text-anchor="middle" y="14">${c.count}</text></g>`;
       }).join('');
       const cityMarkers=BADR_PROJECT_MAP.cities.map((c,i)=>{
         const p=mapXY(c.lng,c.lat);
-        return `<g class="v10-city-marker" data-city-index="${i}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="12"/><circle r="12"/><text class="count" text-anchor="middle" y="4">${c.projects.length}</text><text text-anchor="middle" y="-18">${escapeHtml(c.city)}</text></g>`;
+        return `<g class="v10-city-marker" data-city-index="${i}" data-x="${p.x}" data-y="${p.y}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="10"/><circle r="10"/><text class="count" text-anchor="middle" y="4">${c.projects.length}</text><text text-anchor="middle" y="-17">${escapeHtml(c.city)}</text></g>`;
       }).join('');
       overlay.innerHTML=countryMarkers+cityMarkers;
       const controls=document.createElement('div');
@@ -171,7 +171,16 @@
       let scale=1,tx=0,ty=0,drag=false,last=null;
       const size=()=>({w:m.clientWidth||1,h:m.clientHeight||1});
       const clamp=()=>{const {w,h}=size();const maxX=Math.max(0,(scale-1)*w*.55),maxY=Math.max(0,(scale-1)*h*.55);tx=Math.max(-maxX,Math.min(maxX,tx));ty=Math.max(-maxY,Math.min(maxY,ty));};
-      const update=()=>{clamp();layer.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;m.classList.toggle('city-mode',scale>=1.85);};
+      const update=()=>{
+        clamp();
+        layer.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;
+        m.classList.toggle('city-mode',scale>=1.85);
+        const inv=1/scale;
+        overlay.querySelectorAll('.v10-country-marker,.v10-city-marker').forEach(marker=>{
+          const x=marker.dataset.x||0,y=marker.dataset.y||0;
+          marker.setAttribute('transform',`translate(${x} ${y}) scale(${inv})`);
+        });
+      };
       function zoomAt(factor,cx,cy){const {w,h}=size();cx=cx==null?w/2:cx;cy=cy==null?h/2:cy;const old=scale;scale=Math.max(1,Math.min(4.6,scale*factor));const k=scale/old;tx=cx-(cx-tx)*k;ty=cy-(cy-ty)*k;update();}
       controls.querySelector('[data-v10-plus]').addEventListener('click',()=>zoomAt(1.38));
       controls.querySelector('[data-v10-minus]').addEventListener('click',()=>zoomAt(1/1.38));
@@ -184,7 +193,7 @@
         e.stopPropagation();
         const {w,h}=size(),x=(+el.dataset.x/WM.w)*w,y=(+el.dataset.y/WM.h)*h;
         scale=2.05;tx=w/2-x*scale;ty=h/2-y*scale;update();
-        detail.innerHTML=`<b>${escapeHtml(el.dataset.country)} / ${escapeHtml(el.dataset.ar)} <strong class="map-detail-count">${el.dataset.count}</strong></b><span>${el.dataset.count} published project${+el.dataset.count===1?'':'s'} · اضغط على المدينة لعرض المشروعات المرتبطة.</span>`;
+        detail.innerHTML=`<b>${escapeHtml(el.dataset.country)} / ${escapeHtml(el.dataset.ar)} <strong class="map-detail-count">${el.dataset.count}</strong></b><span>${el.dataset.count} published project${+el.dataset.count===1?'':'s'} · Click a city marker to open linked projects.</span>`;
       }));
       overlay.querySelectorAll('.v10-city-marker').forEach(el=>el.addEventListener('click',e=>{
         e.stopPropagation();const c=BADR_PROJECT_MAP.cities[+el.dataset.cityIndex];
@@ -240,6 +249,7 @@
     const box=document.querySelector('[data-land-explorer]');
     if(!box)return;
     const area=box.querySelector('#exploreLandArea'),market=box.querySelector('#exploreMarket'),type=box.querySelector('#exploreType'),far=box.querySelector('#exploreFar'),frontage=box.querySelector('#exploreFrontage'),priority=box.querySelector('#explorePriority');
+    const dashboardArea=document.getElementById('landArea');
     const fmt=v=>new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(v);
     const cfgs={yield:{far:1.08,eff:.82,unit:128,score:78},balanced:{far:1,eff:.76,unit:155,score:86},premium:{far:.88,eff:.70,unit:190,score:93}};
     const texts={
@@ -249,19 +259,56 @@
       commercial:{yield:['Efficient Commercial','Prioritize usable area, floorplate efficiency and access.'],balanced:['Market-Ready Business Hub','Balance leasable efficiency, amenities and brand identity.'],premium:['Landmark Business Address','Use frontage, arrival and architecture to strengthen prestige.']},
       community:{yield:['Efficient Community','Prioritize saleable stock, access and repeatable product logic.'],balanced:['Balanced Residential Community','Combine product mix, landscape, privacy and amenities.'],premium:['Signature Gated Destination','Create premium hierarchy, arrival sequence and placemaking identity.']}
     };
+    let syncing=false;
+    const syncDashboardArea=land=>{
+      if(!dashboardArea||syncing)return;
+      const next=String(Math.round(land));
+      if(String(dashboardArea.value)!==next){
+        syncing=true;
+        dashboardArea.value=next;
+        dashboardArea.dispatchEvent(new Event('input',{bubbles:true}));
+        syncing=false;
+      }
+    };
     const update=()=>{
       const land=Math.max(0,+area.value||0),baseFar=Math.max(.1,+far.value||0),front=+frontage.value||1,t=type.value,m=market.value;
-      box.querySelector('[data-land-summary]').textContent=fmt(land)+' m²';box.querySelector('[data-market-summary]').textContent=m;
-      document.querySelectorAll('[data-final-land]').forEach(el=>el.textContent=fmt(land)+' m²');document.querySelectorAll('[data-final-market]').forEach(el=>el.textContent=`${m} • ${type.options[type.selectedIndex].text}`);
-      Object.entries(cfgs).forEach(([key,cfg])=>{const gfa=land*baseFar*cfg.far,sell=gfa*cfg.eff,units=Math.max(1,Math.round(sell/cfg.unit)),score=Math.round(Math.min(98,cfg.score+(front-1)*45)),tx=(texts[t]||texts.residential)[key];const put=(attr,val)=>{const el=box.querySelector(`[data-${attr}="${key}"]`);if(el)el.textContent=val};put('scenario-title',tx[0]);put('scenario-copy',tx[1]);put('scenario-gfa','~'+fmt(gfa)+' m²');put('scenario-sellable','~'+fmt(sell)+' m²');put('scenario-units','~'+fmt(units));put('scenario-score',score+'/100');const card=box.querySelector(`[data-scenario-card="${key}"]`);card.dataset.land=land;card.dataset.far=(baseFar*cfg.far).toFixed(2);card.dataset.eff=(cfg.eff*100).toFixed(0)});
-      box.querySelectorAll('[data-scenario-card]').forEach(c=>c.classList.remove('is-recommended'));const rec=priority.value==='yield'?'yield':priority.value==='premium'?'premium':'balanced';box.querySelector(`[data-scenario-card="${rec}"]`)?.classList.add('is-recommended');
+      box.querySelector('[data-land-summary]').textContent=fmt(land)+' m²';
+      box.querySelector('[data-market-summary]').textContent=m;
+      document.querySelectorAll('[data-final-land]').forEach(el=>el.textContent=fmt(land)+' m²');
+      document.querySelectorAll('[data-final-market]').forEach(el=>el.textContent=`${m} • ${type.options[type.selectedIndex].text}`);
+      Object.entries(cfgs).forEach(([key,cfg])=>{
+        const gfa=land*baseFar*cfg.far,sell=gfa*cfg.eff,units=Math.max(1,Math.round(sell/cfg.unit)),score=Math.round(Math.min(98,cfg.score+(front-1)*45)),tx=(texts[t]||texts.residential)[key];
+        const put=(attr,val)=>{const el=box.querySelector(`[data-${attr}="${key}"]`);if(el)el.textContent=val};
+        put('scenario-title',tx[0]);put('scenario-copy',tx[1]);put('scenario-gfa','~'+fmt(gfa)+' m²');put('scenario-sellable','~'+fmt(sell)+' m²');put('scenario-units','~'+fmt(units));put('scenario-score',score+'/100');
+        const card=box.querySelector(`[data-scenario-card="${key}"]`);
+        card.dataset.land=land;card.dataset.far=(baseFar*cfg.far).toFixed(2);card.dataset.eff=(cfg.eff*100).toFixed(0);
+      });
+      box.querySelectorAll('[data-scenario-card]').forEach(c=>c.classList.remove('is-recommended'));
+      const rec=priority.value==='yield'?'yield':priority.value==='premium'?'premium':'balanced';
+      box.querySelector(`[data-scenario-card="${rec}"]`)?.classList.add('is-recommended');
+      syncDashboardArea(land);
     };
     [area,market,type,far,frontage,priority].forEach(el=>el.addEventListener('input',update));
-    box.querySelectorAll('[data-use-scenario]').forEach(btn=>btn.addEventListener('click',()=>{const card=box.querySelector(`[data-scenario-card="${btn.dataset.useScenario}"]`);const a=document.getElementById('landArea'),f=document.getElementById('far'),e=document.getElementById('efficiency');if(a)a.value=card.dataset.land;if(f)f.value=card.dataset.far;if(e)e.value=card.dataset.eff;[a,f,e].forEach(x=>x&&x.dispatchEvent(new Event('input',{bubbles:true})));document.getElementById('dashboard')?.scrollIntoView({behavior:'smooth',block:'start'});}));
+    if(dashboardArea){
+      dashboardArea.addEventListener('input',()=>{
+        if(syncing)return;
+        const next=Math.max(0,+dashboardArea.value||0);
+        if(String(area.value)!==String(next))area.value=String(next);
+        update();
+      });
+    }
+    box.querySelectorAll('[data-use-scenario]').forEach(btn=>btn.addEventListener('click',()=>{
+      const card=box.querySelector(`[data-scenario-card="${btn.dataset.useScenario}"]`);
+      const a=document.getElementById('landArea'),f=document.getElementById('far'),e=document.getElementById('efficiency');
+      if(a)a.value=card.dataset.land;if(f)f.value=card.dataset.far;if(e)e.value=card.dataset.eff;
+      [a,f,e].forEach(x=>x&&x.dispatchEvent(new Event('input',{bubbles:true})));
+      document.getElementById('dashboard')?.scrollIntoView({behavior:'smooth',block:'start'});
+    }));
     update();
   }
 
   function bindInvestorCalculator(){
+
     const box=document.querySelector('[data-investor-calculator]');
     if(!box)return;
     const $=sel=>box.querySelector(sel);
