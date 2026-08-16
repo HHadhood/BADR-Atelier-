@@ -2586,3 +2586,45 @@ body[data-page="developers"] .metric-bars .bar-row span{font-weight:900!importan
     .is-ar .site-header .brand-tagline{display:none!important}
   }
 }
+
+
+/* ===== V36 Cairo + Jeddah / green project intelligence / risk-capital modules ===== */
+:root{--project-green:#35c878;--project-green-deep:#168a4d;--project-green-soft:#a8f0c8}
+.footer-office{display:grid;gap:3px;margin-top:7px;padding:9px 10px;border:1px solid rgba(212,166,70,.13);border-radius:12px;background:rgba(255,255,255,.025)}
+.footer-office b{font-size:.72rem;color:#d7b35e;letter-spacing:.06em;text-transform:uppercase}
+.footer-office em{font-style:normal;font-size:.72rem;line-height:1.5;color:#b8b1a3}
+.office-contact-card strong{line-height:1.65}
+.reach-count-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px}
+.reach-count-grid article{position:relative;overflow:hidden;padding:14px 14px 12px;border-radius:17px;border:1px solid rgba(53,200,120,.22);background:linear-gradient(180deg,rgba(53,200,120,.06),rgba(255,255,255,.72));box-shadow:0 12px 28px rgba(21,92,57,.06);transition:.25s transform ease,.25s border-color ease,.25s box-shadow ease}
+.reach-count-grid article:hover{transform:translateY(-4px);border-color:rgba(53,200,120,.5);box-shadow:0 18px 38px rgba(21,92,57,.12)}
+.reach-count-grid span{display:block;font-size:.72rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#435247}
+.reach-count-grid b{display:block;margin:5px 0 4px;font-size:2rem;line-height:1;color:var(--project-green-deep);font-variant-numeric:tabular-nums}
+.reach-count-grid small{display:block;color:#6c746e;font-size:.68rem;line-height:1.45}
+.wm-country-marker circle:first-child{stroke:var(--project-green)!important}
+.wm-country-marker .wm-pulse{stroke:var(--project-green)!important}
+.wm-count{fill:var(--project-green)!important;text-shadow:0 0 14px rgba(53,200,120,.45)}
+.wm-city-marker circle{stroke:var(--project-green)!important}
+.wm-city-marker>text:not(.wm-city-label){fill:var(--project-green-soft)!important}
+.v10-country-marker circle:not(.pulse){stroke:var(--project-green)!important}
+.v10-country-marker .pulse{stroke:var(--project-green)!important}
+.v10-country-marker .count{fill:var(--project-green)!important}
+.v10-city-marker circle{stroke:var(--project-green)!important}
+.v10-city-marker .count{fill:var(--project-green-soft)!important}
+.map-detail-count,.v10-map-detail .map-detail-count{background:linear-gradient(135deg,var(--project-green-deep),var(--project-green))!important;color:#fff!important;box-shadow:0 8px 24px rgba(53,200,120,.28)!important}
+body[data-page="projects"] .map-total-kpi.map-total-orb{background:radial-gradient(circle at 34% 24%,rgba(124,238,174,.22),rgba(11,31,20,.97) 50%,#08130d 100%)!important;border-color:rgba(53,200,120,.44)!important;box-shadow:0 22px 58px rgba(0,0,0,.34),0 0 0 8px rgba(53,200,120,.035)!important}
+body[data-page="projects"] .map-total-kpi.map-total-orb:before{border-color:rgba(53,200,120,.28)!important}
+body[data-page="projects"] .map-total-kpi.map-total-orb:after{background:radial-gradient(circle,rgba(53,200,120,.28),rgba(53,200,120,0) 70%)!important}
+body[data-page="projects"] .map-total-orb .map-total-label{color:#9ce5bc!important}
+body[data-page="projects"] .map-total-orb b{color:#53dc91!important;text-shadow:0 0 24px rgba(53,220,145,.34)!important}
+body[data-page="projects"] .map-total-orb small{color:#d7f7e4!important}
+.capital-risk-section{position:relative;overflow:hidden}
+.capital-risk-section:before{content:'';position:absolute;right:-10%;top:-30%;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(53,200,120,.10),transparent 68%);pointer-events:none}
+.risk-capital-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+.risk-capital-grid article{position:relative;padding:24px;border:1px solid rgba(53,200,120,.18);border-radius:24px;background:linear-gradient(180deg,#fffefb,#f4f3ed);box-shadow:0 16px 38px rgba(20,60,38,.055);transition:.25s transform ease,.25s border-color ease,.25s box-shadow ease;overflow:hidden}
+.risk-capital-grid article:after{content:'';position:absolute;inset:auto -40px -60px auto;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(53,200,120,.13),transparent 70%);pointer-events:none}
+.risk-capital-grid article:hover{transform:translateY(-6px);border-color:rgba(53,200,120,.42);box-shadow:0 22px 48px rgba(20,60,38,.11)}
+.risk-capital-grid article>span{display:inline-grid;place-items:center;min-width:42px;height:42px;padding:0 10px;border-radius:14px;background:linear-gradient(135deg,var(--project-green-deep),var(--project-green));color:white;font-weight:900;font-size:.75rem;box-shadow:0 9px 20px rgba(53,200,120,.22)}
+.risk-capital-grid b{display:block;margin:16px 0 8px;font-size:1.03rem;color:#17211b}
+.risk-capital-grid p{margin:0;color:#626b65;line-height:1.72;font-size:.9rem}
+@media(max-width:1050px){.reach-count-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.risk-capital-grid{grid-template-columns:1fr}}
+@media(max-width:580px){.reach-count-grid{grid-template-columns:1fr}}
