@@ -1,1 +1,9 @@
-{"name":"BADR Atelier","short_name":"BADR","start_url":"./index.html","display":"standalone","background_color":"#fbfaf6","theme_color":"#11110f","description":"Real Estate Development Advisory, Architecture, Engineering Coordination, BIM and Digital Delivery."}
+{
+  "name": "BADR Atelier — Development Intelligence Partner",
+  "short_name": "BADR Atelier",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fbfaf6",
+  "theme_color": "#11110f",
+  "description": "Development strategy, architecture, engineering and BIM for developers, landowners and investors."
+}
