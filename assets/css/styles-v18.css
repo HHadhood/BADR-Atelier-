@@ -2628,3 +2628,79 @@ body[data-page="projects"] .map-total-orb small{color:#d7f7e4!important}
 .risk-capital-grid p{margin:0;color:#626b65;line-height:1.72;font-size:.9rem}
 @media(max-width:1050px){.reach-count-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.risk-capital-grid{grid-template-columns:1fr}}
 @media(max-width:580px){.reach-count-grid{grid-template-columns:1fr}}
+
+/* ===== V36-1 complete portfolio + BIM grouping + footer QA ===== */
+.architecture-complete{position:relative;overflow:hidden}
+.architecture-complete:before,.bim-portfolio-complete:before{content:'';position:absolute;width:520px;height:520px;border:1px solid rgba(203,161,76,.12);border-radius:50%;right:-240px;top:130px;box-shadow:0 0 140px rgba(203,161,76,.06);pointer-events:none}
+.portfolio-category-rail{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 54px;padding:12px;border:1px solid rgba(203,161,76,.18);border-radius:18px;background:rgba(255,255,255,.025);position:sticky;top:96px;z-index:8;backdrop-filter:blur(14px)}
+.portfolio-category-rail a{padding:11px 15px;border-radius:999px;border:1px solid rgba(203,161,76,.14);font-size:.75rem;font-weight:800;letter-spacing:.03em;color:#d8d1c3;background:rgba(255,255,255,.025);transition:.25s}
+.portfolio-category-rail a:hover{background:#c99a3d;color:#111;transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,154,61,.18)}
+.portfolio-category{padding:38px 0 44px;border-top:1px solid rgba(255,255,255,.08);scroll-margin-top:145px}
+.portfolio-category:first-of-type{border-top:0}
+.portfolio-category-head,.bim-case-group-head{display:grid;grid-template-columns:62px minmax(0,1fr);gap:18px;align-items:start;margin-bottom:24px}
+.portfolio-category-head>span,.bim-case-group-head>span{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-weight:900;color:#111;background:linear-gradient(135deg,#e7c46e,#ad7c26);box-shadow:0 10px 34px rgba(201,154,61,.18)}
+.portfolio-category-head b,.bim-case-group-head b{display:block;font-size:1.28rem;color:#fff;letter-spacing:-.01em}
+.portfolio-category-head p,.bim-case-group-head p{margin:6px 0 0;max-width:850px;color:#aaa397;font-size:.88rem;line-height:1.7}
+.portfolio-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portfolio-category-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px}
+.portfolio-project-card{position:relative;display:flex;min-height:460px;border-radius:24px;overflow:hidden;border:1px solid rgba(203,161,76,.18);background:#11110f;isolation:isolate;box-shadow:0 18px 45px rgba(0,0,0,.2);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.portfolio-project-card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 23%,rgba(11,11,10,.2) 47%,rgba(11,11,10,.94) 100%);z-index:1;pointer-events:none}
+.portfolio-project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .4s ease;filter:saturate(.92) contrast(1.03)}
+.portfolio-project-card:hover{transform:translateY(-8px);border-color:rgba(224,183,92,.7);box-shadow:0 28px 70px rgba(0,0,0,.35),0 0 0 1px rgba(224,183,92,.08)}
+.portfolio-project-card:hover img{transform:scale(1.055);filter:saturate(1.04) contrast(1.05)}
+.portfolio-card-copy{position:relative;z-index:2;align-self:flex-end;padding:28px;width:100%}
+.portfolio-card-copy small{display:block;color:#d6ab53;font-weight:800;font-size:.65rem;letter-spacing:.1em;margin-bottom:8px}
+.portfolio-card-copy h3{font-size:1.45rem;line-height:1.08;color:#fff;margin:0 0 10px}
+.portfolio-card-copy p{margin:0 0 18px;color:#d1c9bb;font-size:.84rem;line-height:1.65;max-width:42ch}
+.portfolio-card-copy strong{font-size:.7rem;letter-spacing:.12em;color:#e2bd6d}
+.is-ar .portfolio-card-copy{text-align:right}
+.is-ar .portfolio-category-head,.is-ar .bim-case-group-head{grid-template-columns:minmax(0,1fr) 62px}
+.is-ar .portfolio-category-head>span,.is-ar .bim-case-group-head>span{grid-column:2;grid-row:1}
+.is-ar .portfolio-category-head>div,.is-ar .bim-case-group-head>div{grid-column:1;grid-row:1}
+
+.bim-portfolio-complete{position:relative;overflow:hidden}
+.bim-case-group{padding:34px 0 42px;border-top:1px solid rgba(255,255,255,.08)}
+.bim-case-group:first-of-type{border-top:0}
+.premium-bim-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.premium-bim-grid.single-feature{grid-template-columns:minmax(0,1fr);max-width:980px}
+.bim-project-card.premium{border-radius:24px;overflow:hidden;border:1px solid rgba(203,161,76,.2);background:linear-gradient(160deg,#171714,#0d0d0c);box-shadow:0 20px 50px rgba(0,0,0,.24);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.bim-project-card.premium:hover{transform:translateY(-7px);border-color:rgba(91,192,128,.72);box-shadow:0 28px 70px rgba(0,0,0,.34),0 0 36px rgba(61,177,111,.08)}
+.bim-project-card.premium img{height:300px;object-fit:cover;filter:saturate(.95) contrast(1.04);transition:transform .65s ease,filter .35s ease}
+.bim-project-card.premium:hover img{transform:scale(1.035);filter:saturate(1.06) contrast(1.06)}
+.bim-project-card.premium .copy{padding:24px 24px 26px}
+.bim-project-card.premium .copy small{color:#59bd80;font-weight:850;letter-spacing:.08em}
+.bim-project-card.premium .copy b{font-size:1.35rem;color:#fff;margin-top:5px}
+.bim-project-card.premium .copy p{color:#c7c0b2;line-height:1.65;min-height:72px}
+.bim-project-card.premium .copy>strong{display:inline-flex;margin-top:14px;color:#d8b15d;font-size:.72rem;letter-spacing:.1em}
+.bim-chip-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.bim-chip-row span{border:1px solid rgba(86,194,127,.24);background:rgba(70,177,111,.08);color:#83d3a0;border-radius:999px;padding:6px 9px;font-size:.59rem;font-weight:800;letter-spacing:.06em}
+
+/* English footer: protect brand block from the Advisory column and keep copy readable. */
+@media(min-width:1101px){
+  body:not(.is-ar) .site-footer .footer-grid{grid-template-columns:minmax(380px,1.55fr) minmax(150px,.65fr) minmax(165px,.72fr) minmax(330px,1.35fr)!important;gap:38px!important;align-items:start}
+  body:not(.is-ar) .site-footer .footer-grid>div:first-child{min-width:0;padding-right:8px}
+  body:not(.is-ar) .site-footer .footer-brand-block{display:grid!important;grid-template-columns:160px minmax(0,1fr)!important;gap:18px!important;align-items:center!important;max-width:420px!important;min-width:0!important}
+  body:not(.is-ar) .site-footer .footer-logo{width:160px!important;max-width:160px!important;height:auto!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline{display:flex!important;flex-direction:column!important;gap:5px!important;max-width:none!important;min-width:0!important;overflow:visible!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline b{font-size:.73rem!important;line-height:1.25!important;letter-spacing:.08em!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline span{font-size:.61rem!important;line-height:1.45!important;letter-spacing:.02em!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-tag{max-width:380px;line-height:1.65;margin-top:18px}
+  body:not(.is-ar) .site-footer .footer-col{min-width:0}
+}
+
+@media(max-width:1100px){
+  .portfolio-category-grid,.portfolio-category-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portfolio-category-rail{position:static}
+  .premium-bim-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .portfolio-category-grid,.portfolio-category-grid.compact{grid-template-columns:1fr}
+  .portfolio-project-card{min-height:420px}
+  .portfolio-category-head,.bim-case-group-head,.is-ar .portfolio-category-head,.is-ar .bim-case-group-head{grid-template-columns:48px minmax(0,1fr);gap:12px}
+  .is-ar .portfolio-category-head>span,.is-ar .bim-case-group-head>span{grid-column:1;grid-row:1}
+  .is-ar .portfolio-category-head>div,.is-ar .bim-case-group-head>div{grid-column:2;grid-row:1}
+  .portfolio-category-head>span,.bim-case-group-head>span{width:44px;height:44px;border-radius:13px}
+  .portfolio-category-rail{gap:7px;padding:8px}
+  .portfolio-category-rail a{font-size:.66rem;padding:9px 11px}
+  .bim-project-card.premium img{height:240px}
+}
