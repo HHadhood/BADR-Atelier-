@@ -1,9 +1,16 @@
-BADR Atelier — V32 FINAL
+BADR ATELIER — V35 BRAND REPOSITIONED EDITION
 
-هذه النسخة جاهزة للنشر على GitHub Pages.
-بعد فك الضغط:
-1) افتح المجلد الناتج.
-2) ارفع محتويات المجلد نفسه إلى جذر مستودع GitHub الذي يستضيف الموقع.
-3) يجب أن يكون index.html في جذر المستودع.
-4) ارفع مجلد assets بالكامل بنفس هيكله.
-5) بعد الرفع، اعمل Refresh قوي للمتصفح (Ctrl+F5) لأن النسخة تستخدم cache version v=32.
+هذه النسخة جاهزة للرفع على GitHub Pages.
+
+طريقة الرفع:
+1) فك ضغط ملف ZIP.
+2) افتح مجلد BADR_Atelier_GitHub_Pages_V35.
+3) ارفع محتويات المجلد إلى جذر Repository الخاص بالموقع.
+4) استبدل الملفات القديمة عند الطلب.
+5) لا ترفع المجلد كطبقة إضافية داخل Repository؛ ارفع index.html وassets وباقي الملفات مباشرة إلى الجذر.
+6) بعد الرفع انتظر GitHub Pages من دقيقة إلى عدة دقائق ثم نفّذ Hard Refresh للمتصفح.
+
+أهم الملفات المرجعية داخل النسخة:
+- V35_CHANGELOG_AR.md
+- V35_IMPLEMENTATION_QA.md
+- V35_BRAND_COPY_SOURCE.md

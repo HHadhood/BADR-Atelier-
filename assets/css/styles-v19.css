@@ -1928,3 +1928,16 @@ body[data-page="developers"] .metric-bars .bar-row span{font-weight:900!importan
     .site-header .brand-tagline,.is-ar .site-header .brand-tagline{display:none!important}
   }
 }
+
+
+/* ===== V36 green risk-capital accents ===== */
+:root{--project-green:#35c878;--project-green-deep:#168a4d;--project-green-soft:#a8f0c8}
+.capital-risk-section{position:relative;overflow:hidden}
+.capital-risk-section:before{content:'';position:absolute;right:-10%;top:-30%;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(53,200,120,.10),transparent 68%);pointer-events:none}
+.risk-capital-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+.risk-capital-grid article{position:relative;padding:24px;border:1px solid rgba(53,200,120,.18);border-radius:24px;background:linear-gradient(180deg,#fffefb,#f4f3ed);box-shadow:0 16px 38px rgba(20,60,38,.055);transition:.25s transform ease,.25s border-color ease,.25s box-shadow ease;overflow:hidden}
+.risk-capital-grid article:hover{transform:translateY(-6px);border-color:rgba(53,200,120,.42);box-shadow:0 22px 48px rgba(20,60,38,.11)}
+.risk-capital-grid article>span{display:inline-grid;place-items:center;min-width:42px;height:42px;padding:0 10px;border-radius:14px;background:linear-gradient(135deg,var(--project-green-deep),var(--project-green));color:#fff;font-weight:900;font-size:.75rem;box-shadow:0 9px 20px rgba(53,200,120,.22)}
+.risk-capital-grid b{display:block;margin:16px 0 8px;font-size:1.03rem;color:#17211b}
+.risk-capital-grid p{margin:0;color:#626b65;line-height:1.72;font-size:.9rem}
+@media(max-width:1050px){.risk-capital-grid{grid-template-columns:1fr}}
