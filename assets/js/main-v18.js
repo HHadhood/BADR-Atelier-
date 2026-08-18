@@ -16,7 +16,7 @@
     document.querySelectorAll('[data-location-sa]').forEach(el=>el.textContent=lang==='ar'?cfg.locationSaudiAr:cfg.locationSaudiEn);
   }
   function navLink(key,href){const active=page===key?' is-active':'';return `<a class="nav-link${active}" href="${href}"><span data-en="${labels.en[key]}" data-ar="${labels.ar[key]}">${labels.en[key]}</span></a>`}
-  function renderHeader(){const mount=document.getElementById('site-header');if(!mount)return;mount.innerHTML=`<header class="site-header" data-header><div class="shell nav-shell"><div class="brand-block"><a class="brand" href="index.html" aria-label="BADR Atelier home"><img src="assets/img/badr-logo.png" alt="BADR Atelier"/></a><div class="brand-tagline"><b data-en="Development Strategy" data-ar="استراتيجية التطوير">Development Strategy</b><span data-en="Architecture • Engineering • BIM" data-ar="عمارة • هندسة • BIM">Architecture • Engineering • BIM</span></div></div><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" data-menu-toggle><span></span><span></span></button><nav class="main-nav" data-menu>${navLink('home','index.html')}${navLink('developers','developers.html')}${navLink('investors','investors.html')}${navLink('projects','projects.html')}${navLink('bim','bim-digital.html')}${navLink('services','services.html')}${navLink('about','about.html')}${navLink('team','team.html')}${navLink('contact','contact.html')}</nav><div class="nav-actions"><button class="lang-toggle" type="button" data-lang-toggle>AR</button><a class="button button-small button-dark" href="contact.html"><span data-en="${labels.en.enquire}" data-ar="${labels.ar.enquire}">${labels.en.enquire}</span></a></div></div><div class="scroll-progress"><i data-scroll-progress></i></div></header>`}
+  function renderHeader(){const mount=document.getElementById('site-header');if(!mount)return;mount.innerHTML=`<header class="site-header" data-header><div class="shell nav-shell"><div class="brand-block"><a class="brand" href="index.html" aria-label="BADR Atelier home"><img src="assets/img/badr-logo.png" alt="BADR Atelier"/></a><div class="brand-tagline"><b data-en="Strategic Development Partner" data-ar="شريكك الاستراتيجي في التطوير">Strategic Development Partner</b><span data-en="Strategy • Architecture • Engineering • BIM" data-ar="استراتيجية • عمارة • هندسة • BIM">Strategy • Architecture • Engineering • BIM</span></div></div><button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" data-menu-toggle><span></span><span></span></button><nav class="main-nav" data-menu>${navLink('home','index.html')}${navLink('developers','developers.html')}${navLink('investors','investors.html')}${navLink('projects','projects.html')}${navLink('bim','bim-digital.html')}${navLink('services','services.html')}${navLink('about','about.html')}${navLink('team','team.html')}${navLink('contact','contact.html')}</nav><div class="nav-actions"><button class="lang-toggle" type="button" data-lang-toggle>AR</button><a class="button button-small button-dark" href="contact.html"><span data-en="${labels.en.enquire}" data-ar="${labels.ar.enquire}">${labels.en.enquire}</span></a></div></div><div class="scroll-progress"><i data-scroll-progress></i></div></header>`}
   function iconSvg(name){
     const icons={
       linkedin:`<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.1 3.5A2.1 2.1 0 1 1 5.1 7.7 2.1 2.1 0 0 1 5.1 3.5ZM3.3 9h3.6v11.5H3.3V9Zm5.8 0h3.4v1.6h.05c.47-.9 1.63-1.95 3.35-1.95 3.58 0 4.24 2.35 4.24 5.4v6.45h-3.58v-5.72c0-1.36-.03-3.12-1.9-3.12-1.9 0-2.2 1.49-2.2 3.02v5.82H9.1V9Z"/></svg>`,
@@ -45,7 +45,7 @@
     const mount=document.getElementById('site-footer');if(!mount)return;
     const egWa=`https://wa.me/${(cfg.phoneEgypt||'').replace(/\D/g,'')}`;
     const saWa=`https://wa.me/${(cfg.phoneSaudi||'').replace(/\D/g,'')}`;
-    mount.innerHTML=`<footer class="site-footer"><div class="shell footer-grid"><div><div class="brand-block footer-brand-block"><img class="footer-logo" src="assets/img/badr-logo.png" alt="BADR Atelier"/><div class="brand-tagline"><b data-en="Development Intelligence Partner" data-ar="شريك ذكاء تطوير">Development Intelligence Partner</b><span style="color:#aaa397" data-en="Strategy • Architecture • Engineering • BIM" data-ar="استراتيجية التطوير • العمارة • الهندسة • BIM">Strategy • Architecture • Engineering • BIM</span></div></div><p class="footer-tag" data-en="Read the Opportunity. Shape the Development. Protect the Value." data-ar="نقرأ الفرصة. نصوغ التطوير. نحمي القيمة.">Read the Opportunity. Shape the Development. Protect the Value.</p><div data-social-links style="margin-top:18px"></div></div><div class="footer-col"><strong data-en="Advisory" data-ar="الاستشارات">Advisory</strong><a href="developers.html" data-en="Development advisory" data-ar="استشارات التطوير">Development advisory</a><a href="investors.html" data-en="Investor dashboard" data-ar="لوحة المستثمر">Investor dashboard</a><a href="project-al-rehab.html" data-en="Development case study" data-ar="دراسة تطوير">Development case study</a></div><div class="footer-col"><strong data-en="Work" data-ar="الأعمال">Work</strong><a href="projects.html" data-en="Projects + Capability Proof" data-ar="المشروعات + إثبات القدرات">Projects + Capability Proof</a><a href="services.html" data-en="Services + linked proof" data-ar="الخدمات + المشروعات المرتبطة">Services + linked proof</a><a href="bim-digital.html" data-en="BIM + Digital" data-ar="BIM + رقمنة">BIM + Digital</a><a href="team.html" data-en="Team" data-ar="فريق العمل">Team</a></div><div class="footer-col footer-offices"><strong data-en="Studios + Contact" data-ar="المكاتب + التواصل">Studios + Contact</strong><a href="mailto:${cfg.email}">${cfg.email}</a><a class="phone-wa-link" href="${egWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneEgyptDisplay}</span></a><a class="phone-wa-link" href="${saWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneSaudiDisplay}</span></a><span class="footer-office"><b data-en="Cairo Studio" data-ar="استوديو القاهرة">Cairo Studio</b><em data-location-eg>${cfg.locationEgyptEn}</em></span><span class="footer-office"><b data-en="Jeddah Studio" data-ar="استوديو جدة">Jeddah Studio</b><em data-location-sa>${cfg.locationSaudiEn}</em></span><span>${cfg.website}</span></div></div><div class="shell footer-bottom"><span>© ${cfg.copyrightYear} ${cfg.brand}. <span data-en="${labels.en.rights}" data-ar="${labels.ar.rights}">${labels.en.rights}</span></span><span data-en="Studios in Cairo + Jeddah • Development intelligence across different project contexts" data-ar="مكتبان في القاهرة + جدة • ذكاء تطوير عبر سياقات مشروعات متعددة">Studios in Cairo + Jeddah • Development intelligence across different project contexts</span></div></footer><a class="floating-whatsapp" href="${saWa}" target="_blank" rel="noopener" aria-label="WhatsApp BADR Atelier"><span class="floating-wa-icon">${iconSvg('whatsapp')}</span></a>`;
+    mount.innerHTML=`<footer class="site-footer"><div class="shell footer-grid"><div><div class="brand-block footer-brand-block"><img class="footer-logo" src="assets/img/badr-logo.png" alt="BADR Atelier"/><div class="brand-tagline"><b data-en="Strategic Development Partner" data-ar="شريكك الاستراتيجي في التطوير">Strategic Development Partner</b><span style="color:#aaa397" data-en="Strategy • Architecture • Engineering • BIM" data-ar="استراتيجية • عمارة • هندسة • BIM">Strategy • Architecture • Engineering • BIM</span></div></div><p class="footer-tag" data-en="From Vision to Built Value." data-ar="من الرؤية إلى قيمة مبنية.">From Vision to Built Value.</p><div data-social-links style="margin-top:18px"></div></div><div class="footer-col"><strong data-en="Advisory" data-ar="الاستشارات">Advisory</strong><a href="developers.html" data-en="Development advisory" data-ar="استشارات التطوير">Development advisory</a><a href="investors.html" data-en="Investor dashboard" data-ar="لوحة المستثمر">Investor dashboard</a><a href="project-al-rehab.html" data-en="Development case study" data-ar="دراسة تطوير">Development case study</a></div><div class="footer-col"><strong data-en="Work" data-ar="الأعمال">Work</strong><a href="projects.html" data-en="Projects + Capability Proof" data-ar="المشروعات + إثبات القدرات">Projects + Capability Proof</a><a href="services.html" data-en="Services + linked proof" data-ar="الخدمات + المشروعات المرتبطة">Services + linked proof</a><a href="bim-digital.html" data-en="BIM + Digital" data-ar="BIM + رقمنة">BIM + Digital</a><a href="team.html" data-en="Team" data-ar="فريق العمل">Team</a></div><div class="footer-col footer-offices"><strong data-en="Studios + Contact" data-ar="المكاتب + التواصل">Studios + Contact</strong><a href="mailto:${cfg.email}">${cfg.email}</a><a class="phone-wa-link" href="${egWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneEgyptDisplay}</span></a><a class="phone-wa-link" href="${saWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneSaudiDisplay}</span></a><span class="footer-office"><b data-en="Cairo Studio" data-ar="استوديو القاهرة">Cairo Studio</b><em data-location-eg>${cfg.locationEgyptEn}</em></span><span class="footer-office"><b data-en="Jeddah Studio" data-ar="استوديو جدة">Jeddah Studio</b><em data-location-sa>${cfg.locationSaudiEn}</em></span><span>${cfg.website}</span></div></div><div class="shell footer-bottom"><span>© ${cfg.copyrightYear} ${cfg.brand}. <span data-en="${labels.en.rights}" data-ar="${labels.ar.rights}">${labels.en.rights}</span></span><span data-en="Cairo + Jeddah • Strategy, architecture, engineering and BIM around one development decision" data-ar="القاهرة + جدة • استراتيجية وعمارة وهندسة وBIM حول قرار تطوير واحد">Cairo + Jeddah • Strategy, architecture, engineering and BIM around one development decision</span></div></footer><a class="floating-whatsapp" href="${saWa}" target="_blank" rel="noopener" aria-label="WhatsApp BADR Atelier"><span class="floating-wa-icon">${iconSvg('whatsapp')}</span></a>`;
     renderSocials();
   }
   function bindMenu(){const btn=document.querySelector('[data-menu-toggle]'),menu=document.querySelector('[data-menu]');if(!btn||!menu)return;btn.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');btn.setAttribute('aria-expanded',String(open))});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
@@ -61,7 +61,7 @@
     if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     const fine=window.matchMedia('(pointer:fine)').matches;
     if(fine){
-      document.querySelectorAll('.expertise-tab,.eq-card,.developer-section-visual,.case-card,.project-card').forEach(card=>{
+      document.querySelectorAll('.expertise-tab,.eq-card,.developer-section-visual,.case-card,.project-card,.value-card,.hero-media,.bim-home-stage,.global-map-shell').forEach(card=>{
         card.classList.add('premium-tilt');
         card.addEventListener('pointermove',e=>{
           const r=card.getBoundingClientRect();
@@ -153,6 +153,44 @@
       const svg=m.querySelector('.map-overlay');
       const overlay=svg&&svg.querySelector('.map-overlay-layer');
       if(!layer||!svg||!overlay)return; // static SVG remains visible even if enhancement cannot start
+      if(m.dataset.mapMode==='pulse'){
+        m.classList.add('is-pulse-map');
+        const pulseLocations=[
+          {city:'Cairo',ar:'القاهرة',lat:30.0444,lng:31.2357,projects:['Andalus Courtyard Residences','Badr Heights Villas']},
+          {city:'Riyadh',ar:'الرياض',lat:24.7136,lng:46.6753,projects:['Al Noor Grand Mosque','Falcon Arena Concept']},
+          {city:'Jeddah',ar:'جدة',lat:21.5433,lng:39.1728,projects:['Al Rehab Oasis','Jeddah Development Concepts']},
+          {city:'Makkah',ar:'مكة',lat:21.3891,lng:39.8579,projects:['ATHAR Makkah']},
+          {city:'Dubai',ar:'دبي',lat:25.2048,lng:55.2708,projects:['Desert Pearl Residences']},
+          {city:'Doha',ar:'الدوحة',lat:25.2854,lng:51.5310,projects:['Souq Galleria Mall']},
+          {city:'Kuwait City',ar:'مدينة الكويت',lat:29.3759,lng:47.9774,projects:['Wadi Court Mixed-Use']},
+          {city:'Muscat',ar:'مسقط',lat:23.5880,lng:58.3829,projects:['Waterfront Lifestyle Center']},
+          {city:'Toronto',ar:'تورنتو',lat:43.6532,lng:-79.3832,projects:['Maple Courtyard Homes','Crescent Design Hub']},
+          {city:'New Jersey',ar:'نيوجيرسي',lat:40.0583,lng:-74.4057,projects:['Hudson Urban Lofts']}
+        ];
+        const pulseMarkers=pulseLocations.map((c,i)=>{
+          const p=mapXY(c.lng,c.lat);
+          return `<g class="v363-project-dot" data-city-index="${i}" data-x="${p.x}" data-y="${p.y}" transform="translate(${p.x} ${p.y})"><circle class="halo halo-a" r="9"/><circle class="halo halo-b" r="16"/><circle class="core" r="4.5"/></g>`;
+        }).join('');
+        overlay.innerHTML=pulseMarkers;
+        const total=BADR_PROJECT_MAP.countries.reduce((a,c)=>a+c.count,0);
+        const shell=m.closest('.global-map-shell')||m.parentElement;
+        const counter=document.createElement('div');
+        counter.className='v363-map-counter';
+        counter.innerHTML=`<span data-map-count>0</span><div><b data-en="Published Projects" data-ar="مشروعًا منشورًا">Published Projects</b><small data-en="Across multiple markets" data-ar="عبر أسواق متعددة">Across multiple markets</small></div>`;
+        shell.appendChild(counter);
+        setLang(currentLang());
+        const tip=document.createElement('div'); tip.className='v363-map-tooltip'; m.appendChild(tip);
+        const countEl=counter.querySelector('[data-map-count]');
+        let counted=false;
+        const runCount=()=>{if(counted)return;counted=true;const t0=performance.now(),dur=1450;const step=t=>{const k=Math.min(1,(t-t0)/dur);const eased=1-Math.pow(1-k,3);countEl.textContent=Math.round(total*eased);if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)};
+        if('IntersectionObserver' in window){new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting))runCount()},{threshold:.35}).observe(m)}else runCount();
+        const dots=[...overlay.querySelectorAll('.v363-project-dot')];
+        const show=(el)=>{const c=pulseLocations[+el.dataset.cityIndex];tip.innerHTML=`<b>${escapeHtml(currentLang()==='ar'?c.ar:c.city)} <span>· ${c.projects.length}</span></b><small>${c.projects.map(p=>escapeHtml(p)).join(' · ')}</small>`;tip.classList.add('is-visible')};
+        dots.forEach(el=>{el.addEventListener('mouseenter',()=>show(el));el.addEventListener('focus',()=>show(el));el.addEventListener('click',()=>show(el));});
+        m.addEventListener('mouseleave',()=>tip.classList.remove('is-visible'));
+        let hot=0; if(dots.length){dots[0].classList.add('is-hot');setInterval(()=>{dots[hot]?.classList.remove('is-hot');hot=(hot+1)%dots.length;dots[hot]?.classList.add('is-hot')},1350)}
+        return;
+      }
       const countryMarkers=BADR_PROJECT_MAP.countries.map(c=>{
         const p=mapXY(c.lng,c.lat);
         return `<g class="v10-country-marker" data-country="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}" data-count="${c.count}" data-x="${p.x}" data-y="${p.y}" transform="translate(${p.x} ${p.y})"><circle class="pulse" r="31"/><circle r="24"/><text class="label" text-anchor="middle" y="-4">${escapeHtml(c.name)}</text><text class="count" text-anchor="middle" y="14">${c.count}</text></g>`;
@@ -206,6 +244,48 @@
     });
   }
 
+
+
+  function renderMapCountryCards(){
+    document.querySelectorAll('.global-map-shell').forEach(shell=>{
+      if(shell.querySelector('.map-country-rack'))return;
+      const map=shell.querySelector('[data-global-map]');
+      if(!map)return;
+      const rack=document.createElement('div');
+      rack.className='map-country-rack map-country-marquee';
+      rack.setAttribute('aria-label','Project counts by country');
+      const cardMarkup=BADR_PROJECT_MAP.countries.map((c,i)=>`<button class="map-country-card" type="button" data-country-card="${escapeHtml(c.name)}" data-country-index="${i}"><span data-en="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}">${escapeHtml(c.name)}</span><b>${c.count}</b><small data-en="projects" data-ar="مشروعات">projects</small></button>`).join('');
+      rack.innerHTML=`<div class="map-country-track"><div class="map-country-set">${cardMarkup}</div><div class="map-country-set" aria-hidden="true">${cardMarkup}</div></div>`;
+      shell.appendChild(rack);
+      const caption=shell.querySelector('.map-caption');
+      const allCards=[...rack.querySelectorAll('.map-country-card')];
+      const activateCountry=idx=>{
+        allCards.forEach(x=>x.classList.toggle('is-active',+x.dataset.countryIndex===idx));
+        const c=BADR_PROJECT_MAP.countries[idx];
+        if(caption){caption.innerHTML=`<b>${escapeHtml(currentLang()==='ar'?c.ar:c.name)} · ${c.count}</b><br/><span>${currentLang()==='ar'?'مشروعات ممثلة في البورتفوليو الحالي':'projects represented in the current portfolio'}</span>`}
+        const marker=[...map.querySelectorAll('.v10-country-marker')].find(x=>x.dataset.country===c.name);
+        marker?.dispatchEvent(new MouseEvent('click',{bubbles:true}));
+        // Pulse-map pages use city dots rather than country markers. Highlight the matching geography.
+        const cityCountry={
+          'Cairo':'Egypt','Riyadh':'Saudi Arabia','Jeddah':'Saudi Arabia','Makkah':'Saudi Arabia','Dubai':'United Arab Emirates','Doha':'Qatar','Kuwait City':'Kuwait','Muscat':'Oman','Toronto':'Canada','New Jersey':'United States'
+        };
+        const dots=[...map.querySelectorAll('.v363-project-dot')];
+        dots.forEach(dot=>{
+          const city=['Cairo','Riyadh','Jeddah','Makkah','Dubai','Doha','Kuwait City','Muscat','Toronto','New Jersey'][+dot.dataset.cityIndex];
+          dot.classList.toggle('is-country-hot',cityCountry[city]===c.name);
+        });
+      };
+      allCards.forEach(card=>card.addEventListener('click',()=>activateCountry(+card.dataset.countryIndex)));
+      let active=0,paused=false;
+      const cycle=()=>{if(!paused){activateCountry(active);active=(active+1)%BADR_PROJECT_MAP.countries.length}};
+      const timer=setInterval(cycle,2200);cycle();
+      rack.addEventListener('mouseenter',()=>paused=true);
+      rack.addEventListener('mouseleave',()=>paused=false);
+      rack.addEventListener('focusin',()=>paused=true);
+      rack.addEventListener('focusout',()=>paused=false);
+      setLang(currentLang());
+    });
+  }
 
   function bindProjectIntelligence(){
     const journey=document.querySelector('[data-journey]');
@@ -485,11 +565,106 @@ function bindKpiCounters(){
     if('IntersectionObserver' in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){run(e.target);io.unobserve(e.target)}}),{threshold:.45});nodes.forEach(n=>io.observe(n));}else nodes.forEach(run);
   }
 
-  renderHeader();renderFooter();renderSocials();bindMenu();bindHeader();bindLanguage();bindReveal();bindFilters();bindInquiryForm();bindCarousels();bindCounters();bindPremiumDynamics();bindProjectIntelligence();initGlobalMapsV10();
+
+  function bindPortfolioProgressV365(){
+    const widget=document.querySelector('[data-portfolio-progress]');
+    const cards=[...document.querySelectorAll('.portfolio-v363-card')];
+    if(!widget||!cards.length)return;
+    const current=widget.querySelector('[data-portfolio-current]');
+    const total=widget.querySelector('[data-portfolio-total]');
+    total.textContent=String(cards.length).padStart(2,'0');
+    let seen=0;
+    const update=()=>{
+      const n=Math.max(0,Math.min(cards.length,seen));
+      current.textContent=String(n).padStart(2,'0');
+      widget.style.setProperty('--portfolio-progress',`${(n/cards.length)*360}deg`);
+      widget.classList.toggle('is-complete',n===cards.length);
+    };
+    if('IntersectionObserver' in window){
+      const observed=new WeakSet();
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting&&!observed.has(e.target)){observed.add(e.target);seen++;update();io.unobserve(e.target)}
+        });
+      },{threshold:.28,rootMargin:'0px 0px -12% 0px'});
+      cards.forEach(c=>io.observe(c));
+    }else{seen=cards.length;update()}
+    const hero=document.querySelector('.portfolio-v363-hero');
+    const footer=document.querySelector('.site-footer');
+    const vis=()=>{
+      const hy=hero?hero.getBoundingClientRect().bottom:0;
+      const fy=footer?footer.getBoundingClientRect().top:innerHeight+1;
+      widget.classList.toggle('is-visible',hy<innerHeight*.7&&fy>innerHeight*.25);
+    };
+    addEventListener('scroll',vis,{passive:true});vis();update();
+  }
+
+  function protectPortfolioMedia(){
+    const selector='img[src*="/projects-v36-3/"],img[src*="/bim-v365/"]';
+    document.querySelectorAll(selector).forEach(img=>{img.draggable=false;img.setAttribute('data-badr-protected','1')});
+    document.addEventListener('dragstart',e=>{if(e.target?.matches?.(selector))e.preventDefault()});
+    document.addEventListener('contextmenu',e=>{if(e.target?.matches?.(selector))e.preventDefault()});
+  }
+
+  renderHeader();protectPortfolioMedia();renderFooter();renderSocials();bindMenu();bindHeader();bindLanguage();bindReveal();bindFilters();bindInquiryForm();bindCarousels();bindCounters();bindPremiumDynamics();bindProjectIntelligence();initGlobalMapsV10();renderMapCountryCards();bindPortfolioProgressV365();
   bindProofFilters();
   bindLandExplorer();
   bindInvestorCalculator();
   bindKpiCounters();
   initJourneyPremium();
   initHoverCounters();
+})();
+
+/* ===== V36.4 cinematic project gallery ===== */
+(() => {
+  function initProjectPortfolioCinema(){
+    const hero=document.querySelector('.project-v363-hero');
+    if(hero && matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      hero.addEventListener('pointermove',e=>{
+        const r=hero.getBoundingClientRect();
+        const x=((e.clientX-r.left)/r.width-.5)*8;
+        const y=((e.clientY-r.top)/r.height-.5)*6;
+        hero.style.setProperty('--hero-shift-x',`${x.toFixed(2)}px`);
+        hero.style.setProperty('--hero-shift-y',`${y.toFixed(2)}px`);
+      });
+      hero.addEventListener('pointerleave',()=>{
+        hero.style.setProperty('--hero-shift-x','0px');
+        hero.style.setProperty('--hero-shift-y','0px');
+      });
+    }
+
+    const figures=[...document.querySelectorAll('.project-v363-gallery figure')];
+    if(!figures.length)return;
+    const box=document.createElement('div');
+    box.className='project-lightbox';
+    box.setAttribute('aria-hidden','true');
+    box.innerHTML='<div class="project-lightbox-stage"><button class="project-lightbox-close" type="button" aria-label="Close image">×</button><button class="project-lightbox-prev" type="button" aria-label="Previous image">‹</button><img alt=""/><button class="project-lightbox-next" type="button" aria-label="Next image">›</button></div>';
+    document.body.appendChild(box);
+    const img=box.querySelector('img');
+    let index=0;
+    const show=i=>{
+      index=(i+figures.length)%figures.length;
+      const source=figures[index].querySelector('img');
+      if(!source)return;
+      img.src=source.currentSrc||source.src;
+      img.alt=source.alt||'';
+    };
+    const open=i=>{show(i);box.classList.add('is-open');box.setAttribute('aria-hidden','false');document.body.classList.add('project-lightbox-open');};
+    const close=()=>{box.classList.remove('is-open');box.setAttribute('aria-hidden','true');document.body.classList.remove('project-lightbox-open');};
+    figures.forEach((fig,i)=>{
+      fig.addEventListener('click',()=>open(i));
+      fig.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}});
+    });
+    box.querySelector('.project-lightbox-close').addEventListener('click',close);
+    box.querySelector('.project-lightbox-prev').addEventListener('click',e=>{e.stopPropagation();show(index-1)});
+    box.querySelector('.project-lightbox-next').addEventListener('click',e=>{e.stopPropagation();show(index+1)});
+    box.addEventListener('click',e=>{if(e.target===box)close()});
+    document.addEventListener('keydown',e=>{
+      if(!box.classList.contains('is-open'))return;
+      if(e.key==='Escape')close();
+      if(e.key==='ArrowLeft')show(index-1);
+      if(e.key==='ArrowRight')show(index+1);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initProjectPortfolioCinema);else initProjectPortfolioCinema();
 })();
