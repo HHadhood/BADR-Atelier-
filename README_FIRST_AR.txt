@@ -10,3 +10,8 @@ BADR Atelier — V36-6 REBUILT / GitHub Ready
 5) تم رفع Cache Version إلى 36.6.1 لتجنب ظهور CSS/JS قديم.
 
 النسخة تحافظ على جميع صفحات المشاريع وBIM والصور والخرائط والـwatermarks الخاصة بـ V36-6.
+
+V36-7 — Careers Update
+- تمت إضافة صفحة careers.html كبوابة توظيف ومواهب.
+- لا تحتاج الصفحة Backend؛ نموذج التقديم يفتح رسالة بريد إلى info@badratelier.com ليضيف المتقدم CV / Portfolio قبل الإرسال.
+- تم تحديث sitemap.xml والقائمة الرئيسية والفوتر والصفحة الرئيسية وصفحة الفريق.
