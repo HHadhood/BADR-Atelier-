@@ -599,7 +599,6 @@ function bindKpiCounters(){
     addEventListener('scroll',vis,{passive:true});vis();update();
   }
 
-<<<<<<< HEAD
   function protectPortfolioMedia(){
     const selector='img[src*="/projects-v36-3/"],img[src*="/bim-v365/"]';
     document.querySelectorAll(selector).forEach(img=>{img.draggable=false;img.setAttribute('data-badr-protected','1')});
@@ -608,9 +607,6 @@ function bindKpiCounters(){
   }
 
   renderHeader();protectPortfolioMedia();renderFooter();renderSocials();bindMenu();bindHeader();bindLanguage();bindReveal();bindFilters();bindInquiryForm();bindCarousels();bindCounters();bindPremiumDynamics();bindProjectIntelligence();initGlobalMapsV10();renderMapCountryCards();bindPortfolioProgressV365();
-=======
-  renderHeader();renderFooter();renderSocials();bindMenu();bindHeader();bindLanguage();bindReveal();bindFilters();bindInquiryForm();bindCarousels();bindCounters();bindPremiumDynamics();bindProjectIntelligence();initGlobalMapsV10();bindPortfolioProgressV365();
->>>>>>> 3460ac007ad18290adab08d1785557b1eb63137d
   bindProofFilters();
   bindLandExplorer();
   bindInvestorCalculator();

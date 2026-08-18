@@ -3114,7 +3114,6 @@ body[data-page="home"] section[data-reveal],body[data-page="home"] [data-reveal]
 @media(prefers-reduced-motion:reduce){
   .portfolio-v365-atmosphere:after,.portfolio-v365-atmosphere-core i:after,.v363-map-counter:before,.v363-map-counter:after,body[data-page="home"] .hero:before,body[data-page="home"] .hero-media img,body[data-page="home"] .hero-media:after,body[data-page="home"] .capability-strip:after,body[data-page="home"] .cta:before{animation:none!important}
 }
-<<<<<<< HEAD
 
 /* ===== V36.5.1 BIM portfolio + map country cards + desktop horizontal copy ===== */
 :root{--bim-green:#43dc91;--bim-green-soft:rgba(67,220,145,.16);--bim-gold:#d6ad57}
@@ -3234,5 +3233,3 @@ img[data-badr-protected]{-webkit-user-drag:none;user-select:none;-webkit-user-se
 .v363-project-dot:nth-child(2n) .core{animation-delay:-1.1s}.v363-project-dot:nth-child(3n) .core{animation-delay:-2.2s}
 @keyframes mapDotBreath{0%,100%{transform:translate(0,0) scale(1)}40%{transform:translate(1px,-1px) scale(1.1)}70%{transform:translate(-.7px,.8px) scale(.96)}}
 @media(prefers-reduced-motion:reduce){.v363-project-dot .core{animation:none!important}}
-=======
->>>>>>> 3460ac007ad18290adab08d1785557b1eb63137d
