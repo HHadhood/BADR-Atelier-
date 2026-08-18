@@ -45,7 +45,7 @@
     const mount=document.getElementById('site-footer');if(!mount)return;
     const egWa=`https://wa.me/${(cfg.phoneEgypt||'').replace(/\D/g,'')}`;
     const saWa=`https://wa.me/${(cfg.phoneSaudi||'').replace(/\D/g,'')}`;
-    mount.innerHTML=`<footer class="site-footer"><div class="shell footer-grid"><div><div class="brand-block footer-brand-block"><img class="footer-logo" src="assets/img/badr-logo.png" alt="BADR Atelier"/><div class="brand-tagline"><b data-en="Development Intelligence Partner" data-ar="شريك ذكاء تطوير">Development Intelligence Partner</b><span style="color:#aaa397" data-en="Development Strategy • Architecture • Engineering • BIM" data-ar="استراتيجية التطوير • العمارة • الهندسة • BIM">Development Strategy • Architecture • Engineering • BIM</span></div></div><p class="footer-tag" data-en="Read the Opportunity. Shape the Development. Protect the Value." data-ar="نقرأ الفرصة. نصوغ التطوير. نحمي القيمة.">Read the Opportunity. Shape the Development. Protect the Value.</p><div data-social-links style="margin-top:18px"></div></div><div class="footer-col"><strong data-en="Advisory" data-ar="الاستشارات">Advisory</strong><a href="developers.html" data-en="Development advisory" data-ar="استشارات التطوير">Development advisory</a><a href="investors.html" data-en="Investor dashboard" data-ar="لوحة المستثمر">Investor dashboard</a><a href="project-al-rehab.html" data-en="Development case study" data-ar="دراسة تطوير">Development case study</a></div><div class="footer-col"><strong data-en="Work" data-ar="الأعمال">Work</strong><a href="projects.html" data-en="Projects + Capability Proof" data-ar="المشروعات + إثبات القدرات">Projects + Capability Proof</a><a href="services.html" data-en="Services + linked proof" data-ar="الخدمات + المشروعات المرتبطة">Services + linked proof</a><a href="bim-digital.html" data-en="BIM + Digital" data-ar="BIM + رقمنة">BIM + Digital</a><a href="team.html" data-en="Team" data-ar="فريق العمل">Team</a></div><div class="footer-col footer-offices"><strong data-en="Studios + Contact" data-ar="المكاتب + التواصل">Studios + Contact</strong><a href="mailto:${cfg.email}">${cfg.email}</a><a class="phone-wa-link" href="${egWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneEgyptDisplay}</span></a><a class="phone-wa-link" href="${saWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneSaudiDisplay}</span></a><span class="footer-office"><b data-en="Cairo Studio" data-ar="استوديو القاهرة">Cairo Studio</b><em data-location-eg>${cfg.locationEgyptEn}</em></span><span class="footer-office"><b data-en="Jeddah Studio" data-ar="استوديو جدة">Jeddah Studio</b><em data-location-sa>${cfg.locationSaudiEn}</em></span><span>${cfg.website}</span></div></div><div class="shell footer-bottom"><span>© ${cfg.copyrightYear} ${cfg.brand}. <span data-en="${labels.en.rights}" data-ar="${labels.ar.rights}">${labels.en.rights}</span></span><span data-en="Studios in Cairo + Jeddah • Development intelligence across different project contexts" data-ar="مكتبان في القاهرة + جدة • ذكاء تطوير عبر سياقات مشروعات متعددة">Studios in Cairo + Jeddah • Development intelligence across different project contexts</span></div></footer><a class="floating-whatsapp" href="${saWa}" target="_blank" rel="noopener" aria-label="WhatsApp BADR Atelier"><span class="floating-wa-icon">${iconSvg('whatsapp')}</span></a>`;
+    mount.innerHTML=`<footer class="site-footer"><div class="shell footer-grid"><div><div class="brand-block footer-brand-block"><img class="footer-logo" src="assets/img/badr-logo.png" alt="BADR Atelier"/><div class="brand-tagline"><b data-en="Development Intelligence Partner" data-ar="شريك ذكاء تطوير">Development Intelligence Partner</b><span style="color:#aaa397" data-en="Strategy • Architecture • Engineering • BIM" data-ar="استراتيجية التطوير • العمارة • الهندسة • BIM">Strategy • Architecture • Engineering • BIM</span></div></div><p class="footer-tag" data-en="Read the Opportunity. Shape the Development. Protect the Value." data-ar="نقرأ الفرصة. نصوغ التطوير. نحمي القيمة.">Read the Opportunity. Shape the Development. Protect the Value.</p><div data-social-links style="margin-top:18px"></div></div><div class="footer-col"><strong data-en="Advisory" data-ar="الاستشارات">Advisory</strong><a href="developers.html" data-en="Development advisory" data-ar="استشارات التطوير">Development advisory</a><a href="investors.html" data-en="Investor dashboard" data-ar="لوحة المستثمر">Investor dashboard</a><a href="project-al-rehab.html" data-en="Development case study" data-ar="دراسة تطوير">Development case study</a></div><div class="footer-col"><strong data-en="Work" data-ar="الأعمال">Work</strong><a href="projects.html" data-en="Projects + Capability Proof" data-ar="المشروعات + إثبات القدرات">Projects + Capability Proof</a><a href="services.html" data-en="Services + linked proof" data-ar="الخدمات + المشروعات المرتبطة">Services + linked proof</a><a href="bim-digital.html" data-en="BIM + Digital" data-ar="BIM + رقمنة">BIM + Digital</a><a href="team.html" data-en="Team" data-ar="فريق العمل">Team</a></div><div class="footer-col footer-offices"><strong data-en="Studios + Contact" data-ar="المكاتب + التواصل">Studios + Contact</strong><a href="mailto:${cfg.email}">${cfg.email}</a><a class="phone-wa-link" href="${egWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneEgyptDisplay}</span></a><a class="phone-wa-link" href="${saWa}" target="_blank" rel="noopener">${iconSvg('whatsapp')}<span>${cfg.phoneSaudiDisplay}</span></a><span class="footer-office"><b data-en="Cairo Studio" data-ar="استوديو القاهرة">Cairo Studio</b><em data-location-eg>${cfg.locationEgyptEn}</em></span><span class="footer-office"><b data-en="Jeddah Studio" data-ar="استوديو جدة">Jeddah Studio</b><em data-location-sa>${cfg.locationSaudiEn}</em></span><span>${cfg.website}</span></div></div><div class="shell footer-bottom"><span>© ${cfg.copyrightYear} ${cfg.brand}. <span data-en="${labels.en.rights}" data-ar="${labels.ar.rights}">${labels.en.rights}</span></span><span data-en="Studios in Cairo + Jeddah • Development intelligence across different project contexts" data-ar="مكتبان في القاهرة + جدة • ذكاء تطوير عبر سياقات مشروعات متعددة">Studios in Cairo + Jeddah • Development intelligence across different project contexts</span></div></footer><a class="floating-whatsapp" href="${saWa}" target="_blank" rel="noopener" aria-label="WhatsApp BADR Atelier"><span class="floating-wa-icon">${iconSvg('whatsapp')}</span></a>`;
     renderSocials();
   }
   function bindMenu(){const btn=document.querySelector('[data-menu-toggle]'),menu=document.querySelector('[data-menu]');if(!btn||!menu)return;btn.addEventListener('click',()=>{const open=document.body.classList.toggle('menu-open');btn.setAttribute('aria-expanded',String(open))});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu-open')))}
@@ -492,4 +492,58 @@ function bindKpiCounters(){
   bindKpiCounters();
   initJourneyPremium();
   initHoverCounters();
+})();
+
+/* ===== V36.4 cinematic project gallery ===== */
+(() => {
+  function initProjectPortfolioCinema(){
+    const hero=document.querySelector('.project-v363-hero');
+    if(hero && matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      hero.addEventListener('pointermove',e=>{
+        const r=hero.getBoundingClientRect();
+        const x=((e.clientX-r.left)/r.width-.5)*8;
+        const y=((e.clientY-r.top)/r.height-.5)*6;
+        hero.style.setProperty('--hero-shift-x',`${x.toFixed(2)}px`);
+        hero.style.setProperty('--hero-shift-y',`${y.toFixed(2)}px`);
+      });
+      hero.addEventListener('pointerleave',()=>{
+        hero.style.setProperty('--hero-shift-x','0px');
+        hero.style.setProperty('--hero-shift-y','0px');
+      });
+    }
+
+    const figures=[...document.querySelectorAll('.project-v363-gallery figure')];
+    if(!figures.length)return;
+    const box=document.createElement('div');
+    box.className='project-lightbox';
+    box.setAttribute('aria-hidden','true');
+    box.innerHTML='<div class="project-lightbox-stage"><button class="project-lightbox-close" type="button" aria-label="Close image">×</button><button class="project-lightbox-prev" type="button" aria-label="Previous image">‹</button><img alt=""/><button class="project-lightbox-next" type="button" aria-label="Next image">›</button></div>';
+    document.body.appendChild(box);
+    const img=box.querySelector('img');
+    let index=0;
+    const show=i=>{
+      index=(i+figures.length)%figures.length;
+      const source=figures[index].querySelector('img');
+      if(!source)return;
+      img.src=source.currentSrc||source.src;
+      img.alt=source.alt||'';
+    };
+    const open=i=>{show(i);box.classList.add('is-open');box.setAttribute('aria-hidden','false');document.body.classList.add('project-lightbox-open');};
+    const close=()=>{box.classList.remove('is-open');box.setAttribute('aria-hidden','true');document.body.classList.remove('project-lightbox-open');};
+    figures.forEach((fig,i)=>{
+      fig.addEventListener('click',()=>open(i));
+      fig.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i)}});
+    });
+    box.querySelector('.project-lightbox-close').addEventListener('click',close);
+    box.querySelector('.project-lightbox-prev').addEventListener('click',e=>{e.stopPropagation();show(index-1)});
+    box.querySelector('.project-lightbox-next').addEventListener('click',e=>{e.stopPropagation();show(index+1)});
+    box.addEventListener('click',e=>{if(e.target===box)close()});
+    document.addEventListener('keydown',e=>{
+      if(!box.classList.contains('is-open'))return;
+      if(e.key==='Escape')close();
+      if(e.key==='ArrowLeft')show(index-1);
+      if(e.key==='ArrowRight')show(index+1);
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initProjectPortfolioCinema);else initProjectPortfolioCinema();
 })();

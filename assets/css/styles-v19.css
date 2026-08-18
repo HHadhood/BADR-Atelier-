@@ -1941,3 +1941,195 @@ body[data-page="developers"] .metric-bars .bar-row span{font-weight:900!importan
 .risk-capital-grid b{display:block;margin:16px 0 8px;font-size:1.03rem;color:#17211b}
 .risk-capital-grid p{margin:0;color:#626b65;line-height:1.72;font-size:.9rem}
 @media(max-width:1050px){.risk-capital-grid{grid-template-columns:1fr}}
+
+/* ===== V36-1 complete portfolio + BIM grouping + footer QA ===== */
+.architecture-complete{position:relative;overflow:hidden}
+.architecture-complete:before,.bim-portfolio-complete:before{content:'';position:absolute;width:520px;height:520px;border:1px solid rgba(203,161,76,.12);border-radius:50%;right:-240px;top:130px;box-shadow:0 0 140px rgba(203,161,76,.06);pointer-events:none}
+.portfolio-category-rail{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 54px;padding:12px;border:1px solid rgba(203,161,76,.18);border-radius:18px;background:rgba(255,255,255,.025);position:sticky;top:96px;z-index:8;backdrop-filter:blur(14px)}
+.portfolio-category-rail a{padding:11px 15px;border-radius:999px;border:1px solid rgba(203,161,76,.14);font-size:.75rem;font-weight:800;letter-spacing:.03em;color:#d8d1c3;background:rgba(255,255,255,.025);transition:.25s}
+.portfolio-category-rail a:hover{background:#c99a3d;color:#111;transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,154,61,.18)}
+.portfolio-category{padding:38px 0 44px;border-top:1px solid rgba(255,255,255,.08);scroll-margin-top:145px}
+.portfolio-category:first-of-type{border-top:0}
+.portfolio-category-head,.bim-case-group-head{display:grid;grid-template-columns:62px minmax(0,1fr);gap:18px;align-items:start;margin-bottom:24px}
+.portfolio-category-head>span,.bim-case-group-head>span{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-weight:900;color:#111;background:linear-gradient(135deg,#e7c46e,#ad7c26);box-shadow:0 10px 34px rgba(201,154,61,.18)}
+.portfolio-category-head b,.bim-case-group-head b{display:block;font-size:1.28rem;color:#fff;letter-spacing:-.01em}
+.portfolio-category-head p,.bim-case-group-head p{margin:6px 0 0;max-width:850px;color:#aaa397;font-size:.88rem;line-height:1.7}
+.portfolio-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portfolio-category-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px}
+.portfolio-project-card{position:relative;display:flex;min-height:460px;border-radius:24px;overflow:hidden;border:1px solid rgba(203,161,76,.18);background:#11110f;isolation:isolate;box-shadow:0 18px 45px rgba(0,0,0,.2);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.portfolio-project-card:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 23%,rgba(11,11,10,.2) 47%,rgba(11,11,10,.94) 100%);z-index:1;pointer-events:none}
+.portfolio-project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .4s ease;filter:saturate(.92) contrast(1.03)}
+.portfolio-project-card:hover{transform:translateY(-8px);border-color:rgba(224,183,92,.7);box-shadow:0 28px 70px rgba(0,0,0,.35),0 0 0 1px rgba(224,183,92,.08)}
+.portfolio-project-card:hover img{transform:scale(1.055);filter:saturate(1.04) contrast(1.05)}
+.portfolio-card-copy{position:relative;z-index:2;align-self:flex-end;padding:28px;width:100%}
+.portfolio-card-copy small{display:block;color:#d6ab53;font-weight:800;font-size:.65rem;letter-spacing:.1em;margin-bottom:8px}
+.portfolio-card-copy h3{font-size:1.45rem;line-height:1.08;color:#fff;margin:0 0 10px}
+.portfolio-card-copy p{margin:0 0 18px;color:#d1c9bb;font-size:.84rem;line-height:1.65;max-width:42ch}
+.portfolio-card-copy strong{font-size:.7rem;letter-spacing:.12em;color:#e2bd6d}
+.is-ar .portfolio-card-copy{text-align:right}
+.is-ar .portfolio-category-head,.is-ar .bim-case-group-head{grid-template-columns:minmax(0,1fr) 62px}
+.is-ar .portfolio-category-head>span,.is-ar .bim-case-group-head>span{grid-column:2;grid-row:1}
+.is-ar .portfolio-category-head>div,.is-ar .bim-case-group-head>div{grid-column:1;grid-row:1}
+
+.bim-portfolio-complete{position:relative;overflow:hidden}
+.bim-case-group{padding:34px 0 42px;border-top:1px solid rgba(255,255,255,.08)}
+.bim-case-group:first-of-type{border-top:0}
+.premium-bim-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.premium-bim-grid.single-feature{grid-template-columns:minmax(0,1fr);max-width:980px}
+.bim-project-card.premium{border-radius:24px;overflow:hidden;border:1px solid rgba(203,161,76,.2);background:linear-gradient(160deg,#171714,#0d0d0c);box-shadow:0 20px 50px rgba(0,0,0,.24);transition:transform .35s ease,border-color .35s ease,box-shadow .35s ease}
+.bim-project-card.premium:hover{transform:translateY(-7px);border-color:rgba(91,192,128,.72);box-shadow:0 28px 70px rgba(0,0,0,.34),0 0 36px rgba(61,177,111,.08)}
+.bim-project-card.premium img{height:300px;object-fit:cover;filter:saturate(.95) contrast(1.04);transition:transform .65s ease,filter .35s ease}
+.bim-project-card.premium:hover img{transform:scale(1.035);filter:saturate(1.06) contrast(1.06)}
+.bim-project-card.premium .copy{padding:24px 24px 26px}
+.bim-project-card.premium .copy small{color:#59bd80;font-weight:850;letter-spacing:.08em}
+.bim-project-card.premium .copy b{font-size:1.35rem;color:#fff;margin-top:5px}
+.bim-project-card.premium .copy p{color:#c7c0b2;line-height:1.65;min-height:72px}
+.bim-project-card.premium .copy>strong{display:inline-flex;margin-top:14px;color:#d8b15d;font-size:.72rem;letter-spacing:.1em}
+.bim-chip-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.bim-chip-row span{border:1px solid rgba(86,194,127,.24);background:rgba(70,177,111,.08);color:#83d3a0;border-radius:999px;padding:6px 9px;font-size:.59rem;font-weight:800;letter-spacing:.06em}
+
+/* English footer: protect brand block from the Advisory column and keep copy readable. */
+@media(min-width:1101px){
+  body:not(.is-ar) .site-footer .footer-grid{grid-template-columns:minmax(380px,1.55fr) minmax(150px,.65fr) minmax(165px,.72fr) minmax(330px,1.35fr)!important;gap:38px!important;align-items:start}
+  body:not(.is-ar) .site-footer .footer-grid>div:first-child{min-width:0;padding-right:8px}
+  body:not(.is-ar) .site-footer .footer-brand-block{display:grid!important;grid-template-columns:160px minmax(0,1fr)!important;gap:18px!important;align-items:center!important;max-width:420px!important;min-width:0!important}
+  body:not(.is-ar) .site-footer .footer-logo{width:160px!important;max-width:160px!important;height:auto!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline{display:flex!important;flex-direction:column!important;gap:5px!important;max-width:none!important;min-width:0!important;overflow:visible!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline b{font-size:.73rem!important;line-height:1.25!important;letter-spacing:.08em!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline span{font-size:.61rem!important;line-height:1.45!important;letter-spacing:.02em!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-tag{max-width:380px;line-height:1.65;margin-top:18px}
+  body:not(.is-ar) .site-footer .footer-col{min-width:0}
+}
+
+@media(max-width:1100px){
+  .portfolio-category-grid,.portfolio-category-grid.compact{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .portfolio-category-rail{position:static}
+  .premium-bim-grid{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .portfolio-category-grid,.portfolio-category-grid.compact{grid-template-columns:1fr}
+  .portfolio-project-card{min-height:420px}
+  .portfolio-category-head,.bim-case-group-head,.is-ar .portfolio-category-head,.is-ar .bim-case-group-head{grid-template-columns:48px minmax(0,1fr);gap:12px}
+  .is-ar .portfolio-category-head>span,.is-ar .bim-case-group-head>span{grid-column:1;grid-row:1}
+  .is-ar .portfolio-category-head>div,.is-ar .bim-case-group-head>div{grid-column:2;grid-row:1}
+  .portfolio-category-head>span,.bim-case-group-head>span{width:44px;height:44px;border-radius:13px}
+  .portfolio-category-rail{gap:7px;padding:8px}
+  .portfolio-category-rail a{font-size:.66rem;padding:9px 11px}
+  .bim-project-card.premium img{height:240px}
+}
+
+/* ===== V36.2 — One footer system across every page ===== */
+.site-footer{
+  background:#0d0e0c!important;
+  color:#eae5da!important;
+  padding:58px 0 22px!important;
+  border-top:1px solid rgba(202,162,79,.16)!important;
+}
+.site-footer .footer-grid{
+  display:grid!important;
+  grid-template-columns:minmax(320px,1.34fr) minmax(150px,.72fr) minmax(175px,.82fr) minmax(285px,1.2fr)!important;
+  gap:42px!important;
+  align-items:start!important;
+  padding-bottom:42px!important;
+}
+.site-footer .footer-grid>div{min-width:0!important}
+.site-footer .footer-brand-block{
+  display:grid!important;
+  grid-template-columns:168px minmax(0,1fr)!important;
+  gap:18px!important;
+  align-items:center!important;
+  width:100%!important;
+  max-width:430px!important;
+  min-width:0!important;
+}
+.site-footer .footer-logo{width:168px!important;max-width:168px!important;height:auto!important;object-fit:contain!important}
+.site-footer .footer-brand-block .brand-tagline{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:5px!important;
+  min-width:0!important;
+  max-width:none!important;
+  overflow:visible!important;
+  white-space:normal!important;
+}
+.site-footer .footer-brand-block .brand-tagline b{
+  font-size:.72rem!important;
+  line-height:1.3!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  color:#c9aa65!important;
+  white-space:normal!important;
+}
+.site-footer .footer-brand-block .brand-tagline span{
+  font-size:.62rem!important;
+  line-height:1.5!important;
+  letter-spacing:.01em!important;
+  color:#aaa397!important;
+  white-space:normal!important;
+}
+.site-footer .footer-tag{max-width:390px!important;font-size:.68rem!important;line-height:1.7!important;margin-top:16px!important;color:#928b7e!important}
+.site-footer .footer-col{display:flex!important;flex-direction:column!important;gap:9px!important;min-width:0!important}
+.site-footer .footer-col strong{font-size:.7rem!important;color:#c1a96f!important;text-transform:uppercase!important;letter-spacing:.09em!important;margin-bottom:7px!important}
+.site-footer .footer-col a,.site-footer .footer-col span{font-size:.76rem!important;line-height:1.55!important;color:#aaa397!important;overflow-wrap:anywhere!important}
+.site-footer .footer-office{display:block!important;border:1px solid rgba(202,162,79,.17)!important;border-radius:12px!important;padding:10px 12px!important;margin-top:5px!important;background:rgba(255,255,255,.015)!important}
+.site-footer .footer-office b{display:block!important;font-style:normal!important;color:#d6b45f!important;font-size:.68rem!important;margin-bottom:3px!important}
+.site-footer .footer-office em{display:block!important;font-style:normal!important;color:#aaa397!important;font-size:.67rem!important;line-height:1.55!important}
+.site-footer .footer-bottom{border-top:1px solid rgba(255,255,255,.09)!important;padding-top:17px!important;display:flex!important;justify-content:space-between!important;gap:24px!important;color:#736e65!important;font-size:.64rem!important}
+body.is-ar .site-footer .footer-grid{direction:rtl!important}
+body.is-ar .site-footer .footer-brand-block{grid-template-columns:168px minmax(0,1fr)!important;direction:rtl!important}
+body.is-ar .site-footer .footer-brand-block .brand-tagline{text-align:right!important}
+body.is-ar .site-footer .footer-col{text-align:right!important}
+body:not(.is-ar) .site-footer .footer-col{text-align:left!important}
+@media(max-width:1180px){
+  .site-footer .footer-grid{grid-template-columns:1.3fr 1fr 1fr!important;gap:30px!important}
+  .site-footer .footer-grid>div:first-child{grid-column:1/-1!important}
+  .site-footer .footer-brand-block{max-width:440px!important}
+}
+@media(max-width:760px){
+  .site-footer .footer-grid{grid-template-columns:1fr 1fr!important;gap:28px 24px!important}
+  .site-footer .footer-grid>div:first-child{grid-column:1/-1!important}
+  .site-footer .footer-brand-block{grid-template-columns:145px minmax(0,1fr)!important;gap:14px!important}
+  body.is-ar .site-footer .footer-brand-block{grid-template-columns:145px minmax(0,1fr)!important}
+  .site-footer .footer-logo{width:145px!important;max-width:145px!important}
+  .site-footer .footer-bottom{flex-direction:column!important;gap:8px!important}
+}
+@media(max-width:520px){
+  .site-footer .footer-grid{grid-template-columns:1fr!important}
+  .site-footer .footer-grid>div:first-child{grid-column:auto!important}
+  .site-footer .footer-brand-block,body.is-ar .site-footer .footer-brand-block{grid-template-columns:132px minmax(0,1fr)!important}
+  .site-footer .footer-logo{width:132px!important;max-width:132px!important}
+}
+
+/* V36.2 — BIM source-count strip and 3-case source batches */
+.bim-source-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:34px 0 52px}
+.bim-source-counts article{min-height:132px;border:1px solid rgba(202,162,79,.24);border-radius:20px;padding:20px;background:linear-gradient(145deg,rgba(255,255,255,.035),rgba(202,162,79,.035));display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.bim-source-counts article:after{content:'';position:absolute;width:110px;height:110px;border-radius:50%;right:-36px;top:-45px;border:1px solid rgba(90,199,124,.28);box-shadow:0 0 35px rgba(90,199,124,.09)}
+.bim-source-counts small{font-size:.66rem;letter-spacing:.13em;color:#c5a960;font-weight:800}
+.bim-source-counts strong{font-size:2.05rem;line-height:1.05;color:#62c985;margin:9px 0 7px;font-weight:900}
+.bim-source-counts span{font-size:.74rem;color:#aaa397;line-height:1.5}
+.premium-bim-grid.three-up{grid-template-columns:repeat(3,minmax(0,1fr))}
+.premium-bim-grid.three-up .bim-project-card.premium img{height:270px}
+.source-batch+.source-batch{margin-top:56px}
+@media(max-width:1040px){.premium-bim-grid.three-up{grid-template-columns:1fr 1fr}.bim-source-counts{grid-template-columns:1fr 1fr}.bim-source-counts article:first-child{grid-column:1/-1}}
+@media(max-width:700px){.premium-bim-grid.three-up,.bim-source-counts{grid-template-columns:1fr}.bim-source-counts article:first-child{grid-column:auto}.premium-bim-grid.three-up .bim-project-card.premium img{height:230px}}
+/* V36.2 footer force-unification over historical page overrides */
+@media(min-width:1101px){
+  body:not(.is-ar) .site-footer .footer-grid,
+  body.is-ar .site-footer .footer-grid{grid-template-columns:minmax(320px,1.34fr) minmax(150px,.72fr) minmax(175px,.82fr) minmax(285px,1.2fr)!important;gap:42px!important;align-items:start!important}
+  body:not(.is-ar) .site-footer .footer-grid>div:first-child,
+  body.is-ar .site-footer .footer-grid>div:first-child{min-width:0!important;padding:0!important;grid-column:auto!important}
+  body:not(.is-ar) .site-footer .footer-brand-block,
+  body.is-ar .site-footer .footer-brand-block{display:grid!important;grid-template-columns:168px minmax(0,1fr)!important;gap:18px!important;align-items:center!important;max-width:430px!important;min-width:0!important}
+  body:not(.is-ar) .site-footer .footer-logo,
+  body.is-ar .site-footer .footer-logo{width:168px!important;max-width:168px!important;height:auto!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline,
+  body.is-ar .site-footer .footer-brand-block .brand-tagline{display:flex!important;flex-direction:column!important;gap:5px!important;max-width:none!important;min-width:0!important;overflow:visible!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline b,
+  body.is-ar .site-footer .footer-brand-block .brand-tagline b{font-size:.72rem!important;line-height:1.3!important;letter-spacing:.08em!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-brand-block .brand-tagline span,
+  body.is-ar .site-footer .footer-brand-block .brand-tagline span{font-size:.62rem!important;line-height:1.5!important;letter-spacing:.01em!important;white-space:normal!important}
+  body:not(.is-ar) .site-footer .footer-tag,
+  body.is-ar .site-footer .footer-tag{max-width:390px!important;line-height:1.7!important;margin-top:16px!important}
+  body:not(.is-ar) .site-footer .footer-col,
+  body.is-ar .site-footer .footer-col{min-width:0!important}
+}
