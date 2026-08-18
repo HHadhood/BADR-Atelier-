@@ -252,37 +252,19 @@
       const map=shell.querySelector('[data-global-map]');
       if(!map)return;
       const rack=document.createElement('div');
-      rack.className='map-country-rack map-country-marquee';
+      rack.className='map-country-rack';
       rack.setAttribute('aria-label','Project counts by country');
-      const cardMarkup=BADR_PROJECT_MAP.countries.map((c,i)=>`<button class="map-country-card" type="button" data-country-card="${escapeHtml(c.name)}" data-country-index="${i}"><span data-en="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}">${escapeHtml(c.name)}</span><b>${c.count}</b><small data-en="projects" data-ar="مشروعات">projects</small></button>`).join('');
-      rack.innerHTML=`<div class="map-country-track"><div class="map-country-set">${cardMarkup}</div><div class="map-country-set" aria-hidden="true">${cardMarkup}</div></div>`;
+      rack.innerHTML=BADR_PROJECT_MAP.countries.map((c,i)=>`<button class="map-country-card" type="button" data-country-card="${escapeHtml(c.name)}" data-country-index="${i}"><span data-en="${escapeHtml(c.name)}" data-ar="${escapeHtml(c.ar)}">${escapeHtml(c.name)}</span><b>${c.count}</b><small data-en="projects" data-ar="مشروعات">projects</small></button>`).join('');
       shell.appendChild(rack);
       const caption=shell.querySelector('.map-caption');
-      const allCards=[...rack.querySelectorAll('.map-country-card')];
-      const activateCountry=idx=>{
-        allCards.forEach(x=>x.classList.toggle('is-active',+x.dataset.countryIndex===idx));
-        const c=BADR_PROJECT_MAP.countries[idx];
-        if(caption){caption.innerHTML=`<b>${escapeHtml(currentLang()==='ar'?c.ar:c.name)} · ${c.count}</b><br/><span>${currentLang()==='ar'?'مشروعات ممثلة في البورتفوليو الحالي':'projects represented in the current portfolio'}</span>`}
+      rack.querySelectorAll('.map-country-card').forEach(card=>card.addEventListener('click',()=>{
+        rack.querySelectorAll('.map-country-card').forEach(x=>x.classList.remove('is-active'));
+        card.classList.add('is-active');
+        const c=BADR_PROJECT_MAP.countries[+card.dataset.countryIndex];
         const marker=[...map.querySelectorAll('.v10-country-marker')].find(x=>x.dataset.country===c.name);
         marker?.dispatchEvent(new MouseEvent('click',{bubbles:true}));
-        // Pulse-map pages use city dots rather than country markers. Highlight the matching geography.
-        const cityCountry={
-          'Cairo':'Egypt','Riyadh':'Saudi Arabia','Jeddah':'Saudi Arabia','Makkah':'Saudi Arabia','Dubai':'United Arab Emirates','Doha':'Qatar','Kuwait City':'Kuwait','Muscat':'Oman','Toronto':'Canada','New Jersey':'United States'
-        };
-        const dots=[...map.querySelectorAll('.v363-project-dot')];
-        dots.forEach(dot=>{
-          const city=['Cairo','Riyadh','Jeddah','Makkah','Dubai','Doha','Kuwait City','Muscat','Toronto','New Jersey'][+dot.dataset.cityIndex];
-          dot.classList.toggle('is-country-hot',cityCountry[city]===c.name);
-        });
-      };
-      allCards.forEach(card=>card.addEventListener('click',()=>activateCountry(+card.dataset.countryIndex)));
-      let active=0,paused=false;
-      const cycle=()=>{if(!paused){activateCountry(active);active=(active+1)%BADR_PROJECT_MAP.countries.length}};
-      const timer=setInterval(cycle,2200);cycle();
-      rack.addEventListener('mouseenter',()=>paused=true);
-      rack.addEventListener('mouseleave',()=>paused=false);
-      rack.addEventListener('focusin',()=>paused=true);
-      rack.addEventListener('focusout',()=>paused=false);
+        if(caption){caption.innerHTML=`<b>${escapeHtml(currentLang()==='ar'?c.ar:c.name)} · ${c.count}</b><br/><span>${currentLang()==='ar'?'مشروعات ممثلة في البورتفوليو الحالي':'projects represented in the current portfolio'}</span>`}
+      }));
       setLang(currentLang());
     });
   }
@@ -599,14 +581,7 @@ function bindKpiCounters(){
     addEventListener('scroll',vis,{passive:true});vis();update();
   }
 
-  function protectPortfolioMedia(){
-    const selector='img[src*="/projects-v36-3/"],img[src*="/bim-v365/"]';
-    document.querySelectorAll(selector).forEach(img=>{img.draggable=false;img.setAttribute('data-badr-protected','1')});
-    document.addEventListener('dragstart',e=>{if(e.target?.matches?.(selector))e.preventDefault()});
-    document.addEventListener('contextmenu',e=>{if(e.target?.matches?.(selector))e.preventDefault()});
-  }
-
-  renderHeader();protectPortfolioMedia();renderFooter();renderSocials();bindMenu();bindHeader();bindLanguage();bindReveal();bindFilters();bindInquiryForm();bindCarousels();bindCounters();bindPremiumDynamics();bindProjectIntelligence();initGlobalMapsV10();renderMapCountryCards();bindPortfolioProgressV365();
+  renderHeader();renderFooter();renderSocials();bindMenu();bindHeader();bindLanguage();bindReveal();bindFilters();bindInquiryForm();bindCarousels();bindCounters();bindPremiumDynamics();bindProjectIntelligence();initGlobalMapsV10();renderMapCountryCards();bindPortfolioProgressV365();
   bindProofFilters();
   bindLandExplorer();
   bindInvestorCalculator();
