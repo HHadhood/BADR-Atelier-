@@ -3261,3 +3261,147 @@ img[data-badr-protected]{-webkit-user-drag:none;user-select:none;-webkit-user-se
 .home-career-gateway{position:relative;padding:110px 0;background:#11120f;color:#fff;overflow:hidden}.home-career-gateway::before{content:"";position:absolute;inset:-35% 45% auto -10%;height:460px;background:radial-gradient(circle,rgba(90,219,153,.15),transparent 68%)}.home-career-shell{position:relative;display:grid;grid-template-columns:1.06fr .94fr;gap:64px;align-items:center}.home-career-media{position:relative;height:520px;border-radius:30px;overflow:hidden;border:1px solid rgba(213,170,76,.25);box-shadow:0 34px 85px rgba(0,0,0,.34)}.home-career-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(4,5,4,.62))}.home-career-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s cubic-bezier(.16,1,.3,1)}.home-career-media:hover img{transform:scale(1.045)}.home-career-badge{position:absolute;z-index:2;left:24px;bottom:22px;padding:10px 13px;border-radius:999px;border:1px solid rgba(255,255,255,.2);background:rgba(10,11,9,.72);backdrop-filter:blur(8px);color:#65dea0;font-size:.64rem;letter-spacing:.14em;font-weight:900}.is-ar .home-career-badge{left:auto;right:24px}.home-career-copy h2{font-size:clamp(3rem,4.7vw,6rem);line-height:.94;letter-spacing:-.055em;margin:20px 0 22px;max-width:880px}.home-career-copy p{color:#aaa9a2;line-height:1.8;font-size:1.02rem;max-width:700px}.home-career-copy .button{margin-top:26px}
 @media(max-width:900px){.home-career-shell{grid-template-columns:1fr}.home-career-media{height:420px}.home-career-gateway{padding:80px 0}}@media(max-width:600px){.home-career-media{height:340px}.home-career-copy h2{font-size:clamp(2.8rem,13vw,4.4rem)}}
 .team-final-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+/* =========================================================
+   V36.7.1 — Official BADR Atelier social network system
+   One shared visual language across every page.
+   ========================================================= */
+.footer-social-heading{
+  margin:18px 0 10px;
+  color:#a99f8d;
+  font-size:.62rem;
+  line-height:1.2;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.is-ar .footer-social-heading{
+  letter-spacing:0;
+  text-transform:none;
+  font-size:.72rem;
+}
+.social-links-official{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+}
+.social-links-official .social-link{
+  --social-brand:#caa24f;
+  position:relative;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  isolation:isolate;
+  overflow:visible;
+  color:#d8c28d;
+  background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(202,162,79,.018));
+  border:1px solid rgba(202,162,79,.30);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.018);
+  transform:translateZ(0);
+  transition:transform .28s cubic-bezier(.2,.75,.25,1),border-color .28s ease,color .28s ease,background .28s ease,box-shadow .28s ease;
+}
+.social-links-official .social-link:before{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  z-index:-1;
+  border-radius:inherit;
+  border:1px solid color-mix(in srgb,var(--social-brand) 48%,transparent);
+  opacity:0;
+  transform:scale(.82);
+  transition:.3s cubic-bezier(.2,.75,.25,1);
+  pointer-events:none;
+}
+.social-links-official .social-link:after{
+  content:attr(data-network);
+  position:absolute;
+  left:50%;
+  bottom:calc(100% + 10px);
+  transform:translate(-50%,7px);
+  padding:6px 8px;
+  border-radius:8px;
+  background:#10100e;
+  border:1px solid rgba(202,162,79,.24);
+  color:#f6f1e6;
+  font-size:.56rem;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  opacity:0;
+  visibility:hidden;
+  transition:.22s ease;
+  pointer-events:none;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
+}
+.social-links-official .social-link:hover,
+.social-links-official .social-link:focus-visible{
+  color:var(--social-brand)!important;
+  border-color:color-mix(in srgb,var(--social-brand) 72%,#caa24f 28%);
+  background:color-mix(in srgb,var(--social-brand) 9%,#12110e 91%);
+  transform:translateY(-4px) scale(1.035);
+  box-shadow:0 12px 30px color-mix(in srgb,var(--social-brand) 18%,transparent),inset 0 0 18px color-mix(in srgb,var(--social-brand) 5%,transparent);
+  outline:none;
+}
+.social-links-official .social-link:hover:before,
+.social-links-official .social-link:focus-visible:before{
+  opacity:.8;
+  transform:scale(1);
+}
+.social-links-official .social-link:hover:after,
+.social-links-official .social-link:focus-visible:after{
+  opacity:1;
+  visibility:visible;
+  transform:translate(-50%,0);
+}
+.social-links-official .social-icon,
+.social-links-official .social-icon svg{
+  width:18px;
+  height:18px;
+  display:block;
+}
+.social-links-official .linkedin{--social-brand:#0A66C2}
+.social-links-official .instagram{--social-brand:#E4405F}
+.social-links-official .youtube{--social-brand:#FF0033}
+.social-links-official .facebook{--social-brand:#1877F2}
+.social-links-official .pinterest{--social-brand:#E60023}
+.social-links-official .behance{--social-brand:#1769FF}
+.social-links-official .x{--social-brand:#f3f0e8}
+.social-links-official .whatsapp{--social-brand:#25D366}
+.social-links-official .whatsapp{
+  background:rgba(37,211,102,.12)!important;
+  color:#59df8b!important;
+  border-color:rgba(37,211,102,.34)!important;
+}
+.social-links-official .behance .social-icon svg{width:20px;height:20px}
+
+/* Light-background social placements use the same geometry and behavior. */
+.hero-socials .social-links-official .social-link,
+.contact-socials .social-links-official .social-link{
+  background:rgba(255,255,255,.68);
+  border-color:rgba(117,94,47,.20);
+  color:#3f392f;
+  box-shadow:0 8px 22px rgba(49,39,21,.055);
+}
+.hero-socials .social-links-official .social-link:hover,
+.contact-socials .social-links-official .social-link:hover{
+  color:var(--social-brand)!important;
+  background:#fff;
+  border-color:color-mix(in srgb,var(--social-brand) 55%,rgba(202,162,79,.26));
+}
+
+@media(max-width:720px){
+  .social-links-official{gap:8px}
+  .social-links-official .social-link{width:40px;height:40px}
+  .social-links-official .social-link:after{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .social-links-official .social-link,
+  .social-links-official .social-link:before,
+  .social-links-official .social-link:after{transition:none!important}
+  .social-links-official .social-link:hover{transform:none}
+}

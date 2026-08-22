@@ -17,11 +17,13 @@ window.BADR_CONFIG = {
   locationEn: 'Cairo Studio — Badr City, Cairo, Egypt • Jeddah Studio — Al Rawdah District, Prince Mohammed bin Abdulaziz Street, Jeddah, Kingdom of Saudi Arabia',
   locationAr: 'استوديو القاهرة — مدينة بدر، القاهرة، مصر • استوديو جدة — حي الروضة، شارع الأمير محمد بن عبد العزيز، جدة، المملكة العربية السعودية',
   website: 'www.badratelier.com',
-  instagram: 'https://www.instagram.com/badr.atelier/',
-  linkedin: '',
-  x: '',
-  youtube: '',
-  facebook: '',
+  instagram: 'https://www.instagram.com/badratelier.studio',
+  linkedin: 'https://www.linkedin.com/company/badratelier',
+  x: 'https://x.com/badratelier',
+  youtube: 'https://www.youtube.com/@BADRAtelier',
+  facebook: 'https://www.facebook.com/badratelier',
+  pinterest: 'https://www.pinterest.com/badratelier',
+  behance: 'https://www.behance.net/badratelier',
   formEndpoint: '',
   copyrightYear: '2026'
 };
