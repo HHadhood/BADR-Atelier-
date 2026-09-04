@@ -106,7 +106,7 @@
     ],
     cities:[
       {city:'Riyadh',ar:'الرياض',lat:24.7136,lng:46.6753,projects:[['Al Noor Grand Mosque','project-al-noor.html'],['Falcon Arena Concept','project-falcon-arena.html']]},
-      {city:'Jeddah',ar:'جدة',lat:21.5433,lng:39.1728,projects:[['Al Rehab Oasis','project-al-rehab.html'],['Palm Horizon Compound','project-palm-horizon.html'],['Private Villa & House — Jeddah Reference','project-private-residence.html'],['Pakistan Diplomatic Residential Compound','project-pakistan-diplomatic-compound.html']]},
+      {city:'Jeddah',ar:'جدة',lat:21.5433,lng:39.1728,projects:[['Al Rehab Oasis','project-al-rehab.html'],['Palm Horizon Compound','project-palm-horizon.html'],['Private Villa & House — Jeddah Reference','project-private-residence.html'],['Pakistan Diplomatic Residential Compound','project-pakistan-diplomatic-jeddah.html']]},
       {city:'Makkah',ar:'مكة',lat:21.3891,lng:39.8579,projects:[['ATHAR Makkah','project-athar-makkah.html'],['ATHAR Makkah Vision','project-athar-makkah.html']]},
       {city:'Dubai',ar:'دبي',lat:25.2048,lng:55.2708,projects:[['Desert Pearl Residences','project-desert-pearl.html'],['Crescent Design Hub — Dubai Edition','project-crescent-hub.html'],['Private Villa & House — Dubai Residence','project-private-residence.html']]},
       {city:'Abu Dhabi',ar:'أبوظبي',lat:24.4539,lng:54.3773,projects:[['Waterfront Lifestyle Center — Abu Dhabi Reference','project-waterfront.html'],['Falcon Arena Executive Suite','project-falcon-arena.html']]},

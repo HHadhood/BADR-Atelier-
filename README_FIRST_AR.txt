@@ -1,5 +1,3 @@
-V36-7.2 DIPLOMATIC UPDATE — READY FOR GITHUB PAGES
-
 BADR Atelier — V36-6 REBUILT / GitHub Ready
 
 هذه نسخة إعادة بناء نظيفة من V36-6 مخصصة للرفع على GitHub Pages.
