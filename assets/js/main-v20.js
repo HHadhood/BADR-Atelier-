@@ -757,9 +757,14 @@ function bindKpiCounters(){
     document.addEventListener('contextmenu',e=>{const t=e.target;if(t?.matches?.('img[src*="pakistan-diplomatic-jeddah"],video') && (t.src||'').includes('pakistan-diplomatic-jeddah'))e.preventDefault()});
   }
   function pauseDecorativeVideos(){
-    const vids=[...document.querySelectorAll('.diplomatic-feature-media video,.diplomatic-bim-preview,.diplomatic-bim-link-film video,.diplomatic-bim-film-stage video,.diplomatic-outcome-film video')];
+    const coarse=matchMedia('(pointer:coarse)').matches || innerWidth<820;
+    const selector=coarse
+      ? '.diplomatic-bim-film-stage video,.diplomatic-outcome-film video'
+      : '.diplomatic-feature-media video,.diplomatic-showcase-card video,.diplomatic-hero-cinecard video,.diplomatic-bim-preview,.diplomatic-bim-link-film video,.diplomatic-bim-film-stage video,.diplomatic-outcome-film video';
+    const vids=[...document.querySelectorAll(selector)];
     if(!vids.length||!('IntersectionObserver' in window))return;
-    const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{});}else v.pause();}),{threshold:.12});vids.forEach(v=>io.observe(v));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){const p=v.play();if(p&&p.catch)p.catch(()=>{});}else v.pause();}),{threshold:.12});
+    vids.forEach(v=>io.observe(v));
   }
   function initHoverPlayVideos(){
     const vids=[...document.querySelectorAll('[data-hover-play]')];
@@ -777,6 +782,90 @@ function bindKpiCounters(){
       v.addEventListener('touchstart',play,{passive:true});
     });
   }
-  function init(){initCinema();initDiplomaticNav();initDiplomaticParallax();protectDiplomaticMedia();pauseDecorativeVideos();initHoverPlayVideos();}
+  function initHoverPreviewCards(){
+    const cards=[...document.querySelectorAll('[data-hover-preview-card]')];
+    if(!cards.length)return;
+    const fine=matchMedia('(pointer:fine)').matches;
+    let active=null;
+    const start=card=>{
+      if(active && active!==card) stop(active,false);
+      active=card;
+      card.classList.add('is-previewing');
+      const video=card.querySelector('video');
+      if(video){ video.muted=true; const p=video.play(); if(p&&p.catch)p.catch(()=>{}); }
+    };
+    const stop=(card,clearActive=true)=>{
+      if(!card)return;
+      card.classList.remove('is-previewing');
+      const video=card.querySelector('video');
+      if(video){ video.pause(); try{ video.currentTime=0; }catch(err){} }
+      if(clearActive && active===card) active=null;
+    };
+    cards.forEach(card=>{
+      if(fine){
+        card.addEventListener('mouseenter',()=>start(card));
+        card.addEventListener('mouseleave',()=>stop(card));
+      }
+      card.addEventListener('focusin',()=>start(card));
+      card.addEventListener('focusout',()=>stop(card));
+      card.addEventListener('touchstart',()=>start(card),{passive:true});
+    });
+    if('IntersectionObserver' in window){
+      const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(!e.isIntersecting)stop(e.target,false)}),{threshold:.08});
+      cards.forEach(card=>io.observe(card));
+    }
+  }
+  function initHeroCinematic(){
+    const hero=document.querySelector('[data-hero-cinematic]');
+    if(!hero)return;
+    requestAnimationFrame(()=>hero.classList.add('is-ready'));
+    if(matchMedia('(pointer:fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+      hero.addEventListener('pointermove',e=>{
+        const r=hero.getBoundingClientRect();
+        hero.style.setProperty('--hero-pointer-x',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');
+        hero.style.setProperty('--hero-pointer-y',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');
+      });
+    }
+    const cue=hero.querySelector('.diplomatic-scroll-cue');
+    if(cue){
+      const toggle=()=>cue.style.opacity=scrollY>80?'0':'0.82';
+      addEventListener('scroll',toggle,{passive:true}); toggle();
+    }
+  }
+  function initPageLoader(){
+    if(document.body.dataset.pageLoader!=='cinematic')return;
+    const loader=document.createElement('div');
+    loader.className='badr-page-loader badr-page-loader-luxe';
+    loader.innerHTML=`<div class="badr-page-loader-veil"></div><div class="badr-page-loader-inner"><div class="badr-page-loader-ring"></div><img src="assets/img/badr-logo.png" alt="BADR Atelier"/><div class="badr-page-loader-copy"><small>DIPLOMATIC DIGITAL EXPERIENCE</small><b>Curating the BADR cinematic chapter</b><span>Architecture • Hospitality • Residence • BIM</span></div><div class="badr-page-loader-bars"><span></span><span></span><span></span><span></span></div></div>`;
+    document.body.prepend(loader);
+    requestAnimationFrame(()=>loader.classList.add('is-visible'));
+    let done=false;
+    const finish=()=>{
+      if(done)return; done=true;
+      document.body.classList.add('page-loaded');
+      loader.classList.add('is-out');
+      setTimeout(()=>loader.remove(),1000);
+    };
+    addEventListener('load',()=>setTimeout(finish,320),{once:true});
+    setTimeout(finish,2200);
+  }
+  function initSoftSectionFlow(){
+    const sections=[...document.querySelectorAll('body.diplomatic-cinematic main>section, body.diplomatic-bim-page main>section')];
+    if(!sections.length)return;
+    sections.forEach((sec,i)=>{sec.classList.add('soft-flow-section'); if(i===0)sec.classList.add('is-flow-visible');});
+    if(!('IntersectionObserver' in window))return;
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-flow-visible')}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    sections.forEach(sec=>io.observe(sec));
+  }
+  function initResponsiveVideos(){
+    const compact=matchMedia('(pointer:coarse)').matches || innerWidth<820;
+    if(!compact)return;
+    document.querySelectorAll('.diplomatic-showcase-card video,.diplomatic-feature-media video,.diplomatic-hero-cinecard video,.diplomatic-bim-preview').forEach(v=>{
+      v.removeAttribute('autoplay');
+      v.preload='metadata';
+      v.pause();
+    });
+  }
+  function init(){initPageLoader();initCinema();initDiplomaticNav();initDiplomaticParallax();protectDiplomaticMedia();pauseDecorativeVideos();initHoverPlayVideos();initHoverPreviewCards();initHeroCinematic();initSoftSectionFlow();initResponsiveVideos();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
