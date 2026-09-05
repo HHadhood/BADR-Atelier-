@@ -69,3 +69,20 @@
 .badr-ai-mode{color:#f1d582;background:rgba(217,180,85,.10);border:1px solid rgba(217,180,85,.25)}
 .badr-ai-confidence{color:#bcd8c8;background:rgba(53,183,122,.08);border:1px solid rgba(53,183,122,.18)}
 .badr-ai-bubble-text{white-space:pre-wrap;word-wrap:break-word}
+
+
+/* V36.16 — stable desktop RTL/LTR floating layout */
+/* BADR AI always lives on the RIGHT. Language changes content direction only. */
+.badr-ai-root,.is-ar .badr-ai-root{right:max(18px,env(safe-area-inset-right))!important;left:auto!important;bottom:max(18px,env(safe-area-inset-bottom))!important;direction:ltr}
+.is-ar .badr-ai-root{direction:rtl}
+.badr-ai-panel,.is-ar .badr-ai-panel{right:0!important;left:auto!important;transform-origin:bottom right!important}
+.badr-ai-welcome,.is-ar .badr-ai-welcome{right:0!important;left:auto!important}
+html,body{max-width:100%;overflow-x:clip}
+@media (min-width:681px) and (max-width:1180px){
+  .badr-ai-panel,.is-ar .badr-ai-panel{position:fixed!important;right:14px!important;left:auto!important;bottom:92px!important;width:min(390px,calc(100vw - 28px))!important;max-width:calc(100vw - 28px)!important;height:min(72dvh,680px)!important;transform-origin:bottom right!important}
+}
+@media (max-width:680px){
+  .badr-ai-root,.is-ar .badr-ai-root{right:12px!important;left:auto!important;bottom:14px!important}
+  .badr-ai-panel,.is-ar .badr-ai-panel{position:fixed!important;inset:auto 0 0 0!important;width:100vw!important;max-width:100vw!important;height:min(88dvh,760px)!important;border-radius:28px 28px 0 0!important;transform-origin:bottom center!important}
+  .badr-ai-welcome,.is-ar .badr-ai-welcome{right:0!important;left:auto!important;width:min(292px,calc(100vw - 24px))!important}
+}

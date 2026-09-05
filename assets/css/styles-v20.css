@@ -3731,3 +3731,8 @@ body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero::before{backgrou
 body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero::after{background:radial-gradient(circle at 78% 24%,rgba(0,121,64,.12),transparent 25%),linear-gradient(180deg,rgba(0,0,0,.01) 54%,rgba(0,0,0,.58) 100%)!important}
 body[data-project-theme="pakistan-diplomatic"] main::before{background-image:linear-gradient(180deg,rgba(3,7,4,.42),rgba(3,7,4,.62)),var(--diplomatic-bg)!important;opacity:.72!important;filter:saturate(.95) contrast(1.03)}
 @media(max-width:560px){body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero::before{background-position:62% center!important}}
+
+
+/* V36.16 — fixed floating CTA separation: WhatsApp LEFT / BADR AI RIGHT */
+.floating-whatsapp,.is-ar .floating-whatsapp{left:max(18px,env(safe-area-inset-left))!important;right:auto!important;bottom:max(18px,env(safe-area-inset-bottom))!important;z-index:9700!important}
+@media(max-width:680px){.floating-whatsapp,.is-ar .floating-whatsapp{left:14px!important;right:auto!important;bottom:14px!important}}

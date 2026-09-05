@@ -3429,3 +3429,8 @@ img[data-badr-protected]{-webkit-user-drag:none;user-select:none;-webkit-user-se
 @keyframes diplomaticDrift{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.075) translate3d(-1.2%,.5%,0)}}
 @media(max-width:900px){.diplomatic-hero .shell,.diplomatic-story-grid,.diplomatic-bim-link .panel{grid-template-columns:1fr}.diplomatic-lens-grid{grid-template-columns:1fr 1fr}.diplomatic-video-grid{grid-template-columns:1fr}.diplomatic-video-card.featured{grid-column:auto}.diplomatic-video-card.featured video{aspect-ratio:16/9}.diplomatic-gallery-title{align-items:start;flex-direction:column}}
 @media(max-width:560px){.diplomatic-lens-grid{grid-template-columns:1fr}.diplomatic-hero .shell{padding-top:120px}.diplomatic-story,.diplomatic-lens,.diplomatic-video-section,.diplomatic-gallery-section{padding:70px 0}}
+
+
+/* V36.16 — fixed floating CTA separation: WhatsApp LEFT / BADR AI RIGHT */
+.floating-whatsapp,.is-ar .floating-whatsapp{left:max(18px,env(safe-area-inset-left))!important;right:auto!important;bottom:max(18px,env(safe-area-inset-bottom))!important;z-index:9700!important}
+@media(max-width:680px){.floating-whatsapp,.is-ar .floating-whatsapp{left:14px!important;right:auto!important;bottom:14px!important}}
