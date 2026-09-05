@@ -3723,3 +3723,11 @@ body.diplomatic-cinematic main::before,body.diplomatic-bim-page main::before{opa
 @media(max-width:560px){body.diplomatic-cinematic .diplomatic-hero::before,body.diplomatic-bim-page .diplomatic-hero::before{background-position:64% center!important}.body-copy-muted,.diplomatic-feature-copy p,.diplomatic-portfolio-copy p,.diplomatic-portfolio-card p,.diplomatic-future-grid p{font-size:.92rem}.diplomatic-hero .lead{font-size:1rem}.diplomatic-hero-actions{gap:14px}.diplomatic-hero-actions .diplomatic-text-link{width:100%;justify-content:flex-start}.diplomatic-hero-cinecard{min-height:200px}.diplomatic-meta{padding:16px;border-radius:22px}.diplomatic-portfolio-card{padding:20px;border-radius:24px}.badr-page-loader-luxe .badr-page-loader-inner{min-width:unset;width:min(92vw,480px);padding:28px 20px 24px}.badr-page-loader-luxe .badr-page-loader-ring{width:280px;height:280px}.badr-page-loader-copy b{font-size:1.1rem}.diplomatic-filmstrip{grid-auto-columns:78%}.diplomatic-showcase-card,.diplomatic-feature-media,.diplomatic-hero-cinecard{scroll-margin-top:100px}}
 
 .diplomatic-mini-card,a.diplomatic-portfolio-card,.diplomatic-portfolio-links a{text-decoration:none}
+
+
+/* V36.13.4 — BADR AI stacking + Pakistan diplomatic hero clarity */
+body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero{background:#020402}
+body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero::before{background-image:linear-gradient(90deg,rgba(4,8,7,.56) 0%,rgba(4,8,7,.30) 35%,rgba(4,8,7,.08) 72%,rgba(4,8,7,.04) 100%),linear-gradient(180deg,rgba(1,3,2,.01),rgba(1,3,2,.20)),var(--hero-img)!important;background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;filter:saturate(1.03) contrast(1.04) brightness(.98)}
+body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero::after{background:radial-gradient(circle at 78% 24%,rgba(0,121,64,.12),transparent 25%),linear-gradient(180deg,rgba(0,0,0,.01) 54%,rgba(0,0,0,.58) 100%)!important}
+body[data-project-theme="pakistan-diplomatic"] main::before{background-image:linear-gradient(180deg,rgba(3,7,4,.42),rgba(3,7,4,.62)),var(--diplomatic-bg)!important;opacity:.72!important;filter:saturate(.95) contrast(1.03)}
+@media(max-width:560px){body[data-project-theme="pakistan-diplomatic"] .diplomatic-hero::before{background-position:62% center!important}}
