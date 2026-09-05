@@ -6,7 +6,7 @@ This file is the human-editable master for the public facts BADR AI is allowed t
 BADR Atelier combines Development Strategy, Architecture, Engineering and BIM / Digital Delivery.
 
 ## Indicative pricing
-- Indicative architectural/design service reference: approximately **100 SAR/m² of design area**.
+- Indicative architectural/design service reference: approximately **SAR 60–100/m² for integrated professional scope; design-only is 40% of that fee (SAR 24–40/m²), based on confirmed design area**.
 - This is not a final quotation.
 - Do not confuse land/plot area with built-up or design area.
 - Final proposal depends on scope, typology, size, complexity, deliverables, visualization/BIM requirements, site conditions and client requirements.

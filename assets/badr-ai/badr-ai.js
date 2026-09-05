@@ -3,8 +3,8 @@
   window.__BADR_AI_LOADED = true;
 
   const cfg = window.BADR_AI_CONFIG || {};
-  const sessionKey = 'badr-ai-session-v2';
-  const welcomeKey = 'badr-ai-welcome-shown-v2';
+  const sessionKey = 'badr-ai-session-v2-3';
+  const welcomeKey = 'badr-ai-welcome-shown-v2-3';
   const maxTurns = Number(cfg.maxConversationMessages || 12);
   let busy = false;
   let messages = [];
@@ -62,10 +62,10 @@
 
   function localPreviewAnswer(input, lang){
     const q = input.toLowerCase();
-    if (/100|سعر|تكلف|بكام|cost|price|fee/.test(q)) {
+    if (/سعر|اسعار|تكلف|بكام|cost|price|fee|pricing|دولار|ريال|sar|usd/.test(q)) {
       return lang === 'ar'
-        ? 'مبدئيًا، السعر الاسترشادي لخدمات التصميم لدى BADR هو حوالي 100 ريال/م² من المساحة التصميمية، وليس بالضرورة مساحة الأرض. العرض النهائي يعتمد على نوع المشروع، النطاق، التعقيد والمخرجات المطلوبة. لو تبعت لي المساحة التصميمية أعمل لك تقديرًا مبدئيًا.'
-        : 'As an initial reference, BADR’s indicative design fee is about SAR 100/m² of design area, not necessarily plot area. The final proposal depends on project type, scope, complexity, and deliverables. Share the design area and I can give you a preliminary estimate.';
+        ? 'مرجع BADR الاسترشادي: الأعمال المهنية المتكاملة 60–100 ريال/م² من المساحة التصميمية المؤكدة. التصميم فقط يمثل 40% من أتعاب النطاق المتكامل، أي استرشاديًا 24–40 ريال/م². نعرض الأسعار فقط بالريال السعودي أو الدولار الأمريكي، ولا نحسب على مساحة الأرض تلقائيًا. العرض النهائي يعتمد على نطاق المشروع ومخرجاته وتعقيده.'
+        : 'BADR indicative reference: integrated professional scope SAR 60–100/m² of confirmed design area. Design-only represents 40% of the integrated fee, i.e. an indicative SAR 24–40/m². Pricing is shown only in SAR or USD, and plot area is never used automatically as the pricing basis. Final fees depend on scope, complexity and deliverables.';
     }
     if (/هاني|hani|founder|مؤسس/.test(q)) {
       return lang === 'ar'
