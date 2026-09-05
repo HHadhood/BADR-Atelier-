@@ -869,3 +869,17 @@ function bindKpiCounters(){
   function init(){initPageLoader();initCinema();initDiplomaticNav();initDiplomaticParallax();protectDiplomaticMedia();pauseDecorativeVideos();initHoverPlayVideos();initHoverPreviewCards();initHeroCinematic();initSoftSectionFlow();initResponsiveVideos();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
+
+/* BADR AI V1 bootstrap — loads the branded assistant on every page using main-v20.js. */
+(() => {
+  if (window.__BADR_AI_BOOTSTRAP) return;
+  window.__BADR_AI_BOOTSTRAP = true;
+  const addCss = (href) => { if (document.querySelector(`link[href="${href}"]`)) return; const l=document.createElement('link');l.rel='stylesheet';l.href=href;document.head.appendChild(l); };
+  const addScript = (src) => new Promise((resolve,reject)=>{ if(document.querySelector(`script[src="${src}"]`)){resolve();return;} const s=document.createElement('script');s.src=src;s.defer=true;s.onload=resolve;s.onerror=reject;document.head.appendChild(s); });
+  const boot = async () => {
+    addCss('assets/badr-ai/badr-ai.css?v=1.0.3');
+    try { await addScript('assets/badr-ai/badr-ai-config.js?v=1.0.3'); await addScript('assets/badr-ai/badr-ai.js?v=1.0.3'); }
+    catch(err){ console.warn('[BADR AI] Unable to load assistant UI.', err); }
+  };
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
+})();

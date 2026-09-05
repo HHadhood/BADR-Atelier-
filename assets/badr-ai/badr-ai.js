@@ -1,0 +1,260 @@
+(() => {
+  if (window.__BADR_AI_LOADED) return;
+  window.__BADR_AI_LOADED = true;
+
+  const cfg = window.BADR_AI_CONFIG || {};
+  const sessionKey = 'badr-ai-session-v1';
+  const welcomeKey = 'badr-ai-welcome-shown-v1';
+  const maxTurns = Number(cfg.maxConversationMessages || 12);
+  let busy = false;
+  let messages = [];
+  try { messages = JSON.parse(sessionStorage.getItem(sessionKey) || '[]'); } catch (_) { messages = []; }
+  if (!Array.isArray(messages)) messages = [];
+
+  const isArabicPage = () => document.documentElement.dir === 'rtl' || document.documentElement.lang === 'ar' || document.body.classList.contains('is-ar');
+  const hasArabic = (s) => /[\u0600-\u06FF]/.test(s || '');
+  const langFor = (s='') => hasArabic(s) ? 'ar' : (isArabicPage() ? 'ar' : 'en');
+  const t = (en, ar, lang) => (lang || (isArabicPage() ? 'ar' : 'en')) === 'ar' ? ar : en;
+  const configured = () => typeof cfg.endpoint === 'string' && /^https:\/\//.test(cfg.endpoint) && !cfg.endpoint.includes('YOUR-WORKER-SUBDOMAIN');
+  const safeUrl = (u='') => {
+    try {
+      const url = new URL(u, location.href);
+      return ['http:','https:'].includes(url.protocol) ? url.href : '#';
+    } catch (_) { return '#'; }
+  };
+
+  function pageContext(){
+    const main = document.querySelector('main') || document.body;
+    const h1 = document.querySelector('h1')?.innerText?.trim() || '';
+    const headings = [...document.querySelectorAll('main h2, main h3')].slice(0, 12).map(x => x.innerText.trim()).filter(Boolean);
+    let text = main.innerText || '';
+    text = text.replace(/\s+/g,' ').trim().slice(0, 5200);
+    return {
+      url: location.href,
+      path: location.pathname,
+      title: document.title,
+      description: document.querySelector('meta[name="description"]')?.content || '',
+      h1,
+      headings,
+      visibleText: text,
+      language: isArabicPage() ? 'ar' : 'en'
+    };
+  }
+
+  function pagePrompts(lang){
+    const p = location.pathname.toLowerCase();
+    if (p.includes('bim')) return lang === 'ar'
+      ? ['إيه خدمات BADR في الـ BIM؟','اشرح لي رحلة BIM للمشروع','إزاي BIM يقلل المخاطر؟','عايز أبدأ مشروع BIM']
+      : ['What BIM services does BADR offer?','Explain this BIM journey','How can BIM reduce project risk?','I want to start a BIM project'];
+    if (p.includes('project-pakistan') || p.includes('diplomatic')) return lang === 'ar'
+      ? ['اشرح لي المشروع ده','إيه المميز في التصميم؟','وريني رحلة الـ BIM','إزاي أعمل مشروع مشابه؟']
+      : ['Explain this project','What is special about the design?','Show me the BIM journey','How could I develop something similar?'];
+    if (p.includes('projects')) return lang === 'ar'
+      ? ['وريني مشاريع فلل','إيه المشاريع الدبلوماسية؟','مشروع مشابه لأرضي','إزاي أبدأ مشروع؟']
+      : ['Show me villa projects','Show diplomatic projects','Find a relevant project','How should I start a project?'];
+    if (p.includes('service')) return lang === 'ar'
+      ? ['إيه خدمات BADR؟','إيه الخدمة المناسبة لمشروعي؟','احسب لي تكلفة التصميم','عايز أعرف عن BIM']
+      : ['What does BADR offer?','Which service fits my project?','Estimate my design cost','Tell me about BIM'];
+    return lang === 'ar'
+      ? ['عايز أطور أرض','احسب لي تكلفة التصميم','إيه خدمات BADR؟','وريني المشاريع','عايز أعرف عن الـ BIM']
+      : ['I want to develop a plot','Estimate my design cost','What does BADR offer?','Show me projects','Tell me about BIM'];
+  }
+
+  function localPreviewAnswer(input, lang){
+    const q = input.toLowerCase();
+    if (/100|سعر|تكلف|بكام|cost|price|fee/.test(q)) {
+      return lang === 'ar'
+        ? 'مبدئيًا، السعر الاسترشادي لخدمات التصميم لدى BADR هو حوالي 100 ريال/م² من المساحة التصميمية، وليس بالضرورة مساحة الأرض. العرض النهائي يعتمد على نوع المشروع، النطاق، التعقيد والمخرجات المطلوبة. لو تبعت لي المساحة التصميمية أعمل لك تقديرًا مبدئيًا.'
+        : 'As an initial reference, BADR’s indicative design fee is about SAR 100/m² of design area, not necessarily plot area. The final proposal depends on project type, scope, complexity, and deliverables. Share the design area and I can give you a preliminary estimate.';
+    }
+    if (/هاني|hani|founder|مؤسس/.test(q)) {
+      return lang === 'ar'
+        ? 'د. هاني يوسف هو مؤسس BADR Atelier، ويجمع بين العمارة واستراتيجية التطوير العقاري والـBIM، مع خلفية بحثية في التقنيات الرقمية للبيئات التراثية مثل HBIM وGeoBIM وGIS وLiDAR والتوائم الرقمية.'
+        : 'Dr. Hani Youssef is the founder of BADR Atelier, combining architecture, real-estate development strategy, and BIM, with research experience in digital heritage technologies including HBIM, GeoBIM, GIS, LiDAR, and digital twins.';
+    }
+    if (/bim|ريفيت|revit|نمذج/.test(q)) {
+      return lang === 'ar'
+        ? 'BADR تتعامل مع الـBIM كمنظومة تسليم رقمي تربط التصميم والتنسيق والتنفيذ والمعلومات عبر دورة حياة المشروع. تقدر تفتح صفحة BIM من الموقع، وبعد توصيل الـBackend هقدر أجاوبك بتفصيل أكبر وبناءً على الصفحة الحالية.'
+        : 'BADR approaches BIM as a digital-delivery system connecting design, coordination, construction, and lifecycle information. You can open the BIM page now; once the secure backend is connected, I can answer in more depth using the current page context.';
+    }
+    if (/خدمات|services|offer/.test(q)) {
+      return lang === 'ar'
+        ? 'BADR تجمع بين استراتيجية التطوير، العمارة، الهندسة والـBIM. في الوضع التجريبي أقدر أوصلك للصفحات المناسبة؛ وبعد ربط الـBackend أقدر أشرح النطاقات بالتفصيل من محتوى الموقع نفسه.'
+        : 'BADR combines development strategy, architecture, engineering, and BIM. In preview mode I can route you to the right pages; once the secure backend is connected, I can explain the scope in detail using the website content.';
+    }
+    return lang === 'ar'
+      ? 'واجهة BADR AI جاهزة الآن، لكن الاتصال الآمن بالذكاء الاصطناعي لم يتم تفعيله بعد. بعد نشر الـBackend ووضع رابطه في badr-ai-config.js سأقدر أجاوب على الأسئلة العامة، أفهم الصفحة الحالية، وأستخدم معلومات BADR المعتمدة.'
+      : 'The BADR AI interface is ready, but the secure AI backend is not connected yet. After deploying the backend and adding its URL to badr-ai-config.js, I can answer general questions, understand the current page, and use approved BADR knowledge.';
+  }
+
+  function deterministicActions(input, lang){
+    const q = input.toLowerCase();
+    const out = [];
+    const add = (labelEn,labelAr,url) => out.push({label:lang==='ar'?labelAr:labelEn,url});
+    if (/bim|ريفيت|revit|نمذج/.test(q)) add('Explore BIM','استكشف BIM', cfg.bimUrl || 'bim-digital.html');
+    if (/project|مشروع|فلل|villa|portfolio/.test(q)) add('View Projects','شاهد المشاريع', cfg.projectsUrl || 'projects.html');
+    if (/service|خدمات|خدمة/.test(q)) add('Explore Services','استكشف الخدمات', cfg.servicesUrl || 'services.html');
+    if (/price|cost|سعر|تكلف|بكام|contact|تواصل|ابدأ/.test(q)) add('Contact BADR','تواصل مع BADR', cfg.contactUrl || 'contact.html');
+    return out.slice(0,2);
+  }
+
+  const root = document.createElement('div');
+  root.className = 'badr-ai-root';
+  root.innerHTML = `
+    <div class="badr-ai-welcome" data-badr-ai-welcome><b></b><span></span></div>
+    <section class="badr-ai-panel" data-badr-ai-panel aria-label="BADR AI" aria-hidden="true">
+      <header class="badr-ai-head">
+        <div class="badr-ai-orb badr-ai-head-orb" aria-hidden="true"></div>
+        <div class="badr-ai-head-copy"><b>${cfg.assistantName || 'BADR AI'}</b><small></small></div>
+        <button class="badr-ai-close" type="button" aria-label="Close BADR AI">×</button>
+      </header>
+      <div class="badr-ai-messages" data-badr-ai-messages></div>
+      <footer class="badr-ai-foot">
+        <form class="badr-ai-form" data-badr-ai-form>
+          <textarea class="badr-ai-input" rows="1" maxlength="1200" aria-label="Message BADR AI"></textarea>
+          <button class="badr-ai-send" type="submit" aria-label="Send">↗</button>
+        </form>
+        <div class="badr-ai-note"></div>
+      </footer>
+    </section>
+    <button class="badr-ai-launcher" type="button" aria-expanded="false" aria-label="Open BADR AI">
+      <span class="badr-ai-orb" aria-hidden="true"></span>
+      <span class="badr-ai-launch-copy"><b>BADR AI</b><small></small></span>
+      <i class="badr-ai-status-dot" aria-hidden="true"></i>
+    </button>`;
+  document.body.appendChild(root);
+
+  const panel = root.querySelector('[data-badr-ai-panel]');
+  const launcher = root.querySelector('.badr-ai-launcher');
+  const closeBtn = root.querySelector('.badr-ai-close');
+  const messagesEl = root.querySelector('[data-badr-ai-messages]');
+  const form = root.querySelector('[data-badr-ai-form]');
+  const input = root.querySelector('.badr-ai-input');
+  const sendBtn = root.querySelector('.badr-ai-send');
+  const note = root.querySelector('.badr-ai-note');
+  const headSub = root.querySelector('.badr-ai-head-copy small');
+  const launchSub = root.querySelector('.badr-ai-launch-copy small');
+  const welcome = root.querySelector('[data-badr-ai-welcome]');
+
+  function refreshLanguage(){
+    const lang = isArabicPage() ? 'ar' : 'en';
+    headSub.textContent = lang==='ar' ? (cfg.subtitleAr || 'رفيقك الذكي للتطوير') : (cfg.subtitleEn || 'Your Intelligent Development Companion');
+    launchSub.textContent = lang==='ar' ? 'اسأل عن مشروعك' : 'Ask about your project';
+    input.placeholder = lang==='ar' ? 'اكتب سؤالك…' : 'Ask BADR AI…';
+    note.innerHTML = configured()
+      ? (lang==='ar' ? '<strong>جلسة مؤقتة.</strong> لا نحتفظ بالمحادثة بشكل دائم في هذا الإصدار.' : '<strong>Temporary session.</strong> This version does not permanently store the chat.')
+      : (lang==='ar' ? '<strong>Preview Mode.</strong> فعّل الـBackend ليصبح المساعد حيًا بالكامل.' : '<strong>Preview Mode.</strong> Connect the secure backend to go live.');
+  }
+
+  function introMarkup(lang){
+    const prompts = pagePrompts(lang);
+    return `<div class="badr-ai-intro">
+      ${configured() ? '' : `<div class="badr-ai-preview-tag">${lang==='ar'?'وضع المعاينة':'Preview mode'}</div>`}
+      <h3>${lang==='ar'?'أهلاً بك في BADR 👋':'Welcome to BADR'}</h3>
+      <p>${lang==='ar'?'قلّي فكرتك أو سؤالك، وأنا أساعدك نرتبها من الأرض إلى التصميم والـBIM.':'Tell me what you are planning, and I’ll help you structure it from land and development thinking through architecture and BIM.'}</p>
+      <div class="badr-ai-quick">${prompts.map(p=>`<button type="button" class="badr-ai-chip" data-prompt="${p.replace(/"/g,'&quot;')}">${p}</button>`).join('')}</div>
+    </div>`;
+  }
+
+  function renderInitial(){
+    messagesEl.innerHTML = introMarkup(isArabicPage()?'ar':'en');
+    messages.forEach(m => addBubble(m.role, m.content, m.actions || [], false));
+    bindChips();
+    scrollBottom();
+  }
+
+  function bindChips(){
+    root.querySelectorAll('[data-prompt]').forEach(btn => btn.addEventListener('click', () => {
+      input.value = btn.dataset.prompt || '';
+      sendMessage(input.value);
+    }));
+  }
+
+  function scrollBottom(){ messagesEl.scrollTop = messagesEl.scrollHeight; }
+
+  function addBubble(role, content, actions=[], persist=true){
+    const wrap = document.createElement('div');
+    wrap.className = `badr-ai-message ${role}`;
+    const bubble = document.createElement('div');
+    bubble.className = 'badr-ai-bubble';
+    bubble.textContent = content;
+    if (actions?.length){
+      const row = document.createElement('div');
+      row.className='badr-ai-actions';
+      actions.forEach(a=>{
+        const link=document.createElement('a');
+        link.className='badr-ai-action'; link.href=safeUrl(a.url); link.textContent=`${a.label} ↗`;
+        row.appendChild(link);
+      });
+      bubble.appendChild(row);
+    }
+    wrap.appendChild(bubble); messagesEl.appendChild(wrap);
+    if (persist){
+      messages.push({role,content,actions});
+      messages = messages.slice(-maxTurns);
+      try{sessionStorage.setItem(sessionKey, JSON.stringify(messages));}catch(_){ }
+    }
+    scrollBottom();
+  }
+
+  function addTyping(){
+    const wrap=document.createElement('div');wrap.className='badr-ai-message assistant';wrap.dataset.typing='1';
+    const bubble=document.createElement('div');bubble.className='badr-ai-bubble';bubble.innerHTML='<span class="badr-ai-typing"><i></i><i></i><i></i></span>';
+    wrap.appendChild(bubble);messagesEl.appendChild(wrap);scrollBottom();return wrap;
+  }
+
+  async function askBackend(inputText){
+    const payload = {
+      messages: messages.filter(m=>m.role==='user'||m.role==='assistant').slice(-10).map(({role,content})=>({role,content})),
+      pageContext: pageContext(),
+      sessionId: sessionStorage.getItem('badr-ai-id') || (()=>{const id=(crypto.randomUUID?.()||Math.random().toString(36).slice(2));sessionStorage.setItem('badr-ai-id',id);return id;})()
+    };
+    const res = await fetch(cfg.endpoint, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok) throw new Error(`BADR AI HTTP ${res.status}`);
+    const data = await res.json();
+    if(!data?.reply) throw new Error('BADR AI empty response');
+    return data;
+  }
+
+  async function sendMessage(raw){
+    const text=(raw||'').trim(); if(!text||busy)return;
+    busy=true;sendBtn.disabled=true;input.value='';
+    addBubble('user',text,[]);
+    const lang=langFor(text);const typing=addTyping();
+    try{
+      let data;
+      if(configured()) data=await askBackend(text);
+      else if(cfg.enablePreviewMode!==false) data={reply:localPreviewAnswer(text,lang),actions:deterministicActions(text,lang)};
+      else throw new Error('Backend not configured');
+      typing.remove();
+      addBubble('assistant',data.reply,(data.actions||[]).map(a=>({label:a.label,url:a.url})));
+    }catch(err){
+      typing.remove();
+      addBubble('assistant',lang==='ar'?'واضح إن في مشكلة بسيطة في الاتصال دلوقتي. جرّب مرة تانية، أو تقدر تتواصل مع فريق BADR مباشرة.':'It looks like there is a temporary connection issue. Please try again, or contact the BADR team directly.',[{label:lang==='ar'?'تواصل مع BADR':'Contact BADR',url:cfg.contactUrl||'contact.html'}]);
+      console.warn('[BADR AI]',err);
+    }finally{busy=false;sendBtn.disabled=false;input.focus();}
+  }
+
+  function open(){panel.classList.add('is-open');panel.setAttribute('aria-hidden','false');launcher.setAttribute('aria-expanded','true');welcome.classList.remove('is-visible');setTimeout(()=>input.focus(),200)}
+  function close(){panel.classList.remove('is-open');panel.setAttribute('aria-hidden','true');launcher.setAttribute('aria-expanded','false')}
+  launcher.addEventListener('click',()=>panel.classList.contains('is-open')?close():open());
+  closeBtn.addEventListener('click',close);
+  form.addEventListener('submit',e=>{e.preventDefault();sendMessage(input.value)});
+  input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+  input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,116)+'px'});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel.classList.contains('is-open'))close()});
+
+  new MutationObserver(()=>{refreshLanguage(); if(messages.length===0){messagesEl.innerHTML=introMarkup(isArabicPage()?'ar':'en');bindChips();}}).observe(document.documentElement,{attributes:true,attributeFilter:['dir','lang']});
+  refreshLanguage();renderInitial();
+
+  if(!sessionStorage.getItem(welcomeKey)){
+    setTimeout(()=>{
+      const lang=isArabicPage()?'ar':'en';
+      welcome.querySelector('b').textContent=lang==='ar'?'محتاج رأي في مشروعك؟':'Have a project in mind?';
+      welcome.querySelector('span').textContent=lang==='ar'?'أنا BADR AI. اسألني عن التطوير، التصميم، المشاريع أو الـBIM.':'I’m BADR AI. Ask about development, design, projects, or BIM.';
+      welcome.classList.add('is-visible');
+      sessionStorage.setItem(welcomeKey,'1');
+      setTimeout(()=>welcome.classList.remove('is-visible'),6200);
+    },Number(cfg.launcherDelayMs||2600));
+  }
+})();
