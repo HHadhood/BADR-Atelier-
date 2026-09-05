@@ -94,29 +94,33 @@ html,body{max-width:100%;overflow-x:clip}
 .badr-ai-source:hover{background:rgba(217,180,85,.12);border-color:rgba(229,196,107,.36);color:#f1dfa3}
 
 
-/* V36.20 — English-only floating layout fix for Developers + Investors
+/* V36.21 — English-only floating layout fix for Developers + Investors + Team
    Preserve Arabic exactly as-is.
    EN: WhatsApp = left, BADR AI = right. */
 body:not(.is-ar)[data-page="developers"] .floating-whatsapp,
-body:not(.is-ar)[data-page="investors"] .floating-whatsapp{
+body:not(.is-ar)[data-page="investors"] .floating-whatsapp,
+body:not(.is-ar)[data-page="team"] .floating-whatsapp{
   left:22px!important;
   right:auto!important;
   bottom:22px!important;
 }
 body:not(.is-ar)[data-page="developers"] .badr-ai-root,
-body:not(.is-ar)[data-page="investors"] .badr-ai-root{
+body:not(.is-ar)[data-page="investors"] .badr-ai-root,
+body:not(.is-ar)[data-page="team"] .badr-ai-root{
   right:max(18px,env(safe-area-inset-right))!important;
   left:auto!important;
 }
 @media(max-width:680px){
   body:not(.is-ar)[data-page="developers"] .floating-whatsapp,
-  body:not(.is-ar)[data-page="investors"] .floating-whatsapp{
+  body:not(.is-ar)[data-page="investors"] .floating-whatsapp,
+  body:not(.is-ar)[data-page="team"] .floating-whatsapp{
     left:15px!important;
     right:auto!important;
     bottom:15px!important;
   }
   body:not(.is-ar)[data-page="developers"] .badr-ai-root,
-  body:not(.is-ar)[data-page="investors"] .badr-ai-root{
+  body:not(.is-ar)[data-page="investors"] .badr-ai-root,
+  body:not(.is-ar)[data-page="team"] .badr-ai-root{
     right:12px!important;
     left:auto!important;
     bottom:14px!important;
