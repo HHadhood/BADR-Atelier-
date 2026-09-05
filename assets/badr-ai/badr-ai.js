@@ -3,8 +3,8 @@
   window.__BADR_AI_LOADED = true;
 
   const cfg = window.BADR_AI_CONFIG || {};
-  const sessionKey = 'badr-ai-session-v2-3';
-  const welcomeKey = 'badr-ai-welcome-shown-v2-3';
+  const sessionKey = 'badr-ai-session-v2-4';
+  const welcomeKey = 'badr-ai-welcome-shown-v2-4';
   const maxTurns = Number(cfg.maxConversationMessages || 12);
   let busy = false;
   let messages = [];
@@ -64,8 +64,8 @@
     const q = input.toLowerCase();
     if (/سعر|اسعار|تكلف|بكام|cost|price|fee|pricing|دولار|ريال|sar|usd/.test(q)) {
       return lang === 'ar'
-        ? 'مرجع BADR الاسترشادي: الأعمال المهنية المتكاملة 60–100 ريال/م² من المساحة التصميمية المؤكدة. التصميم فقط يمثل 40% من أتعاب النطاق المتكامل، أي استرشاديًا 24–40 ريال/م². نعرض الأسعار فقط بالريال السعودي أو الدولار الأمريكي، ولا نحسب على مساحة الأرض تلقائيًا. العرض النهائي يعتمد على نطاق المشروع ومخرجاته وتعقيده.'
-        : 'BADR indicative reference: integrated professional scope SAR 60–100/m² of confirmed design area. Design-only represents 40% of the integrated fee, i.e. an indicative SAR 24–40/m². Pricing is shown only in SAR or USD, and plot area is never used automatically as the pricing basis. Final fees depend on scope, complexity and deliverables.';
+        ? 'مرجع BADR الاسترشادي: الأعمال المهنية المتكاملة 60–100 ريال/م² من المساحة التصميمية المؤكدة، والتصميم فقط يمثل 40% من أتعاب النطاق المتكامل، أي استرشاديًا 24–40 ريال/م². أعرض لك التقدير بالريال السعودي ثم ما يقاربه بالدولار، ولا أحسب على مساحة الأرض تلقائيًا. العرض النهائي يعتمد على نطاق المشروع ومخرجاته وتعقيده.'
+        : 'BADR indicative reference: integrated professional scope is SAR 60–100/m² of confirmed design area. Design-only represents 40% of the integrated fee, i.e. SAR 24–40/m². I present the estimate in SAR followed by an approximate USD equivalent, and plot area is never used automatically as the pricing basis. Final fees depend on scope, complexity and deliverables.';
     }
     if (/هاني|hani|founder|مؤسس/.test(q)) {
       return lang === 'ar'
@@ -158,7 +158,7 @@
 
   function renderInitial(){
     messagesEl.innerHTML = introMarkup(isArabicPage()?'ar':'en');
-    messages.forEach(m => addBubble(m.role, m.content, m.actions || [], false, m.meta || null));
+    messages.forEach(m => addBubble(m.role, m.content, m.actions || [], false, m.meta || null, m.sources || []));
     bindChips();
     scrollBottom();
   }
@@ -172,7 +172,7 @@
 
   function scrollBottom(){ messagesEl.scrollTop = messagesEl.scrollHeight; }
 
-  function addBubble(role, content, actions=[], persist=true, meta=null){
+  function addBubble(role, content, actions=[], persist=true, meta=null, sources=[]){
     const wrap = document.createElement('div');
     wrap.className = `badr-ai-message ${role}`;
     const bubble = document.createElement('div');
@@ -194,9 +194,18 @@
       });
       bubble.appendChild(row);
     }
+    if (role==='assistant' && sources?.length){
+      const srcWrap=document.createElement('div'); srcWrap.className='badr-ai-sources';
+      const srcTitle=document.createElement('span'); srcTitle.className='badr-ai-sources-title'; srcTitle.textContent=isArabicPage()?'من موقع BADR':'From BADR website'; srcWrap.appendChild(srcTitle);
+      sources.slice(0,3).forEach(s=>{
+        const link=document.createElement('a'); link.className='badr-ai-source'; link.href=safeUrl(s.url||'#'); link.textContent=s.section||s.title||s.url||'Source';
+        srcWrap.appendChild(link);
+      });
+      bubble.appendChild(srcWrap);
+    }
     wrap.appendChild(bubble); messagesEl.appendChild(wrap);
     if (persist){
-      messages.push({role,content,actions,meta});
+      messages.push({role,content,actions,meta,sources});
       messages = messages.slice(-maxTurns);
       try{sessionStorage.setItem(sessionKey, JSON.stringify(messages));}catch(_){ }
     }
@@ -233,7 +242,7 @@
       else if(cfg.enablePreviewMode!==false) data={reply:localPreviewAnswer(text,lang),actions:deterministicActions(text,lang)};
       else throw new Error('Backend not configured');
       typing.remove();
-      addBubble('assistant',data.reply,(data.actions||[]).map(a=>({label:a.label,url:a.url})),true,{modeLabel:data.modeLabel||'',confidence:data.confidence||''});
+      addBubble('assistant',data.reply,(data.actions||[]).map(a=>({label:a.label,url:a.url})),true,{modeLabel:data.modeLabel||'',confidence:data.confidence||''},data.sources||[]);
     }catch(err){
       typing.remove();
       addBubble('assistant',lang==='ar'?'واضح إن في مشكلة بسيطة في الاتصال دلوقتي. جرّب مرة تانية، أو تقدر تتواصل مع فريق BADR مباشرة.':'It looks like there is a temporary connection issue. Please try again, or contact the BADR team directly.',[{label:lang==='ar'?'تواصل مع BADR':'Contact BADR',url:cfg.contactUrl||'contact.html'}]);

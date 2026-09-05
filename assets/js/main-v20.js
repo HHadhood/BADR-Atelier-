@@ -877,8 +877,8 @@ function bindKpiCounters(){
   const addCss = (href) => { if (document.querySelector(`link[href="${href}"]`)) return; const l=document.createElement('link');l.rel='stylesheet';l.href=href;document.head.appendChild(l); };
   const addScript = (src) => new Promise((resolve,reject)=>{ if(document.querySelector(`script[src="${src}"]`)){resolve();return;} const s=document.createElement('script');s.src=src;s.defer=true;s.onload=resolve;s.onerror=reject;document.head.appendChild(s); });
   const boot = async () => {
-    addCss('assets/badr-ai/badr-ai.css?v=2.3.0');
-    try { await addScript('assets/badr-ai/badr-ai-config.js?v=2.3.0'); await addScript('assets/badr-ai/badr-ai.js?v=2.3.0'); }
+    addCss('assets/badr-ai/badr-ai.css?v=2.4.0');
+    try { await addScript('assets/badr-ai/badr-ai-config.js?v=2.4.0'); await addScript('assets/badr-ai/badr-ai.js?v=2.4.0'); }
     catch(err){ console.warn('[BADR AI] Unable to load assistant UI.', err); }
   };
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true}); else boot();
