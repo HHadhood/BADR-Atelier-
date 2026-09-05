@@ -92,3 +92,33 @@ html,body{max-width:100%;overflow-x:clip}
 .badr-ai-sources-title{font-size:.61rem;color:#8fa097;font-weight:800;letter-spacing:.04em}
 .badr-ai-source{display:inline-flex;align-items:center;border:1px solid rgba(229,196,107,.18);background:rgba(217,180,85,.055);color:#d9c98f;text-decoration:none;border-radius:999px;padding:5px 8px;font-size:.61rem;line-height:1.2;max-width:190px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .badr-ai-source:hover{background:rgba(217,180,85,.12);border-color:rgba(229,196,107,.36);color:#f1dfa3}
+
+
+/* V36.20 — English-only floating layout fix for Developers + Investors
+   Preserve Arabic exactly as-is.
+   EN: WhatsApp = left, BADR AI = right. */
+body:not(.is-ar)[data-page="developers"] .floating-whatsapp,
+body:not(.is-ar)[data-page="investors"] .floating-whatsapp{
+  left:22px!important;
+  right:auto!important;
+  bottom:22px!important;
+}
+body:not(.is-ar)[data-page="developers"] .badr-ai-root,
+body:not(.is-ar)[data-page="investors"] .badr-ai-root{
+  right:max(18px,env(safe-area-inset-right))!important;
+  left:auto!important;
+}
+@media(max-width:680px){
+  body:not(.is-ar)[data-page="developers"] .floating-whatsapp,
+  body:not(.is-ar)[data-page="investors"] .floating-whatsapp{
+    left:15px!important;
+    right:auto!important;
+    bottom:15px!important;
+  }
+  body:not(.is-ar)[data-page="developers"] .badr-ai-root,
+  body:not(.is-ar)[data-page="investors"] .badr-ai-root{
+    right:12px!important;
+    left:auto!important;
+    bottom:14px!important;
+  }
+}
