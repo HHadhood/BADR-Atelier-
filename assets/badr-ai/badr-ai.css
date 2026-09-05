@@ -62,3 +62,10 @@
   .badr-ai-welcome{width:min(310px,calc(100vw - 24px))}
 }
 @media(prefers-reduced-motion:reduce){.badr-ai-launcher,.badr-ai-panel,.badr-ai-welcome,.badr-ai-chip,.badr-ai-typing i{transition:none!important;animation:none!important}}
+
+/* BADR AI V2.1 — Developer Brain metadata */
+.badr-ai-meta-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:0 0 8px}
+.badr-ai-mode,.badr-ai-confidence{display:inline-flex;align-items:center;border-radius:999px;padding:4px 7px;font-size:.58rem;line-height:1.2;font-weight:900;letter-spacing:.04em}
+.badr-ai-mode{color:#f1d582;background:rgba(217,180,85,.10);border:1px solid rgba(217,180,85,.25)}
+.badr-ai-confidence{color:#bcd8c8;background:rgba(53,183,122,.08);border:1px solid rgba(53,183,122,.18)}
+.badr-ai-bubble-text{white-space:pre-wrap;word-wrap:break-word}

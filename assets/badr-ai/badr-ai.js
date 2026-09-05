@@ -3,8 +3,8 @@
   window.__BADR_AI_LOADED = true;
 
   const cfg = window.BADR_AI_CONFIG || {};
-  const sessionKey = 'badr-ai-session-v1';
-  const welcomeKey = 'badr-ai-welcome-shown-v1';
+  const sessionKey = 'badr-ai-session-v2';
+  const welcomeKey = 'badr-ai-welcome-shown-v2';
   const maxTurns = Number(cfg.maxConversationMessages || 12);
   let busy = false;
   let messages = [];
@@ -44,20 +44,20 @@
   function pagePrompts(lang){
     const p = location.pathname.toLowerCase();
     if (p.includes('bim')) return lang === 'ar'
-      ? ['إيه خدمات BADR في الـ BIM؟','اشرح لي رحلة BIM للمشروع','إزاي BIM يقلل المخاطر؟','عايز أبدأ مشروع BIM']
-      : ['What BIM services does BADR offer?','Explain this BIM journey','How can BIM reduce project risk?','I want to start a BIM project'];
+      ? ['هل BIM يستاهل في مشروعي؟','إزاي BIM يقلل المخاطر؟','أعمل 4D ولا 5D؟','قيّم لي استراتيجية BIM']
+      : ['Is BIM worth it for my project?','How can BIM reduce risk?','Do I need 4D or 5D?','Review my BIM strategy'];
     if (p.includes('project-pakistan') || p.includes('diplomatic')) return lang === 'ar'
-      ? ['اشرح لي المشروع ده','إيه المميز في التصميم؟','وريني رحلة الـ BIM','إزاي أعمل مشروع مشابه؟']
-      : ['Explain this project','What is special about the design?','Show me the BIM journey','How could I develop something similar?'];
+      ? ['حلل منطق المشروع ده','إيه درس التطوير من المشروع؟','إزاي اتعاملوا مع الخصوصية؟','عندي مشروع دبلوماسي مشابه']
+      : ['Analyze this project logic','What is the development lesson?','How is privacy handled?','I have a similar diplomatic project'];
     if (p.includes('projects')) return lang === 'ar'
-      ? ['وريني مشاريع فلل','إيه المشاريع الدبلوماسية؟','مشروع مشابه لأرضي','إزاي أبدأ مشروع؟']
-      : ['Show me villa projects','Show diplomatic projects','Find a relevant project','How should I start a project?'];
-    if (p.includes('service')) return lang === 'ar'
-      ? ['إيه خدمات BADR؟','إيه الخدمة المناسبة لمشروعي؟','احسب لي تكلفة التصميم','عايز أعرف عن BIM']
-      : ['What does BADR offer?','Which service fits my project?','Estimate my design cost','Tell me about BIM'];
+      ? ['رشح لي مشروع قريب من فكرتي','عندي أرض وعايز أطورها','أعمل فلل ولا شقق؟','وريني مشروع mixed-use مناسب']
+      : ['Match a project to my idea','I have land to develop','Villas or apartments?','Show a relevant mixed-use project'];
+    if (p.includes('service') || p.includes('developer') || p.includes('investor')) return lang === 'ar'
+      ? ['اختبر لي أفضل سيناريو لأرضي','إيه الخدمة المناسبة لمرحلة مشروعي؟','قارن لي 3 اتجاهات تطوير','إمتى أحتاج Development Workshop؟']
+      : ['Test the best route for my land','Which service fits my project stage?','Compare three development routes','When do I need a Development Workshop?'];
     return lang === 'ar'
-      ? ['عايز أطور أرض','احسب لي تكلفة التصميم','إيه خدمات BADR؟','وريني المشاريع','عايز أعرف عن الـ BIM']
-      : ['I want to develop a plot','Estimate my design cost','What does BADR offer?','Show me projects','Tell me about BIM'];
+      ? ['عندي أرض، اختبر لي أفضل سيناريو تطوير','أعمل فلل ولا شقق؟','إزاي أرفع قيمة المشروع؟','هل BIM يستاهل في مشروعي؟','رشح لي مشروع BADR مشابه']
+      : ['I have land — test the best development route','Villas or apartments?','How can I increase project value?','Is BIM worth it for my project?','Match a BADR project to my idea'];
   }
 
   function localPreviewAnswer(input, lang){
@@ -138,8 +138,8 @@
 
   function refreshLanguage(){
     const lang = isArabicPage() ? 'ar' : 'en';
-    headSub.textContent = lang==='ar' ? (cfg.subtitleAr || 'رفيقك الذكي للتطوير') : (cfg.subtitleEn || 'Your Intelligent Development Companion');
-    launchSub.textContent = lang==='ar' ? 'اسأل عن مشروعك' : 'Ask about your project';
+    headSub.textContent = lang==='ar' ? (cfg.subtitleAr || 'ذكاء تطوير عقاري • عمارة • BIM') : (cfg.subtitleEn || 'Developer Intelligence • Architecture • BIM');
+    launchSub.textContent = lang==='ar' ? 'اختبر قرار مشروعك' : 'Test your project decision';
     input.placeholder = lang==='ar' ? 'اكتب سؤالك…' : 'Ask BADR AI…';
     note.innerHTML = configured()
       ? (lang==='ar' ? '<strong>جلسة مؤقتة.</strong> لا نحتفظ بالمحادثة بشكل دائم في هذا الإصدار.' : '<strong>Temporary session.</strong> This version does not permanently store the chat.')
@@ -150,15 +150,15 @@
     const prompts = pagePrompts(lang);
     return `<div class="badr-ai-intro">
       ${configured() ? '' : `<div class="badr-ai-preview-tag">${lang==='ar'?'وضع المعاينة':'Preview mode'}</div>`}
-      <h3>${lang==='ar'?'أهلاً بك في BADR 👋':'Welcome to BADR'}</h3>
-      <p>${lang==='ar'?'قلّي فكرتك أو سؤالك، وأنا أساعدك نرتبها من الأرض إلى التصميم والـBIM.':'Tell me what you are planning, and I’ll help you structure it from land and development thinking through architecture and BIM.'}</p>
+      <h3>${lang==='ar'?'BADR AI — فكر كمطور قبل ما ترسم':'BADR AI — Think Like a Developer Before You Draw'}</h3>
+      <p>${lang==='ar'?'قول لي عندك أرض أو مشروع أو قرار محتار فيه. هساعدك نحدد المعطيات، نقارن السيناريوهات، ونوصل لرأي مبدئي واضح قبل ما نثبت التصميم.':'Tell me the land, project or decision you are considering. I’ll help frame the inputs, compare scenarios and reach a preliminary development view before design is locked.'}</p>
       <div class="badr-ai-quick">${prompts.map(p=>`<button type="button" class="badr-ai-chip" data-prompt="${p.replace(/"/g,'&quot;')}">${p}</button>`).join('')}</div>
     </div>`;
   }
 
   function renderInitial(){
     messagesEl.innerHTML = introMarkup(isArabicPage()?'ar':'en');
-    messages.forEach(m => addBubble(m.role, m.content, m.actions || [], false));
+    messages.forEach(m => addBubble(m.role, m.content, m.actions || [], false, m.meta || null));
     bindChips();
     scrollBottom();
   }
@@ -172,12 +172,18 @@
 
   function scrollBottom(){ messagesEl.scrollTop = messagesEl.scrollHeight; }
 
-  function addBubble(role, content, actions=[], persist=true){
+  function addBubble(role, content, actions=[], persist=true, meta=null){
     const wrap = document.createElement('div');
     wrap.className = `badr-ai-message ${role}`;
     const bubble = document.createElement('div');
     bubble.className = 'badr-ai-bubble';
-    bubble.textContent = content;
+    if (role==='assistant' && meta?.modeLabel){
+      const metaRow=document.createElement('div'); metaRow.className='badr-ai-meta-row';
+      const mode=document.createElement('span'); mode.className='badr-ai-mode'; mode.textContent=meta.modeLabel; metaRow.appendChild(mode);
+      if(meta.confidence){ const conf=document.createElement('span'); conf.className='badr-ai-confidence'; conf.textContent=(isArabicPage()?'ثقة مبدئية: ':'Preliminary confidence: ')+String(meta.confidence).replace('medium-high','Medium-High').replace('medium','Medium').replace('low','Low').replace('high','High'); metaRow.appendChild(conf); }
+      bubble.appendChild(metaRow);
+    }
+    const textNode=document.createElement('div'); textNode.className='badr-ai-bubble-text'; textNode.textContent=content; bubble.appendChild(textNode);
     if (actions?.length){
       const row = document.createElement('div');
       row.className='badr-ai-actions';
@@ -190,7 +196,7 @@
     }
     wrap.appendChild(bubble); messagesEl.appendChild(wrap);
     if (persist){
-      messages.push({role,content,actions});
+      messages.push({role,content,actions,meta});
       messages = messages.slice(-maxTurns);
       try{sessionStorage.setItem(sessionKey, JSON.stringify(messages));}catch(_){ }
     }
@@ -227,7 +233,7 @@
       else if(cfg.enablePreviewMode!==false) data={reply:localPreviewAnswer(text,lang),actions:deterministicActions(text,lang)};
       else throw new Error('Backend not configured');
       typing.remove();
-      addBubble('assistant',data.reply,(data.actions||[]).map(a=>({label:a.label,url:a.url})));
+      addBubble('assistant',data.reply,(data.actions||[]).map(a=>({label:a.label,url:a.url})),true,{modeLabel:data.modeLabel||'',confidence:data.confidence||''});
     }catch(err){
       typing.remove();
       addBubble('assistant',lang==='ar'?'واضح إن في مشكلة بسيطة في الاتصال دلوقتي. جرّب مرة تانية، أو تقدر تتواصل مع فريق BADR مباشرة.':'It looks like there is a temporary connection issue. Please try again, or contact the BADR team directly.',[{label:lang==='ar'?'تواصل مع BADR':'Contact BADR',url:cfg.contactUrl||'contact.html'}]);
@@ -250,8 +256,8 @@
   if(!sessionStorage.getItem(welcomeKey)){
     setTimeout(()=>{
       const lang=isArabicPage()?'ar':'en';
-      welcome.querySelector('b').textContent=lang==='ar'?'محتاج رأي في مشروعك؟':'Have a project in mind?';
-      welcome.querySelector('span').textContent=lang==='ar'?'أنا BADR AI. اسألني عن التطوير، التصميم، المشاريع أو الـBIM.':'I’m BADR AI. Ask about development, design, projects, or BIM.';
+      welcome.querySelector('b').textContent=lang==='ar'?'عندك أرض أو قرار تطوير؟':'Have land or a development decision?';
+      welcome.querySelector('span').textContent=lang==='ar'?'اختبر معي السيناريو قبل ما تثبت المنتج أو التصميم.':'Test the development route before you lock the product or design.';
       welcome.classList.add('is-visible');
       sessionStorage.setItem(welcomeKey,'1');
       setTimeout(()=>welcome.classList.remove('is-visible'),6200);
