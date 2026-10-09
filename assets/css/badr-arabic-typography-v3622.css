@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800;900&display=swap');
+
+/* BADR Atelier V36.22 — Arabic typography refinement
+   Arabic only. English typography remains untouched. */
+html[lang="ar"] body,
+body.is-ar,
+body.is-ar button,
+body.is-ar input,
+body.is-ar select,
+body.is-ar textarea,
+body.is-ar .site-header,
+body.is-ar .site-footer,
+body.is-ar .badr-ai-panel,
+body.is-ar .badr-ai-launcher,
+body.is-ar .badr-ai-message,
+body.is-ar .badr-ai-quick,
+body.is-ar .badr-ai-input,
+body.is-ar .badr-ai-actions {
+  font-family:'Tajawal','IBM Plex Sans Arabic',Tahoma,Arial,sans-serif !important;
+}
+
+body.is-ar{line-height:1.82;font-weight:400;}
+body.is-ar p,
+body.is-ar .lead,
+body.is-ar li{line-height:1.95;letter-spacing:0;}
+body.is-ar .display,
+body.is-ar .h1,
+body.is-ar .h2,
+body.is-ar .h3,
+body.is-ar h1,
+body.is-ar h2,
+body.is-ar h3,
+body.is-ar h4{
+  font-family:'Tajawal','IBM Plex Sans Arabic',Tahoma,sans-serif !important;
+  letter-spacing:-.01em !important;
+  font-weight:700;
+}
+body.is-ar .display{line-height:1.42;font-weight:800;}
+body.is-ar .h1{line-height:1.36;font-weight:800;}
+body.is-ar .h2{line-height:1.44;font-weight:700;}
+body.is-ar .h3{line-height:1.58;font-weight:700;}
+body.is-ar .eyebrow,
+body.is-ar .section-label,
+body.is-ar .micro,
+body.is-ar .cta-kicker,
+body.is-ar .nav-link,
+body.is-ar .button{
+  font-family:'Tajawal','IBM Plex Sans Arabic',Tahoma,sans-serif !important;
+  letter-spacing:0 !important;
+}
+body.is-ar .nav-link{font-weight:700;}
+body.is-ar .button{font-weight:700;}
+body.is-ar .section-label,
+body.is-ar .eyebrow{font-size:.92rem;font-weight:700;}
+body.is-ar .lead{font-size:clamp(1.04rem,1.38vw,1.25rem);}
+body.is-ar .founder-thesis,
+body.is-ar .cta-question{font-family:'Tajawal','IBM Plex Sans Arabic',Tahoma,sans-serif !important;}
+
+/* Keep numerals / technical labels crisp without changing English mode */
+body.is-ar [data-en][data-ar]{font-kerning:normal;}
+
+@media(max-width:760px){
+  body.is-ar{line-height:1.78;}
+  body.is-ar p,body.is-ar .lead{line-height:1.88;}
+  body.is-ar .display{line-height:1.5;}
+  body.is-ar .h2{line-height:1.5;}
+}
