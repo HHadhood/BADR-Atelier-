@@ -1,0 +1,255 @@
+/* BADR Atelier V36.27 — Visibility, contrast & footer QA layer
+   Loaded last on every page. Purpose: readable contrast, resilient footer,
+   consistent logo treatment and safer reveal behaviour across EN/AR. */
+:root{
+  --badr27-ink:#11110d;
+  --badr27-deep:#07100d;
+  --badr27-deep-2:#0b1712;
+  --badr27-gold:#d6b35d;
+  --badr27-gold-deep:#9b7125;
+  --badr27-cream:#f5efe4;
+  --badr27-muted:#c9c1b3;
+}
+
+/* ---------- Global display safety ---------- */
+html,body{max-width:100%;overflow-x:clip}
+img{opacity:1;visibility:visible}
+main{position:relative;z-index:1}
+#site-header{position:relative;z-index:120}
+#site-footer{position:relative;z-index:30;display:block!important;visibility:visible!important;opacity:1!important;background:var(--badr27-deep)}
+
+/* If a historical reveal class is applied but JS has not completed yet, never leave
+   content permanently invisible. The active viewport is also repaired by V36.27 JS. */
+html:not(.badr-v3626-ready) .badr-section-premium{opacity:1!important;transform:none!important}
+
+/* ---------- Gold / light-background contrast ----------
+   Gold is a light brand surface: use dark typography, not white. */
+.section-gold,
+.cta,
+.iv17-final-cta,
+body[data-page="home"] .cta{
+  color:var(--badr27-ink)!important;
+}
+.section-gold :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.display,.lead,p,li,strong,b),
+.cta :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.display,.cta-question,.lead,p,li,strong,b),
+.iv17-final-cta :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.display,.lead,p,li,strong,b){
+  color:var(--badr27-ink)!important;
+  text-shadow:none!important;
+}
+.section-gold :is(.section-label,.eyebrow,.micro,.cta-kicker),
+.cta :is(.section-label,.eyebrow,.micro,.cta-kicker),
+.iv17-final-cta :is(.section-label,.eyebrow,.micro,.cta-kicker){
+  color:#604514!important;
+}
+.cta .lead,.iv17-final-cta p{color:#4f3b17!important}
+.iv17-final-summary{color:var(--badr27-ink)!important;background:rgba(255,255,255,.84)!important;border-color:rgba(68,46,12,.14)!important;box-shadow:0 24px 60px rgba(70,48,15,.12)}
+.iv17-final-summary :is(small,b,strong){color:var(--badr27-ink)!important}
+.iv17-final-summary span{color:#655025!important}
+
+/* Active navigation: dark text on warm gold is substantially clearer than white. */
+.site-header .nav-link.is-active,
+.is-ar .site-header .nav-link.is-active{
+  background:linear-gradient(135deg,#e2c06d,#cfa750)!important;
+  color:#16130d!important;
+  text-shadow:none!important;
+  border-color:rgba(97,69,18,.14)!important;
+}
+.site-header .nav-link.is-active:hover,
+.is-ar .site-header .nav-link.is-active:hover{
+  background:linear-gradient(135deg,#d7b35b,#bd8f35)!important;
+  color:#100e09!important;
+}
+
+/* Small gold badges: either dark type on light gold or white on a deliberately dark surface. */
+body[data-page="services"] .service-band .code{
+  background:linear-gradient(135deg,#e1bf6b,#c99a3f)!important;
+  color:#17130b!important;
+  text-shadow:none!important;
+}
+.ecosystem-logo span{
+  background:linear-gradient(135deg,#4c3817,#815d20)!important;
+  color:#fff8ea!important;
+}
+.member-initials{
+  background:linear-gradient(135deg,#15130f,#453416,#7c5b20)!important;
+  color:#fff9ec!important;
+}
+
+/* ---------- Dark-section contrast ---------- */
+.section-dark :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.display){color:#fffdf8!important}
+.section-dark :is(p,.lead,li){color:#d9d2c6!important}
+.section-dark :is(.section-label,.eyebrow,.micro){color:#dfbd67!important}
+
+/* ---------- Footer: resilient high-contrast system ---------- */
+.site-footer{
+  position:relative!important;
+  z-index:31!important;
+  display:block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  overflow:hidden!important;
+  isolation:isolate!important;
+  background:
+    radial-gradient(circle at 12% 8%,rgba(214,179,93,.10),transparent 26%),
+    radial-gradient(circle at 88% 100%,rgba(79,126,101,.08),transparent 30%),
+    linear-gradient(145deg,#06100d 0%,#0a1511 58%,#050b09 100%)!important;
+  color:#f5efe4!important;
+  border-top:1px solid rgba(214,179,93,.34)!important;
+  padding:68px 0 24px!important;
+  min-height:330px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025)!important;
+}
+.site-footer::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:linear-gradient(90deg,#000,rgba(0,0,0,.38),#000);
+}
+.site-footer .shell{position:relative!important;z-index:2!important}
+.site-footer .footer-grid{
+  display:grid!important;
+  grid-template-columns:minmax(320px,1.32fr) minmax(155px,.72fr) minmax(170px,.78fr) minmax(300px,1.18fr)!important;
+  gap:44px!important;
+  align-items:start!important;
+  padding-bottom:46px!important;
+}
+.site-footer .footer-grid>div{min-width:0!important;visibility:visible!important;opacity:1!important}
+.site-footer .footer-brand-block{
+  display:grid!important;
+  grid-template-columns:184px minmax(0,1fr)!important;
+  gap:20px!important;
+  align-items:center!important;
+  width:100%!important;
+  max-width:470px!important;
+  min-height:100px!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+.site-footer .footer-logo{
+  display:block!important;
+  width:184px!important;
+  max-width:184px!important;
+  height:auto!important;
+  max-height:102px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:brightness(1.12) saturate(1.06) drop-shadow(0 10px 24px rgba(0,0,0,.34))!important;
+}
+.is-ar .site-footer .footer-logo{object-position:right center!important}
+.site-footer .footer-logo-fallback{
+  display:none;
+  color:#e6c36e!important;
+  font:700 1.3rem/1.05 var(--badr-font-en,'Montserrat',Arial,sans-serif)!important;
+  letter-spacing:.16em!important;
+  white-space:nowrap;
+}
+.site-footer .footer-logo.is-broken{display:none!important}
+.site-footer .footer-logo.is-broken + .footer-logo-fallback{display:block!important}
+.site-footer .footer-brand-block .brand-tagline{
+  display:flex!important;flex-direction:column!important;gap:7px!important;
+  min-width:0!important;visibility:visible!important;opacity:1!important;
+  overflow:visible!important;white-space:normal!important;
+}
+.site-footer .footer-brand-block .brand-tagline b{
+  display:block!important;color:#e3bf63!important;font-size:.78rem!important;
+  line-height:1.38!important;letter-spacing:.08em!important;font-weight:800!important;
+  text-transform:uppercase!important;visibility:visible!important;opacity:1!important;
+}
+.is-ar .site-footer .footer-brand-block .brand-tagline b{font-size:.88rem!important;letter-spacing:0!important;text-transform:none!important;line-height:1.6!important}
+.site-footer .footer-brand-block .brand-tagline span{
+  display:block!important;color:#d1c8ba!important;font-size:.67rem!important;
+  line-height:1.55!important;visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-tag{
+  display:block!important;max-width:410px!important;margin:20px 0 0!important;
+  color:#e3ddd2!important;font-size:.76rem!important;line-height:1.72!important;
+  letter-spacing:.02em!important;visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-social-heading{
+  margin:20px 0 10px!important;color:#d6b35d!important;font-size:.68rem!important;
+  font-weight:800!important;letter-spacing:.08em!important;text-transform:uppercase!important;
+  visibility:visible!important;opacity:1!important;
+}
+.is-ar .site-footer .footer-social-heading{letter-spacing:0!important;text-transform:none!important;font-size:.78rem!important}
+.site-footer .footer-col{
+  display:flex!important;flex-direction:column!important;gap:10px!important;
+  min-width:0!important;color:#eee8dc!important;visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-col strong{
+  display:block!important;color:#e0bc62!important;font-size:.72rem!important;
+  font-weight:850!important;text-transform:uppercase!important;letter-spacing:.1em!important;
+  margin:0 0 8px!important;visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-col a,
+.site-footer .footer-col>span:not(.footer-office),
+.site-footer .phone-wa-link span{
+  color:#e0d9ce!important;font-size:.78rem!important;line-height:1.6!important;
+  font-weight:500!important;visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-col a:hover{color:#fff8e9!important;transform:translateX(2px)}
+.is-ar .site-footer .footer-col a:hover{transform:translateX(-2px)}
+.site-footer .footer-office{
+  display:block!important;margin-top:4px!important;padding:11px 12px!important;
+  border:1px solid rgba(214,179,93,.20)!important;border-radius:13px!important;
+  background:rgba(255,255,255,.035)!important;color:#e7e0d5!important;
+  visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-office b{display:block!important;color:#e4c16a!important;font-size:.69rem!important;line-height:1.45!important;margin-bottom:4px!important}
+.site-footer .footer-office em{display:block!important;color:#cfc6b9!important;font-size:.69rem!important;line-height:1.58!important;font-style:normal!important}
+.site-footer .social-links{display:flex!important;flex-wrap:wrap!important;gap:8px!important;visibility:visible!important;opacity:1!important}
+.site-footer .social-link{
+  display:grid!important;place-items:center!important;width:34px!important;height:34px!important;
+  border-radius:50%!important;border:1px solid rgba(214,179,93,.30)!important;
+  background:rgba(255,255,255,.035)!important;color:#dec06c!important;
+  visibility:visible!important;opacity:1!important;
+}
+.site-footer .social-link:hover{background:#d6b35d!important;color:#0a100d!important;border-color:#d6b35d!important;transform:translateY(-2px)!important}
+.site-footer .social-icon,.site-footer .social-icon svg{display:block!important;width:16px!important;height:16px!important;color:inherit!important;fill:currentColor;visibility:visible!important;opacity:1!important}
+.site-footer .phone-wa-link{display:inline-flex!important;align-items:center!important;gap:8px!important}
+.site-footer .phone-wa-link svg{width:16px!important;height:16px!important;flex:0 0 16px!important;color:#72d497!important;fill:currentColor!important}
+.site-footer .footer-bottom{
+  display:flex!important;justify-content:space-between!important;align-items:flex-start!important;
+  gap:28px!important;border-top:1px solid rgba(255,255,255,.10)!important;
+  padding-top:18px!important;color:#aaa195!important;font-size:.67rem!important;
+  line-height:1.55!important;visibility:visible!important;opacity:1!important;
+}
+.site-footer .footer-bottom span{color:#aaa195!important;visibility:visible!important;opacity:1!important}
+body.is-ar .site-footer .footer-grid{direction:rtl!important}
+body.is-ar .site-footer .footer-brand-block{direction:rtl!important}
+body.is-ar .site-footer .footer-brand-block .brand-tagline,body.is-ar .site-footer .footer-col{text-align:right!important}
+body:not(.is-ar) .site-footer .footer-col{text-align:left!important}
+
+/* Footer fallback when core JS fails before mounting it. */
+#site-footer .badr27-footer-fallback-note{display:none}
+
+/* ---------- Readability on translucent cards ---------- */
+:is(.card,.value-card,.service-card,.contact-item,.proof-card,.career-path-card,.member-card,.portfolio-card){text-rendering:optimizeLegibility}
+:is(.card,.value-card,.service-card,.contact-item,.proof-card,.career-path-card,.member-card,.portfolio-card) p{opacity:1}
+
+/* ---------- Mobile / tablet ---------- */
+@media(max-width:1180px){
+  .site-footer .footer-grid{grid-template-columns:1.25fr 1fr 1fr!important;gap:32px!important}
+  .site-footer .footer-grid>div:first-child{grid-column:1/-1!important}
+  .site-footer .footer-brand-block{max-width:480px!important}
+}
+@media(max-width:760px){
+  .site-footer{padding:50px 0 22px!important}
+  .site-footer .footer-grid{grid-template-columns:1fr 1fr!important;gap:28px 24px!important}
+  .site-footer .footer-grid>div:first-child{grid-column:1/-1!important}
+  .site-footer .footer-brand-block{grid-template-columns:148px minmax(0,1fr)!important;gap:14px!important}
+  .site-footer .footer-logo{width:148px!important;max-width:148px!important}
+  .site-footer .footer-bottom{flex-direction:column!important;gap:8px!important}
+}
+@media(max-width:520px){
+  .site-footer .footer-grid{grid-template-columns:1fr!important}
+  .site-footer .footer-grid>div:first-child{grid-column:auto!important}
+  .site-footer .footer-brand-block{grid-template-columns:126px minmax(0,1fr)!important}
+  .site-footer .footer-logo{width:126px!important;max-width:126px!important}
+  .site-footer .footer-col a,.site-footer .footer-col>span:not(.footer-office),.site-footer .phone-wa-link span{font-size:.8rem!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .site-footer a,.site-footer .social-link{transition:none!important}
+}
