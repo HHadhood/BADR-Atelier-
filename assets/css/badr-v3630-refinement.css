@@ -1,0 +1,291 @@
+/* BADR Atelier V36.30 — targeted readability + interaction refinements */
+
+/* ==============================================================
+   CONTACT — requested contact details in white, on a deliberate
+   dark premium surface so readability is guaranteed in AR + EN.
+   ============================================================== */
+body[data-page="contact"] .page-meta{
+  background:linear-gradient(145deg,#11120f 0%,#1b1710 62%,#0c0d0b 100%);
+  border:1px solid rgba(215,179,91,.26)!important;
+  border-radius:24px;
+  padding:26px 28px!important;
+  box-shadow:0 22px 54px rgba(25,19,8,.16);
+}
+body[data-page="contact"] .page-meta span{
+  color:#d7b35b!important;
+}
+body[data-page="contact"] .page-meta strong,
+body[data-page="contact"] .page-meta a{
+  color:#fff!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+body[data-page="contact"] .page-meta .contact-phones{display:grid;gap:5px}
+body[data-page="contact"] .contact-stack{
+  background:linear-gradient(145deg,#11120f,#18150f)!important;
+  border-color:rgba(215,179,91,.25)!important;
+  box-shadow:0 24px 58px rgba(24,18,8,.15);
+}
+body[data-page="contact"] .contact-stack .h2{color:#fff!important}
+body[data-page="contact"] .contact-stack .section-label,
+body[data-page="contact"] .contact-stack .contact-item span,
+body[data-page="contact"] .contact-stack .small{color:#d7b35b!important}
+body[data-page="contact"] .contact-stack .contact-item strong,
+body[data-page="contact"] .contact-stack .contact-item a,
+body[data-page="contact"] .contact-stack .contact-phones a,
+body[data-page="contact"] .contact-stack .contact-item div{
+  color:#fff!important;
+  text-shadow:none!important;
+  opacity:1!important;
+}
+
+/* ==============================================================
+   CAREERS — make sequence numbers part of the visual hierarchy.
+   ============================================================== */
+body[data-page="careers"] .career-path-card>span{
+  font-size:clamp(1.55rem,2.2vw,2.25rem)!important;
+  line-height:1!important;
+  letter-spacing:-.04em!important;
+  color:#e6bf60!important;
+  font-weight:800!important;
+  text-shadow:0 0 24px rgba(230,191,96,.18);
+}
+body[data-page="careers"] .career-path-card b{margin-top:34px!important}
+body[data-page="careers"] .career-value-grid strong{
+  display:block;
+  font-size:clamp(1.7rem,2.35vw,2.45rem)!important;
+  line-height:1!important;
+  letter-spacing:-.045em!important;
+  color:#a87721!important;
+  font-weight:800!important;
+}
+body[data-page="careers"] .career-value-grid h3{margin-top:44px!important}
+body[data-page="careers"] .career-steps li{
+  grid-template-columns:104px 1fr!important;
+  align-items:start;
+}
+body[data-page="careers"] .career-steps li>span{
+  display:block;
+  font-size:clamp(1.9rem,2.8vw,2.8rem)!important;
+  line-height:.92!important;
+  letter-spacing:-.05em!important;
+  color:#e6bf60!important;
+  font-weight:800!important;
+  text-shadow:0 0 28px rgba(230,191,96,.16);
+}
+
+/* ==============================================================
+   TEAM — explicitly requested supporting statements in black.
+   ============================================================== */
+body[data-page="team"] .team-stat p,
+body[data-page="team"] .team-note p{
+  color:#0d0d0c!important;
+  opacity:1!important;
+  text-shadow:none!important;
+}
+
+/* ==============================================================
+   SERVICES — the two hero metadata values are white and sit on a
+   dark BADR panel so they remain readable on every device.
+   ============================================================== */
+body[data-page="services"] .page-meta{
+  background:linear-gradient(145deg,#11120f 0%,#201a10 100%);
+  border:1px solid rgba(215,179,91,.28)!important;
+  border-radius:24px;
+  padding:28px!important;
+  box-shadow:0 22px 54px rgba(25,19,8,.15);
+}
+body[data-page="services"] .page-meta span{color:#d7b35b!important}
+body[data-page="services"] .page-meta strong{
+  color:#fff!important;
+  text-shadow:none!important;
+  opacity:1!important;
+  font-weight:650!important;
+}
+
+/* ==============================================================
+   BIM + DIGITAL — four principles become light/gold modules with
+   black titles and visibly larger sequence numbers.
+   ============================================================== */
+body[data-page="bim-digital"] .bim365-pillars{
+  background:#0a0c0b!important;
+  padding:18px 0;
+}
+body[data-page="bim-digital"] .bim365-pillars-grid{gap:10px}
+body[data-page="bim-digital"] .bim365-pillars article{
+  background:linear-gradient(145deg,#f2d98e 0%,#dfb95b 54%,#f5e3ad 100%)!important;
+  border:1px solid rgba(255,255,255,.12)!important;
+  border-radius:20px;
+  min-height:205px;
+  box-shadow:0 16px 38px rgba(0,0,0,.18);
+  transition:transform .3s ease,box-shadow .3s ease,filter .3s ease;
+}
+body[data-page="bim-digital"] .bim365-pillars article:hover{
+  transform:translateY(-6px);
+  box-shadow:0 26px 54px rgba(0,0,0,.24);
+  filter:saturate(1.04);
+}
+body[data-page="bim-digital"] .bim365-pillars span{
+  display:block;
+  font-size:1.35rem!important;
+  line-height:1!important;
+  color:#111!important;
+  font-weight:900!important;
+  letter-spacing:-.04em;
+}
+body[data-page="bim-digital"] .bim365-pillars b{
+  color:#050505!important;
+  text-shadow:none!important;
+  font-size:1.28rem!important;
+  margin:28px 0 10px!important;
+}
+body[data-page="bim-digital"] .bim365-pillars p{
+  color:#252015!important;
+  opacity:1!important;
+}
+
+/* ==============================================================
+   HOME + DEVELOPERS — perfectly center + and = inside the circles.
+   ============================================================== */
+body[data-page="home"] .eq-operator,
+body[data-page="developers"] .eq-operator{
+  display:grid!important;
+  place-items:center!important;
+}
+body[data-page="home"] .eq-operator b,
+body[data-page="developers"] .eq-operator b{
+  box-sizing:border-box;
+  width:66px!important;
+  height:66px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  display:grid!important;
+  place-items:center!important;
+  text-align:center!important;
+  line-height:1!important;
+  font-size:2.25rem!important;
+  font-weight:500!important;
+  border:1px solid rgba(183,137,45,.30);
+  box-shadow:0 10px 28px rgba(69,49,14,.09);
+}
+body[data-page="home"] .eq-operator.eq-equal b,
+body[data-page="developers"] .eq-operator.eq-equal b{font-size:2rem!important}
+body[data-page="home"] .section-dark .eq-operator b,
+body[data-page="developers"] .section-dark .eq-operator b{border-color:rgba(229,202,134,.34)}
+
+/* ==============================================================
+   HOME PROJECT REEL — all published BADR projects rotate inside
+   the existing hero frame, one after another.
+   ============================================================== */
+body[data-page="home"] .hero-media{
+  aspect-ratio:1.18/1;
+  min-height:0;
+  isolation:isolate;
+  cursor:default;
+}
+body[data-page="home"] .hero-media>img.badr-home-slide{
+  position:absolute!important;
+  inset:0!important;
+  z-index:0;
+  width:100%!important;
+  height:100%!important;
+  aspect-ratio:auto!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:38px!important;
+  opacity:0;
+  visibility:hidden;
+  animation:none!important;
+  transform:scale(1.075)!important;
+  transition:opacity 1.05s ease,visibility 1.05s ease,transform 7.2s cubic-bezier(.2,.72,.2,1)!important;
+  will-change:opacity,transform;
+  box-shadow:none!important;
+}
+body[data-page="home"] .hero-media>img.badr-home-slide.is-active{
+  z-index:1;
+  opacity:1;
+  visibility:visible;
+  transform:scale(1.015)!important;
+}
+body[data-page="home"] .hero-media::after{z-index:2!important}
+body[data-page="home"] .hero-note{z-index:5}
+body[data-page="home"] .badr-home-reel-meta{
+  position:absolute;
+  z-index:6;
+  top:18px;
+  right:18px;
+  max-width:min(270px,62%);
+  padding:12px 14px 11px;
+  border-radius:15px;
+  color:#fff;
+  background:rgba(7,10,8,.72);
+  border:1px solid rgba(230,191,96,.30);
+  backdrop-filter:blur(14px);
+  box-shadow:0 16px 36px rgba(0,0,0,.18);
+  pointer-events:none;
+}
+body.is-ar[data-page="home"] .badr-home-reel-meta{right:auto;left:18px;text-align:right}
+body[data-page="home"] .badr-home-reel-meta small{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  color:#e6bf60;
+  font-size:.56rem;
+  font-weight:800;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+body[data-page="home"] .badr-home-reel-meta b{
+  display:block;
+  margin-top:7px;
+  color:#fff;
+  font-size:.82rem;
+  line-height:1.35;
+  font-weight:700;
+}
+body[data-page="home"] .badr-home-reel-progress{
+  position:absolute;
+  z-index:7;
+  left:18px;
+  right:18px;
+  bottom:12px;
+  height:2px;
+  overflow:hidden;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  pointer-events:none;
+}
+body[data-page="home"] .badr-home-reel-progress i{
+  display:block;
+  height:100%;
+  width:100%;
+  transform:scaleX(0);
+  transform-origin:left;
+  background:linear-gradient(90deg,#d2a949,#f4dfa0);
+}
+body.is-ar[data-page="home"] .badr-home-reel-progress i{transform-origin:right}
+body[data-page="home"] .badr-home-reel-progress.is-running i{animation:badrHomeReelProgress 5.8s linear forwards}
+@keyframes badrHomeReelProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+@media(max-width:860px){
+  body[data-page="contact"] .page-meta,
+  body[data-page="services"] .page-meta{padding:22px!important}
+  body[data-page="careers"] .career-steps li{grid-template-columns:78px 1fr!important}
+  body[data-page="careers"] .career-steps li>span{font-size:2rem!important}
+  body[data-page="home"] .eq-operator b,
+  body[data-page="developers"] .eq-operator b{width:54px!important;height:54px!important;font-size:1.75rem!important}
+  body[data-page="bim-digital"] .bim365-pillars-grid{gap:8px}
+}
+@media(max-width:560px){
+  body[data-page="home"] .badr-home-reel-meta{top:12px;right:12px;max-width:72%;padding:10px 11px}
+  body.is-ar[data-page="home"] .badr-home-reel-meta{right:auto;left:12px}
+  body[data-page="home"] .badr-home-reel-meta small{font-size:.49rem}
+  body[data-page="home"] .badr-home-reel-meta b{font-size:.72rem}
+  body[data-page="home"] .badr-home-reel-progress{left:12px;right:12px;bottom:8px}
+  body[data-page="bim-digital"] .bim365-pillars-grid{grid-template-columns:1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+  body[data-page="home"] .hero-media>img.badr-home-slide{transition:none!important}
+  body[data-page="home"] .badr-home-reel-progress i{animation:none!important}
+}
