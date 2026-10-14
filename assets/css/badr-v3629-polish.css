@@ -1,0 +1,206 @@
+/* BADR Atelier V36.29 — Text contrast + social identity polish
+   Scope: home careers gateway, projects mixed-use statement, careers CTA,
+   and all official social-media icons across EN/AR and all pages. */
+
+:root{
+  --badr29-ink:#0b0f0d;
+  --badr29-gold:#d6b35d;
+}
+
+/* 1) HOME — make the careers statement unmistakably readable on the light/gold treatment. */
+body[data-page="home"] .home-career-copy h2{
+  color:var(--badr29-ink)!important;
+  text-shadow:none!important;
+}
+body.is-ar[data-page="home"] .home-career-copy h2{
+  color:#080b09!important;
+  text-shadow:none!important;
+}
+
+/* 2) PROJECTS — requested black statement, with absolutely no shadow. */
+body[data-page="projects"] #mixed-use-hospitality-destination .section-head .h2,
+body.is-ar[data-page="projects"] #mixed-use-hospitality-destination .section-head .h2{
+  color:#050505!important;
+  text-shadow:none!important;
+  -webkit-text-stroke:0!important;
+  filter:none!important;
+}
+
+/* Keep the small section label differentiated without competing with the black statement. */
+body[data-page="projects"] #mixed-use-hospitality-destination .section-label{
+  color:#785817!important;
+  text-shadow:none!important;
+}
+
+/* 3) CAREERS — Join the Talent Network must be black on BADR gold. */
+body[data-page="careers"] .career-final .career-primary,
+body[data-page="careers"] .career-final .career-primary span,
+body.is-ar[data-page="careers"] .career-final .career-primary,
+body.is-ar[data-page="careers"] .career-final .career-primary span{
+  color:#050705!important;
+  text-shadow:none!important;
+}
+
+/* 4) SOCIAL MEDIA — permanent brand identity instead of generic gold circles. */
+.social-links-official{
+  gap:10px!important;
+  align-items:center!important;
+}
+.social-links-official .social-link{
+  position:relative!important;
+  width:43px!important;
+  height:43px!important;
+  border-radius:13px!important;
+  color:#fff!important;
+  border:1px solid rgba(255,255,255,.22)!important;
+  box-shadow:0 8px 22px rgba(0,0,0,.16),inset 0 1px 0 rgba(255,255,255,.16)!important;
+  overflow:visible!important;
+  transform:translateZ(0);
+  transition:transform .28s cubic-bezier(.2,.8,.2,1),box-shadow .28s ease,filter .28s ease!important;
+}
+.social-links-official .social-link::before{
+  content:""!important;
+  position:absolute!important;
+  inset:-4px!important;
+  border-radius:16px!important;
+  border:1px solid transparent!important;
+  opacity:0!important;
+  transform:scale(.92)!important;
+  transition:opacity .28s ease,transform .28s ease!important;
+  pointer-events:none!important;
+}
+.social-links-official .social-link::after{
+  /* Preserve the historical network tooltip only on hover-capable screens. */
+  color:#f8f4eb!important;
+}
+.social-links-official .social-link:hover,
+.social-links-official .social-link:focus-visible{
+  color:#fff!important;
+  transform:translateY(-4px) scale(1.055)!important;
+  filter:saturate(1.08) brightness(1.035)!important;
+  outline:none!important;
+}
+.social-links-official .social-link:hover::before,
+.social-links-official .social-link:focus-visible::before{
+  opacity:1!important;
+  transform:scale(1)!important;
+}
+.social-links-official .social-icon,
+.social-links-official .social-icon svg{
+  width:20px!important;
+  height:20px!important;
+  color:#fff!important;
+  fill:currentColor!important;
+  opacity:1!important;
+  visibility:visible!important;
+}
+
+/* LinkedIn */
+.social-links-official .social-link.linkedin{
+  background:#0A66C2!important;
+  border-color:#2b7dcc!important;
+  box-shadow:0 9px 24px rgba(10,102,194,.28),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.social-links-official .social-link.linkedin::before{border-color:rgba(10,102,194,.44)!important}
+.social-links-official .social-link.linkedin:hover{box-shadow:0 14px 34px rgba(10,102,194,.42),0 0 0 3px rgba(10,102,194,.12)!important}
+
+/* Instagram — official-style multi-tone gradient */
+.social-links-official .social-link.instagram{
+  background:radial-gradient(circle at 30% 105%,#fdf497 0 5%,#fd5949 34%,#d6249f 62%,#285AEB 100%)!important;
+  border-color:rgba(255,255,255,.30)!important;
+  box-shadow:0 9px 24px rgba(214,36,159,.26),inset 0 1px 0 rgba(255,255,255,.24)!important;
+}
+.social-links-official .social-link.instagram::before{border-color:rgba(214,36,159,.42)!important}
+.social-links-official .social-link.instagram:hover{box-shadow:0 14px 34px rgba(214,36,159,.40),0 0 0 3px rgba(40,90,235,.10)!important}
+
+/* YouTube */
+.social-links-official .social-link.youtube{
+  background:#FF0000!important;
+  border-color:#ff3d3d!important;
+  box-shadow:0 9px 24px rgba(255,0,0,.25),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.social-links-official .social-link.youtube::before{border-color:rgba(255,0,0,.42)!important}
+.social-links-official .social-link.youtube:hover{box-shadow:0 14px 34px rgba(255,0,0,.40),0 0 0 3px rgba(255,0,0,.10)!important}
+
+/* Facebook */
+.social-links-official .social-link.facebook{
+  background:#1877F2!important;
+  border-color:#4b94f4!important;
+  box-shadow:0 9px 24px rgba(24,119,242,.26),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.social-links-official .social-link.facebook::before{border-color:rgba(24,119,242,.42)!important}
+.social-links-official .social-link.facebook:hover{box-shadow:0 14px 34px rgba(24,119,242,.40),0 0 0 3px rgba(24,119,242,.10)!important}
+
+/* Pinterest */
+.social-links-official .social-link.pinterest{
+  background:#E60023!important;
+  border-color:#ee3651!important;
+  box-shadow:0 9px 24px rgba(230,0,35,.25),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.social-links-official .social-link.pinterest::before{border-color:rgba(230,0,35,.42)!important}
+.social-links-official .social-link.pinterest:hover{box-shadow:0 14px 34px rgba(230,0,35,.40),0 0 0 3px rgba(230,0,35,.10)!important}
+
+/* Behance — stronger, cleaner Bē mark for small-size legibility. */
+.social-links-official .social-link.behance{
+  background:#1769FF!important;
+  border-color:#4b8cff!important;
+  box-shadow:0 9px 24px rgba(23,105,255,.28),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.social-links-official .social-link.behance::before{border-color:rgba(23,105,255,.44)!important}
+.social-links-official .social-link.behance:hover{box-shadow:0 14px 34px rgba(23,105,255,.42),0 0 0 3px rgba(23,105,255,.10)!important}
+.social-links-official .social-link.behance .social-icon{
+  width:25px!important;
+  height:19px!important;
+  display:grid!important;
+  place-items:center!important;
+  line-height:1!important;
+}
+.social-links-official .social-link.behance .social-icon svg{display:none!important}
+.social-links-official .social-link.behance .social-icon::before{
+  content:"Bē";
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:13px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-1.15px;
+  transform:translateY(-.25px);
+}
+
+/* X */
+.social-links-official .social-link.x{
+  background:#080808!important;
+  border-color:#535353!important;
+  box-shadow:0 9px 24px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.18)!important;
+}
+.social-links-official .social-link.x::before{border-color:rgba(255,255,255,.24)!important}
+.social-links-official .social-link.x:hover{box-shadow:0 14px 34px rgba(0,0,0,.44),0 0 0 3px rgba(255,255,255,.07)!important}
+
+/* WhatsApp */
+.social-links-official .social-link.whatsapp{
+  background:#25D366!important;
+  border-color:#51df84!important;
+  box-shadow:0 9px 24px rgba(37,211,102,.25),inset 0 1px 0 rgba(255,255,255,.20)!important;
+}
+.social-links-official .social-link.whatsapp::before{border-color:rgba(37,211,102,.42)!important}
+.social-links-official .social-link.whatsapp:hover{box-shadow:0 14px 34px rgba(37,211,102,.40),0 0 0 3px rgba(37,211,102,.10)!important}
+
+/* Footer and light hero/contact placements must keep the actual brand colours too. */
+.site-footer .social-links-official .social-link,
+.hero-socials .social-links-official .social-link,
+.contact-socials .social-links-official .social-link{
+  color:#fff!important;
+}
+
+/* Mobile: retain brand identity with slightly tighter geometry. */
+@media(max-width:600px){
+  .social-links-official{gap:8px!important}
+  .social-links-official .social-link{width:40px!important;height:40px!important;border-radius:12px!important}
+  .social-links-official .social-icon,.social-links-official .social-icon svg{width:18px!important;height:18px!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .social-links-official .social-link,
+  .social-links-official .social-link::before{transition:none!important}
+  .social-links-official .social-link:hover{transform:none!important}
+}
