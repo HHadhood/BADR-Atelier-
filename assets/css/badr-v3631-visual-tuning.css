@@ -1,0 +1,132 @@
+/* BADR Atelier V36.31 — hierarchy, maps, hero reel & BIM refinement */
+:root{--v3631-gold:#d6ad55;--v3631-gold-light:#f0cf7a;--v3631-green:#11875e;--v3631-green-light:#58e09b;--v3631-ink:#0d0f0e;--v3631-paper:#f5efe3}
+
+/* HOME — faster cinematic project reel + centered strategic statement */
+body[data-page="home"] .hero-media{overflow:hidden!important}
+body[data-page="home"] .hero-media>img.badr-home-slide{transition:opacity .72s ease,visibility .72s ease,transform 4.4s cubic-bezier(.2,.72,.2,1)!important;filter:saturate(1.04) contrast(1.03)}
+body[data-page="home"] .hero-media::after{background:linear-gradient(180deg,rgba(5,8,7,.08),rgba(5,8,7,.10) 44%,rgba(4,6,5,.34))!important}
+body[data-page="home"] .hero-note,
+body.is-ar[data-page="home"] .hero-note{
+  left:50%!important;right:auto!important;top:50%!important;bottom:auto!important;
+  transform:translate(-50%,-50%)!important;max-width:min(460px,76%)!important;width:max-content!important;
+  padding:17px 26px!important;text-align:center!important;border-radius:18px!important;
+  background:rgba(7,10,8,.68)!important;border:1px solid rgba(238,205,121,.46)!important;
+  backdrop-filter:blur(12px)!important;box-shadow:0 18px 50px rgba(0,0,0,.30)!important;
+}
+body[data-page="home"] .hero-note strong{font-size:clamp(1.02rem,1.5vw,1.38rem)!important;line-height:1.35!important;color:#fff3cf!important;letter-spacing:.01em}
+body[data-page="home"] .hero-note span{display:block;margin-top:5px;color:#fff!important;font-size:.74rem!important;opacity:.86}
+body[data-page="home"] .badr-home-reel-progress.is-running i{animation-duration:3.45s!important}
+
+/* LAND → OPPORTUNITY → VALUE as three distinct premium blocks */
+body[data-page="home"] .scroll-cue.badr-value-chain{left:50%!important;bottom:18px!important;transform:translateX(-50%)!important;display:flex!important;gap:8px!important;align-items:center!important;font-size:inherit!important;letter-spacing:0!important;text-transform:none!important;color:inherit!important;white-space:nowrap}
+body[data-page="home"] .scroll-cue.badr-value-chain:before{display:none!important}
+body[data-page="home"] .badr-value-chain span{display:inline-flex;align-items:center;justify-content:center;min-width:92px;padding:8px 13px;border-radius:9px;font-size:.67rem;font-weight:900;letter-spacing:.06em;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+body[data-page="home"] .badr-value-chain span:nth-child(1){background:#111512;color:#fff}
+body[data-page="home"] .badr-value-chain span:nth-child(2){background:#d5ad58;color:#111}
+body[data-page="home"] .badr-value-chain span:nth-child(3){background:#17694f;color:#fff}
+body[data-page="home"] .badr-value-chain i{font-style:normal;color:#8f743b;font-size:1rem;font-weight:900}
+body.is-ar[data-page="home"] .badr-value-chain i{transform:scaleX(-1)}
+
+/* Capability marquee — clear white copy on a dark architectural rail */
+body[data-page="home"] .capability-strip{background:linear-gradient(90deg,#090b0a,#151812 45%,#090b0a)!important;border-color:rgba(214,173,85,.24)!important}
+body[data-page="home"] .capability-track{gap:58px!important;padding:18px 0!important}
+body[data-page="home"] .capability-track span{color:#fff!important;opacity:1!important;font-weight:700!important;letter-spacing:.105em!important}
+body[data-page="home"] .capability-track span::after{content:"◆";margin-inline-start:26px;color:#5bd49a;font-size:.5rem;vertical-align:middle}
+body[data-page="home"] .capability-track b{color:#f0cf7a!important;font-weight:900!important}
+
+/* Decision loop — labels now as large as their action titles, with coded contrast */
+body[data-page="home"] .developer-loop{gap:8px!important;background:transparent!important;border:0!important;overflow:visible!important}
+body[data-page="home"] .loop-step{border:1px solid rgba(92,78,49,.15);border-radius:18px!important;box-shadow:0 15px 36px rgba(43,34,18,.06);min-height:240px!important;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
+body[data-page="home"] .loop-step:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(43,34,18,.10);border-color:rgba(214,173,85,.50)}
+body[data-page="home"] .loop-step b{display:inline-flex!important;align-items:center!important;min-height:34px;padding:7px 11px!important;border-radius:999px;margin-bottom:38px!important;font-size:1.08rem!important;line-height:1!important;letter-spacing:.02em!important;text-transform:none!important;font-weight:900!important}
+body[data-page="home"] .loop-step strong{font-size:1.08rem!important}
+body[data-page="home"] .loop-step:nth-child(1) b{background:#d7b25d;color:#111!important}
+body[data-page="home"] .loop-step:nth-child(2) b{background:#176b54;color:#fff!important}
+body[data-page="home"] .loop-step:nth-child(3) b{background:#8b6235;color:#fff!important}
+body[data-page="home"] .loop-step:nth-child(4) b{background:#263d4a;color:#fff!important}
+body[data-page="home"] .loop-step:nth-child(5) b{background:#59d696;color:#07120c!important}
+
+/* Requested oversized editorial statements reduced to approximately half. */
+body[data-page="home"] .home-career-copy h2[data-ar^="المشروعات الجيدة تحتاج"]{font-size:clamp(1.5rem,2.35vw,3rem)!important;line-height:1.18!important;letter-spacing:-.025em!important}
+body[data-page="careers"] h2[data-ar^="لا نبحث عن أيادٍ ترسم"]{font-size:clamp(1.6rem,2.6vw,3.2rem)!important;line-height:1.15!important;letter-spacing:-.025em!important}
+body[data-page="careers"] h2[data-ar="قد يبدأ مشروعك القادم من هنا."]{font-size:clamp(1.55rem,2.35vw,3rem)!important;line-height:1.12!important;letter-spacing:-.025em!important}
+body[data-page="careers"] h2[data-ar="اصنع عملاً يستحق أن يُتذكر."]{font-size:clamp(1.75rem,3vw,3.5rem)!important;line-height:1.08!important;letter-spacing:-.03em!important}
+body .strategy-final-cta h2{font-size:clamp(1.5rem,2.65vw,3rem)!important;line-height:1.16!important;letter-spacing:-.025em!important}
+body.is-ar .strategy-final-cta h2{letter-spacing:0!important;line-height:1.35!important}
+body[data-page="projects"] .diplomatic-feature-copy h2[data-ar^="عمارة تمثل دولة"]{font-size:clamp(1.45rem,2.4vw,2.6rem)!important;line-height:1.2!important;letter-spacing:-.025em!important}
+body[data-page="projects"] .portfolio-v363-section .section-head .h2{
+  font-size:clamp(1.12rem,1.55vw,1.82rem)!important;line-height:1.35!important;letter-spacing:-.018em!important;max-width:980px!important
+}
+body.is-ar[data-page="projects"] .portfolio-v363-section .section-head .h2{line-height:1.55!important;letter-spacing:0!important}
+
+/* Project category labels doubled for clearer hierarchy. */
+body[data-page="projects"] .section-label[data-ar="جغرافيا البورتفوليو"],
+body[data-page="projects"] .section-label[data-ar="الديني + المدني + الإبداعي"],
+body[data-page="projects"] .section-label[data-ar="السكن + أسلوب الحياة"],
+body[data-page="projects"] .section-label[data-ar="متعدد الاستخدام + ضيافة + وجهات"],
+body[data-page="projects"] .section-label[data-ar="استراتيجية تطوير + سكني"],
+body[data-page="projects"] .section-label[data-ar="المشاريع الدبلوماسية"]{
+  font-size:clamp(1.12rem,1.55vw,1.5rem)!important;line-height:1.25!important;letter-spacing:.045em!important;font-weight:900!important
+}
+body.is-ar[data-page="projects"] .section-label[data-ar="جغرافيا البورتفوليو"],
+body.is-ar[data-page="projects"] .section-label[data-ar="الديني + المدني + الإبداعي"],
+body.is-ar[data-page="projects"] .section-label[data-ar="السكن + أسلوب الحياة"],
+body.is-ar[data-page="projects"] .section-label[data-ar="متعدد الاستخدام + ضيافة + وجهات"],
+body.is-ar[data-page="projects"] .section-label[data-ar="استراتيجية تطوير + سكني"],
+body.is-ar[data-page="projects"] .section-label[data-ar="المشاريع الدبلوماسية"]{letter-spacing:0!important}
+
+/* Portfolio geography intro requested black; give it an elegant light setting so it remains readable. */
+body[data-page="projects"] .portfolio-map-v365{background:linear-gradient(135deg,#f3ead7,#fbf8f0 62%,#e9dfc9)!important}
+body[data-page="projects"] .portfolio-map-v365 .section-head .h2[data-ar^="أسواق مختلفة وسياقات مختلفة"]{color:#050505!important;text-shadow:none!important}
+body[data-page="projects"] .portfolio-map-v365 .lead{color:#40382b!important}
+body[data-page="projects"] .portfolio-map-v365 .section-label{color:#8b6726!important}
+
+/* MAPS — stronger land/ocean separation and two-color location system across Home / Studio / Projects. */
+body[data-page="home"] .global-map-shell,
+body[data-page="about"] .global-map-shell,
+body[data-page="projects"] .global-map-shell{
+  border:2px solid rgba(218,177,86,.55)!important;box-shadow:0 30px 90px rgba(4,12,10,.30),0 0 0 5px rgba(20,126,88,.055)!important;background:#07110f!important
+}
+body[data-page="home"] .global-map,
+body[data-page="about"] .global-map,
+body[data-page="projects"] .global-map{min-height:540px!important;background:#07110f!important}
+body :is(.global-map.map-pulse-mode) .global-map-fallback{filter:none!important;opacity:1!important}
+body :is(.global-map) .v10-country-marker circle:not(.pulse){fill:#121713!important;stroke:#edbe59!important;stroke-width:2.2!important}
+body :is(.global-map) .v10-country-marker .pulse{stroke:#edbe59!important;stroke-opacity:.58!important}
+body :is(.global-map) .v10-country-marker .count{fill:#ffd875!important}
+body :is(.global-map) .v10-city-marker circle:not(.pulse){fill:#0c1712!important;stroke:#52e19a!important;stroke-width:2.5!important}
+body :is(.global-map) .v10-city-marker .pulse{stroke:#52e19a!important;stroke-opacity:.65!important}
+body :is(.global-map) .v10-city-marker .count{fill:#72f0ad!important}
+body :is(.global-map) .v10-city-marker text:not(.count),body :is(.global-map) .v10-country-marker text:not(.count){fill:#fff!important;stroke:#06100c!important;stroke-width:3.5px!important}
+body :is(.global-map-shell) .map-caption{background:rgba(5,14,11,.88)!important;border-color:rgba(238,194,92,.38)!important;color:#fff!important;box-shadow:0 14px 38px rgba(0,0,0,.28)!important}
+body :is(.global-map-shell) .map-caption b{color:#f0ca72!important}
+
+/* BIM + DIGITAL — sequence numbers doubled in green; titles black; interactive framed cards. */
+body[data-page="bim"] .bim365-pillars article{
+  isolation:isolate;background:linear-gradient(145deg,#fbf7ee,#efe6d5)!important;
+  border:2px solid rgba(17,135,94,.62)!important;border-radius:22px!important;
+  box-shadow:0 16px 36px rgba(5,28,20,.08)!important;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease!important
+}
+body[data-page="bim"] .bim365-pillars article::after{content:"";position:absolute;left:22px;right:22px;bottom:0;height:3px;border-radius:999px;background:linear-gradient(90deg,#159563,#e0b755,#159563);transform:scaleX(.20);opacity:.65;transition:transform .32s ease,opacity .32s ease}
+body[data-page="bim"] .bim365-pillars article:hover{transform:translateY(-7px)!important;border-color:#d7ad51!important;box-shadow:0 26px 58px rgba(7,42,30,.16),0 0 0 4px rgba(25,151,99,.06)!important;filter:none!important}
+body[data-page="bim"] .bim365-pillars article:hover::after{transform:scaleX(1);opacity:1}
+body[data-page="bim"] .bim365-pillars span{font-size:clamp(2.35rem,3vw,2.8rem)!important;color:#10875d!important;font-weight:950!important;text-shadow:none!important}
+body[data-page="bim"] .bim365-pillars b{color:#050505!important;text-shadow:none!important;font-size:1.28rem!important}
+body[data-page="bim"] .bim365-pillars p{color:#302b23!important}
+
+@media(max-width:860px){
+  body[data-page="home"] .scroll-cue.badr-value-chain{position:relative!important;left:auto!important;bottom:auto!important;transform:none!important;justify-content:center!important;margin:18px auto 0!important}
+  body[data-page="home"] .badr-value-chain span{min-width:78px;padding:7px 9px;font-size:.59rem}
+  body[data-page="home"] .developer-loop{grid-template-columns:1fr 1fr!important}
+  body[data-page="home"] .loop-step:last-child{grid-column:1/-1}
+  body[data-page="home"] .global-map,body[data-page="about"] .global-map,body[data-page="projects"] .global-map{min-height:430px!important}
+}
+@media(max-width:560px){
+  body[data-page="home"] .hero-note,body.is-ar[data-page="home"] .hero-note{position:absolute!important;left:50%!important;right:auto!important;top:50%!important;transform:translate(-50%,-50%)!important;margin:0!important;max-width:82%!important;width:82%!important;padding:14px 16px!important}
+  body[data-page="home"] .hero-note strong{font-size:1rem!important}
+  body[data-page="home"] .badr-value-chain{gap:5px!important}.badr-value-chain i{font-size:.76rem!important}
+  body[data-page="home"] .developer-loop{grid-template-columns:1fr!important}.loop-step:last-child{grid-column:auto!important}
+  body[data-page="home"] .loop-step b{font-size:1rem!important;margin-bottom:26px!important}
+  body[data-page="projects"] .section-label[data-ar="جغرافيا البورتفوليو"],body[data-page="projects"] .section-label[data-ar="الديني + المدني + الإبداعي"],body[data-page="projects"] .section-label[data-ar="السكن + أسلوب الحياة"],body[data-page="projects"] .section-label[data-ar="متعدد الاستخدام + ضيافة + وجهات"],body[data-page="projects"] .section-label[data-ar="استراتيجية تطوير + سكني"],body[data-page="projects"] .section-label[data-ar="المشاريع الدبلوماسية"]{font-size:1.05rem!important}
+  body[data-page="bim"] .bim365-pillars span{font-size:2.15rem!important}
+}
